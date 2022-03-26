@@ -1,0 +1,28 @@
+.basicNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.basicNavTop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.basicNavMid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.logo{
+  display: flex;
+}
+.buttons{
+  display: flex;
+}
+
+.basicGrass img{
+  width:100%;
+} 
