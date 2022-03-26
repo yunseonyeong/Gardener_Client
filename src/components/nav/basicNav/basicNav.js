@@ -1,18 +1,12 @@
 import React from "react";
+import getImgUrl from "../../../globalLogic";
 
-function basicNav(){
+function basicNav(props){
   return (
     <div className="Basicnav">
-      <div className="title">
-      GARDENER
-      </div>
-      
+      <img className="title" alt="gardener" src={getImgUrl(props.name)} />
     </div>
   );
 }
-/* gardener */
-
-
-
 
 export default basicNav;
