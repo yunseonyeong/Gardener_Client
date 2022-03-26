@@ -5,7 +5,7 @@ import BasicNavTop from "./basicNavTop";
 import "./basicNav.css";
 import "../button/button.css";
 
-function basicNav(){
+function Basicnav(){
   return (
     <div className="basicNav">
       <BasicNavTop />
@@ -17,4 +17,4 @@ function basicNav(){
   );
 }
 
-export default basicNav;
+export default Basicnav;
