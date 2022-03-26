@@ -1,6 +1,6 @@
 const LoginBtn = () => {
   return (
-    <div>로그인</div>
+    <div className="loginBtn">Login</div>
   );
 }
 
