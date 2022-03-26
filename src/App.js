@@ -4,7 +4,7 @@ import Basicnav from "./components/nav/basicNav/basicNav";
 function App() {
   return (
     <div className="App">
-      <Basicnav name = {"gardener"}></Basicnav>
+      <Basicnav></Basicnav>
     </div>
   );
 }
