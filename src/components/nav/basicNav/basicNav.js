@@ -4,16 +4,27 @@ import BasicNavMid from "./basicNavMid";
 import BasicNavTop from "./basicNavTop";
 import "./basicNav.css";
 import "../button/button.css";
+import styled from "styled-components";
+
+const BasicNavDom = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8;
+`;
+
+const BasicGrassImg = styled.img`
+  width:100%;
+`;
 
 function Basicnav(){
   return (
-    <div className="basicNav">
+    <BasicNavDom>
       <BasicNavTop />
       <BasicNavMid />
       <div className="basicGrass" alt="grass">
-        <img src={getImgUrl("basicgrass")} />
+        <BasicGrassImg src={getImgUrl("basicgrass")} />
       </div>
-    </div>
+    </ BasicNavDom>
   );
 }
 

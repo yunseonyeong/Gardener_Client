@@ -1,34 +1,4 @@
 
-.basicNav {
-  flex-basis: 50%;
-  display: flex;
-  flex-direction: column;
-  background-color: #F8F8F8;
-}
-
-.basicNavTop {
-  display: flex;
-  justify-content: space-between;
-}
-
-.basicNavMid {
-  margin:1%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.titles {
-  width: 12%;
-}
-.titles img{
-  width:100%;
-}
-.logo{
-  display: flex;
-  flex-basis: 10%;
-}
 .logoimg{
   margin-right: 3%;
 }
@@ -36,11 +6,6 @@
   margin-top: 3%;
 }
 
-
 .buttons{
   display: flex;
 }
-
-.basicGrass img{
-  width:100%;
-} 

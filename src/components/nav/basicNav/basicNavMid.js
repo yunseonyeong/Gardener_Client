@@ -1,17 +1,31 @@
 import getImgUrl from "../../../globalLogic";
+import styled from 'styled-components';
+
+const BasicNavMidDom = styled.div`
+  margin: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Titles = styled.div`
+  width: 12%;
+`;
+
 
 const BasicNavMid = () => {
   return (
-    <div className="basicNavMid">
-      <div className="titles">
-        <div className="title" alt="gardener">
+    <BasicNavMidDom>
+      <Titles>
+        <div className="title">
           <img src={getImgUrl("gardener")} />
         </div>
-        <div className="sectitle" alt="nopainnogarden">
+        <div className="sectitle">
           <img src={getImgUrl("basicsubtitle")} />
         </div>
-      </div>
-    </div>
+      </Titles>
+    </ BasicNavMidDom>
   );
 }
 
