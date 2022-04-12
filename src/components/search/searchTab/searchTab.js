@@ -9,8 +9,8 @@ const SearchTabDom = styled.div`
 const SearchTab = () => {
   return (
     <SearchTabDom>
-      <SearchTabButton title="Challenge" />
       <SearchTabButton title="User" />
+      <SearchTabButton title="Challenge" />
     </SearchTabDom>
   );
 }
