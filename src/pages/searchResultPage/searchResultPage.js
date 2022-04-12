@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
 import SearchBar from "../../components/search/searchBar/searchBar";
+import SearchTab from '../../components/search/searchTab/searchTab';
 
 const SearchResultPageDom = styled.div`
   display : flex;
@@ -20,6 +21,13 @@ const NewSearchBar = styled(SearchBar)`
   width : 75%;
 `;
 
+const SearchResultDom = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 function searchResultPage() {
   return (
     <SearchResultPageDom>
@@ -27,6 +35,10 @@ function searchResultPage() {
       <SearchBarDom>
         <NewSearchBar />
       </SearchBarDom>
+      <SearchResultDom>
+        <SearchTab />
+        <SearchResult />
+      </SearchResultDom>
     </SearchResultPageDom>
   );
 }
