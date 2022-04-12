@@ -26,25 +26,25 @@ const SearchUserTableTitle = styled.div`
   padding: 0.5% 1% 0.5% 1%;
 `;
 
-const TableTitleColId = styled.div`
-  flex-basis : 10%;
+const UserTableTitleColId = styled.div`
+  flex-basis: 10%;
   display: flex;
   justify-content: center;
 `;
 
-const TableTitleColName = styled.div`
+const UserTableTitleColName = styled.div`
   flex-basis: 50%;
   display: flex;
   justify-content: center;
 `;
 
-const TableTitleColLv = styled.div`
+const UserTableTitleColLv = styled.div`
   flex-basis: 20%;
   display: flex;
   justify-content: center;
 `;
 
-const TableTitleColCommit = styled.div`
+const UserTableTitleColCommit = styled.div`
   flex-basis: 20%;
   display: flex;
   justify-content: center;
@@ -56,10 +56,10 @@ const searchUserBox = () => {
     <SearchUserBoxDom>
       <SearchUserTable>
         <SearchUserTableTitle>
-          <TableTitleColId>#</TableTitleColId>
-          <TableTitleColName>User Name</TableTitleColName>
-          <TableTitleColLv>Level</TableTitleColLv>
-          <TableTitleColCommit>Total Commits</TableTitleColCommit>
+          <UserTableTitleColId>#</UserTableTitleColId>
+          <UserTableTitleColName>User Name</UserTableTitleColName>
+          <UserTableTitleColLv>Level</UserTableTitleColLv>
+          <UserTableTitleColCommit>Total Commits</UserTableTitleColCommit>
         </SearchUserTableTitle>
       </SearchUserTable>
     </SearchUserBoxDom>
