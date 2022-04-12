@@ -4,6 +4,7 @@ import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
 import SearchBar from "../../components/search/searchBar/searchBar";
 import SearchTab from '../../components/search/searchTab/searchTab';
 import SearchUserBox from '../../components/search/searchResult/searchUser/searchUserBox/searchUserBox';
+import SearchChallengeBox from '../../components/search/searchResult/searchChallenge/searchChallengeBox/serachChallengeBox';
 
 const SearchResultPageDom = styled.div`
   display : flex;
@@ -39,7 +40,7 @@ function searchResultPage() {
       </SearchBarDom>
       <SearchResultDom>
         <SearchTab />
-        <SearchUserBox />
+        <SearchChallengeBox />
       </SearchResultDom>
     </SearchResultPageDom>
   );

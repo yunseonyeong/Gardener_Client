@@ -33,13 +33,13 @@ const ChalTableTitleColId = styled.div`
 `;
 
 const ChalTableTitleColName = styled.div`
-  flex-basis: 50%;
+  flex-basis: 20%;
   display: flex;
   justify-content: center;
 `;
 
 const ChalTableTitleColLv = styled.div`
-  flex-basis: 20%;
+  flex-basis: 50%;
   display: flex;
   justify-content: center;
 `;
@@ -56,8 +56,8 @@ const searchChallengeBox = () => {
       <SearchChallengeTable>
         <SearchChallengeTableTitle>
           <ChalTableTitleColId>#</ChalTableTitleColId>
-          <ChalTableTitleColName>User Name</ChalTableTitleColName>
-          <ChalTableTitleColLv>Level</ChalTableTitleColLv>
+          <ChalTableTitleColName>Leader</ChalTableTitleColName>
+          <ChalTableTitleColLv>Challenge Name</ChalTableTitleColLv>
           <ChalTableTitleColCommit>Total Commits</ChalTableTitleColCommit>
         </SearchChallengeTableTitle>
       </SearchChallengeTable>
