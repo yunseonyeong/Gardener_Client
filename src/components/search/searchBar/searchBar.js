@@ -14,8 +14,8 @@ const SearchBarInput = styled.input`
   width: 75%;
   background-color: #e3f2b8;
   border: none;
-  padding-top:2.5%;
-  padding-bottom: 2.5%;
+  padding-top:1.2%;
+  padding-bottom: 1.2%;
   font-size : 25px;
    &:focus {
         outline: none;
@@ -30,9 +30,9 @@ const SearchBarIcon = styled.div`
   
 `
 
-function searchBar() {
+function searchBar(props) {
   return (
-    <SearchBarDom>
+    <SearchBarDom className={props.className}>
       <SearchBarIcon>
         <BiSearchAlt2 />
       </SearchBarIcon>
