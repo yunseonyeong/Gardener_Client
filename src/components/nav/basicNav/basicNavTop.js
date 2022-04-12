@@ -7,6 +7,7 @@ import styled from 'styled-components';
 const BasicNavTopDom = styled.div`
   display: flex;
   justify-content: space-between;
+  padding : 1%;
 `;
 const LogoDom = styled.div`
   display: flex;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
 import SearchBar from "../../components/search/searchBar/searchBar";
 import SearchTab from '../../components/search/searchTab/searchTab';
+import SearchUserBox from '../../components/search/searchResult/searchUser/searchUserBox/searchUserBox';
 
 const SearchResultPageDom = styled.div`
   display : flex;
@@ -28,6 +29,7 @@ const SearchResultDom = styled.div`
   align-items: center;
 `;
 
+
 function searchResultPage() {
   return (
     <SearchResultPageDom>
@@ -37,7 +39,7 @@ function searchResultPage() {
       </SearchBarDom>
       <SearchResultDom>
         <SearchTab />
-        <SearchResult />
+        <SearchUserBox />
       </SearchResultDom>
     </SearchResultPageDom>
   );
