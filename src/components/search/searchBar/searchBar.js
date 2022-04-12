@@ -16,13 +16,17 @@ const SearchBarInput = styled.input`
   border: none;
   padding-top:2.5%;
   padding-bottom: 2.5%;
+  font-size : 25px;
    &:focus {
         outline: none;
    }
+  
 `;
+
 const SearchBarIcon = styled.div`
   padding-left: 5%;
   padding-right: 3%;
+  font-size : 25px;
   
 `
 
@@ -32,7 +36,7 @@ function searchBar() {
       <SearchBarIcon>
         <BiSearchAlt2 />
       </SearchBarIcon>
-      <SearchBarInput />
+      <SearchBarInput placeholder="Search"/>
     </SearchBarDom>
   );
 }
