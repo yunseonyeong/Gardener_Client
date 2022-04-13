@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from "styled-components";
 import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
 import SearchBar from "../../components/search/searchBar/searchBar";
@@ -31,7 +31,17 @@ const SearchResultDom = styled.div`
 `;
 
 
-function searchResultPage() {
+function SearchResultPage() {
+  const [isUserTab, setIsUserTab] = useState(true);
+  const [isChallengeTab, setIsChallengeTab] = useState(false);
+  const setTrueIsUserTab = () => {
+    setIsChallengeTab(false);
+    setIsUserTab(true);
+  };
+  const setTrueIsChallengeTab = () => {
+    setIsUserTab(false);
+    setIsChallengeTab(true);
+  };
   return (
     <SearchResultPageDom>
       <BasicNavTop />
@@ -39,11 +49,11 @@ function searchResultPage() {
         <NewSearchBar />
       </SearchBarDom>
       <SearchResultDom>
-        <SearchTab />
-        <SearchChallengeBox />
+        <SearchTab isUserTab={isUserTab} isChallengeTab={isChallengeTab} setIsUserTab={setIsUserTab} setTrueIsUserTab={setTrueIsUserTab} setTrueIsChallengeTab={setTrueIsChallengeTab}/>
+        {isUserTab ? <SearchUserBox/> : <SearchChallengeBox/>}
       </SearchResultDom>
     </SearchResultPageDom>
   );
 }
 
-export default searchResultPage
+export default SearchResultPage
