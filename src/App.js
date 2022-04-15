@@ -3,6 +3,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import SearchPage from "./pages/searchPage/searchPage";
 import ChallengePage from "./pages/teamChallengePage/teamChallengePage";
 import SearchResultPage from "./pages/searchResultPage/searchResultPage";
+import MiniGamePage from "./pages/minigamePage/minigamePage";
 
 function App() {
   return (
@@ -17,6 +18,10 @@ function App() {
 
       <Route exact path="/challenge">
         <ChallengePage />
+      </Route>
+
+      <Route exact path="/minigame">
+        <MiniGamePage />
       </Route>
     </>
   );
