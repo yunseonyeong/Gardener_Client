@@ -11,7 +11,6 @@ const SearchTab = (props) => {
 
  useEffect(() => {
    console.log(props.isUserTab);
-   console.log(props.isChallengeTab);
  }, [props.isUserTab]);
 
   return (
@@ -20,13 +19,11 @@ const SearchTab = (props) => {
         title="User"
         onClick={props.setTrueIsUserTab}
         isUserTab={props.isUserTab}
-        isChallengeTab={props.iuChallengeTab}
       />
       <SearchTabButton
         title="Challenge"
         onClick={props.setTrueIsChallengeTab}
         isUserTab={props.isUserTab}
-        isChallengeTab={props.iuChallengeTab}
       />
     </SearchTabDom>
   );

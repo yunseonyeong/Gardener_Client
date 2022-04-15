@@ -33,14 +33,11 @@ const SearchResultDom = styled.div`
 
 function SearchResultPage() {
   const [isUserTab, setIsUserTab] = useState(true);
-  const [isChallengeTab, setIsChallengeTab] = useState(false);
   const setTrueIsUserTab = () => {
-    setIsChallengeTab(false);
     setIsUserTab(true);
   };
   const setTrueIsChallengeTab = () => {
     setIsUserTab(false);
-    setIsChallengeTab(true);
   };
   return (
     <SearchResultPageDom>
@@ -49,7 +46,8 @@ function SearchResultPage() {
         <NewSearchBar />
       </SearchBarDom>
       <SearchResultDom>
-        <SearchTab isUserTab={isUserTab} isChallengeTab={isChallengeTab} setIsUserTab={setIsUserTab} setTrueIsUserTab={setTrueIsUserTab} setTrueIsChallengeTab={setTrueIsChallengeTab}/>
+        <SearchTab isUserTab={isUserTab} setIsUserTab={setIsUserTab} 
+        setTrueIsUserTab={setTrueIsUserTab} setTrueIsChallengeTab={setTrueIsChallengeTab}/>
         {isUserTab ? <SearchUserBox/> : <SearchChallengeBox/>}
       </SearchResultDom>
     </SearchResultPageDom>
