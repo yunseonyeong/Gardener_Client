@@ -5,7 +5,7 @@ import SearchBar from '../../components/search/searchBar/searchBar';
 import getImgUrl from '../../globalLogic';
 
 const SearchPageDom = styled.div`
-  display:flex;
+  display: flex;
   flex-direction: column;
 `;
 const SearchTitleDom = styled.div`

@@ -1,37 +1,42 @@
 import React from 'react';
 import styled from 'styled-components';
-import getImgUrl from '../../../globalLogic';
+import { BiSearchAlt2 } from "react-icons/bi";
 
 const SearchBarDom = styled.div`
   background-color: #E3F2B8;
-  width:50%;
+  width:55%;
   border-radius : 50px;
   display: flex;
-  justify-content: center;
   align-items: center;
 `;
 
 const SearchBarInput = styled.input`
-  width: 90%;
+  width: 75%;
   background-color: #e3f2b8;
   border: none;
-  padding-top:3%;
-  padding-bottom: 3%;
+  padding-top:1.2%;
+  padding-bottom: 1.2%;
+  font-size : 25px;
    &:focus {
         outline: none;
    }
+  
 `;
+
 const SearchBarIcon = styled.div`
-   width:5%;
+  padding-left: 5%;
+  padding-right: 3%;
+  font-size : 25px;
+  
 `
 
-function searchBar() {
+function searchBar(props) {
   return (
-    <SearchBarDom>
-      <SearchBarInput />
+    <SearchBarDom className={props.className}>
       <SearchBarIcon>
-        <img src={getImgUrl("searchIcon")} />
+        <BiSearchAlt2 />
       </SearchBarIcon>
+      <SearchBarInput placeholder="Search"/>
     </SearchBarDom>
   );
 }

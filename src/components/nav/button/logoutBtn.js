@@ -1,5 +1,5 @@
 const LogoutBtn = () => {
-  return <div className="logoutBtn">Logout</div>;
+  return <div className="logoutBtn">My Page</div>;
 };
 
 export default LogoutBtn;
