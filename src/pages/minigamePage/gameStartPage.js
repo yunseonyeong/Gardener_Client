@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
 import getImgUrl from "../../globalLogic";
+import GameModal from "../../components/minigame/gameModal";
+
 
 const MiniGamePageDom = styled.div`
   background-color: #f0fcf8;
@@ -57,7 +59,13 @@ const GrassFooter = styled.img`
 
 
 
-const MiniGamePage = () => {
+const GameStartPage = () => {
+
+  const [gameModalOpen, setGameModalOpen] = useState(false);
+  const handleStartBtn = () => {
+    setGameModalOpen(!gameModalOpen);
+  }
+
   return (
     <MiniGamePageDom>
       <BasicNavTop />
@@ -69,11 +77,22 @@ const MiniGamePage = () => {
         <img src={getImgUrl("SearchMidTitle")} />
       </LogoTitleDom>
       <StartButtonDom>
-        <StartButton>개발자 성향 테스트 시작하기</StartButton>
+        <StartButton onClick={handleStartBtn}>
+          개발자 성향 테스트 시작하기
+        </StartButton>
       </StartButtonDom>
+
       <GrassFooter src={getImgUrl("basicgrass")} />
+
+      {gameModalOpen ? (
+        <GameModal
+          handleStartBtn={handleStartBtn}
+        >
+
+        </GameModal>
+      ) : null}
     </MiniGamePageDom>
   );
 }
 
-export default MiniGamePage;
+export default GameStartPage;
