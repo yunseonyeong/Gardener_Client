@@ -1,19 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
-
+import miniGameData from '../../data/miniGameData';
+import { GrNext, GrPrevious } from "react-icons/gr";
 
 const MinigameDom = styled.div`
-  /* width: 800px;
-  height: 800px;
-  border-radius: 5px;
-  background-color: black;
-  position: relative; */
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  left : 20%;
-  top: 10%;
+  left : 25%;
+  top: 15%;
   max-height: 75%;
 `;
 
@@ -26,22 +22,44 @@ const MinigameModal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
 `;
 
 const GameQuestion = styled.div`
-  width: 80%;
+  width: 84%;
   flex-basis: 15%;
   background-color: #feffe8;
   border-radius:10px;
+  font-family: 'jua';
+  font-size : 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin : 1%;
+  margin-top:4%;
 `;
 
 const GameSelection = styled.div`
   width: 80%;
-  flex-basis: 70%;
+  flex-basis: 65%;
+  font-family: "jua";
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin : 1%;
+`;
+
+const SelectionItems = styled.div`
+  padding : 3% 6%;
   background-color: #feffe8;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor : pointer;
 `;
+
 
 const ExitBtnWrapper = styled.div`
   width : 100%;
@@ -57,17 +75,79 @@ const ExitButton = styled.div`
   font-size: 20px;
   color : gray;
   cursor : pointer;
+
+`;
+
+const QuestionBox = (props) => {
+  let id = props.questionId;
+  return (
+    <>
+      {<div>{miniGameData[id-1].title}</div>}
+    </>
+  );
+}
+const NextBtn = styled.div`
+  width: 100px;
+  height: 50px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin : 3%;
+  margin-bottom: 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'jua';
+`;
+
+const ReturnBtn = styled.div`
+  width: 100px;
+  height: 50px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 3%;
+  margin-bottom: 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Btn = styled.div`
+  display: flex;
 `;
 
 const GameModal = (props) => {
+  const [questionId, setQuestionId] = useState(1);
+  const handleNextBtn = () => {
+    if(questionId < miniGameData.length){
+      setQuestionId(questionId + 1);
+    }
+  }
+  const handleReturnBtn = () => {
+    if (questionId > 1) {
+      setQuestionId(questionId - 1);
+    }
+  }
+
   return (
     <MinigameDom>
       <MinigameModal>
         <ExitBtnWrapper>
           <ExitButton onClick={props.handleStartBtn}>X</ExitButton>
         </ExitBtnWrapper>
-        <GameQuestion></GameQuestion>
-        <GameSelection></GameSelection>
+        <GameQuestion>
+          <QuestionBox questionId={questionId}></QuestionBox>
+        </GameQuestion>
+        <GameSelection>
+          {miniGameData[questionId - 1].selection.map((selection) => (
+            <SelectionItems>{selection.selection_content}</SelectionItems>
+          ))}
+        </GameSelection>
+        <Btn>
+          <ReturnBtn onClick={handleReturnBtn}><GrPrevious /></ReturnBtn>
+          <NextBtn onClick={handleNextBtn}>
+            <GrNext/>
+          </NextBtn>
+        </Btn>
       </MinigameModal>
     </MinigameDom>
   );

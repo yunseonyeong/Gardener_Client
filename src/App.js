@@ -4,6 +4,7 @@ import SearchPage from "./pages/searchPage/searchPage";
 import ChallengePage from "./pages/teamChallengePage/teamChallengePage";
 import SearchResultPage from "./pages/searchResultPage/searchResultPage";
 import GameStartPage from "./pages/minigamePage/gameStartPage";
+import './App.css';
 
 function App() {
   return (
