@@ -51,13 +51,16 @@ const GameSelection = styled.div`
 `;
 
 const SelectionItems = styled.div`
-  padding : 3% 6%;
-  background-color: #feffe8;
+  padding: 3% 6%;
+  background-color: ${(props) =>
+    props.selected == props.selection_id ? "#FCD3C1" : "#feffe8"};
+  border: ${(props) =>
+    props.selected == props.selection_id ? "2px dotted gray" : null};
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor : pointer;
+  cursor: pointer;
 `;
 
 
@@ -117,16 +120,27 @@ const Btn = styled.div`
 
 const GameModal = (props) => {
   const [questionId, setQuestionId] = useState(1);
+  const [selected, setSelected] = useState(miniGameData[questionId-1].selected);
+
+  const handleSelected = (selection_id) => {
+    setSelected(selection_id);
+    console.log(selection_id);
+  }
+
   const handleNextBtn = () => {
     if(questionId < miniGameData.length){
       setQuestionId(questionId + 1);
+      setSelected(1);
     }
   }
   const handleReturnBtn = () => {
     if (questionId > 1) {
       setQuestionId(questionId - 1);
+      setSelected(1);
     }
   }
+
+
 
   return (
     <MinigameDom>
@@ -139,11 +153,15 @@ const GameModal = (props) => {
         </GameQuestion>
         <GameSelection>
           {miniGameData[questionId - 1].selection.map((selection) => (
-            <SelectionItems>{selection.selection_content}</SelectionItems>
+            <SelectionItems 
+            onClick={()=>{handleSelected(selection.selection_id)}}
+            selected = {selected}
+            selection_id = {selection.selection_id}
+            >{selection.selection_content}</SelectionItems>
           ))}
         </GameSelection>
         <Btn>
-          <ReturnBtn onClick={handleReturnBtn}><GrPrevious /></ReturnBtn>
+          <ReturnBtn onClick={handleReturnBtn}><GrPrevious/></ReturnBtn>
           <NextBtn onClick={handleNextBtn}>
             <GrNext/>
           </NextBtn>

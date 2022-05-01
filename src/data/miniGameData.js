@@ -12,6 +12,7 @@ const miniGameData = [
         "selection_content": "공부는 다같이 해야 동기부여가 되지! 친구들과 함께 공부해야 집중이 더 잘된다.",
       },
     ],
+    "selected" : 1,
   },
   {
     "id" : 2,
@@ -26,6 +27,7 @@ const miniGameData = [
         "selection_content": "팀의 분위기를 주도하며 리더쉽을 발휘한다.",
       },
     ],
+    "selected" : 1,
   },
   {
     "id" : 3,
@@ -40,6 +42,7 @@ const miniGameData = [
         "selection_content": "팀원들과 자유롭게 브레인스토밍하며 이것 저것 토의하다 보면 좋은 의견이 나오지 않을까?",
       },
     ],
+    "selected" : 1,
   },
   {
     "id" : 4,
@@ -55,6 +58,7 @@ const miniGameData = [
         
       },
     ],
+    "selected" : 1,
   },
   {
     "id" : 5,
@@ -69,6 +73,7 @@ const miniGameData = [
         "selection_content": "언제 어떤 일이 생길지 모르잖아 ? 혹시 모르니 계획은 큼직큼직 유동적으로 세워야지.",
       },
     ],
+    "selected" : 1,
   },
   {
     "id" : 6,
@@ -87,6 +92,7 @@ const miniGameData = [
         "selection_content": "프로젝트 같이 하는 팀원들과 진행상황을 공유하며 서로를 자극시키는 챌린지가 필요해.",
       },
     ],
+    "selected" : 1,
   },
   {
     "id" : 7,
@@ -109,6 +115,7 @@ const miniGameData = [
         "selection_content": "AI",
       },
     ],
+    "selected" : 1,
   },
     {
     "id" : 8,
@@ -131,6 +138,7 @@ const miniGameData = [
         "selection_content": "AI",
       },
     ],
+    "selected" : 1,
   },
 
 ];
