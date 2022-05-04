@@ -87,6 +87,7 @@ const GameStartPage = () => {
       {gameModalOpen ? (
         <GameModal
           handleStartBtn={handleStartBtn}
+          CharLogoDom = {CharLogoDom}
         >
 
         </GameModal>
