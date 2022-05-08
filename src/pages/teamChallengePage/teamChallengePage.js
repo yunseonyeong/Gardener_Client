@@ -5,7 +5,8 @@ import getImgUrl from "../../globalLogic";
 import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
 import axios from "axios";
 import challengePageData from "../../data/challegePageData";
-import ChallengeIntro from "../../components/teamChallenge/challengeIntro.js/challengeIntro";
+import ChallengeIntro from "../../components/teamChallenge/challengeIntro/challengeIntro";
+import MemberIntro from "../../components/teamChallenge/memberIntro/memberIntro";
 
 const LawnDom = styled.div`
   display: flex;
@@ -41,7 +42,7 @@ const ChallengePage = () => {
   const [memberData, setMemberData] = useState([])
   const [showMsgBtn, setShowMsgBtn] = useState(false);
   const [showJoinBtn, setShowJoinBtn] = useState(false);
-
+  
   useEffect(() => {
     const data = fetchData();
     console.log(data);
@@ -49,6 +50,7 @@ const ChallengePage = () => {
     setMemberData(data.members);
     setShowMsgBtn(data.isLeader);
     setShowJoinBtn(data.isMember);
+
   }, [])
 
   useEffect(() => {
@@ -64,9 +66,16 @@ const ChallengePage = () => {
 
   return (
     <ChallengePageDom>
-      <ChallengeIntro showJoinBtn={showJoinBtn} showMsgBtn={showMsgBtn} challengeData={challengeData} />
       <BasicNavTop />
+      <ChallengeIntro
+        showJoinBtn={showJoinBtn}
+        showMsgBtn={showMsgBtn}
+        challengeData={challengeData}
+      />
       <GetGitLawn />
+      <MemberIntro 
+        memberData={memberData}      
+      />
       <GrassFooter src={getImgUrl("basicgrass")} />
     </ChallengePageDom>
   );
