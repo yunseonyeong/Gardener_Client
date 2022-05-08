@@ -24,7 +24,7 @@ const challengePageData = {
     },
     {
       memberId: 124,
-      profileImgURL: getImgUrl("manage"),
+      profileImgURL: getImgUrl("mapage"),
       devType: "뜨거운 감자",
       name: "harin",
       tier: {
