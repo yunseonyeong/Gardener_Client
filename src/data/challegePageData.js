@@ -20,7 +20,7 @@ const challengePageData = {
         tierNum: 2,
       },
       todayCommit: true,
-      isLeader: false,
+      isLeader: true,
     },
     {
       memberId: 124,
@@ -32,7 +32,7 @@ const challengePageData = {
         tierNum: 3,
       },
       todayCommit: false,
-      isLeader: true,
+      isLeader: false,
     },
   ],
 };

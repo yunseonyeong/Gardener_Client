@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { RiVipCrown2Fill } from "react-icons/ri";
+
 
 const MemberIntroDom = styled.div``;
 
@@ -36,7 +38,13 @@ const TodayCommit = styled.div`
 
 const MemTier = styled.div``;
 
+const MemProfile = styled.div`
+  display: flex;
+`;
 
+const CrownIcon = styled.div`
+  visibility: ${props => props.visi ? "visible" : 'hidden'};
+`;
 
 const MemberIntro = (props) => {
   
@@ -49,11 +57,14 @@ const MemberIntro = (props) => {
           props.memberData.map((data)=>{
             return (
               <MemListItem>
-                <MemProfileImg src={data.profileImgURL} />
+                <MemProfile>
+                  <CrownIcon visi={data.isLeader}>
+                    <RiVipCrown2Fill color="orange" />
+                  </CrownIcon>
+                  <MemProfileImg src={data.profileImgURL} />
+                </MemProfile>
                 <MemInformation>
-                  <MemberName fontSize={10}>
-                    {data.devType}
-                  </MemberName>
+                  <MemberName fontSize={10}>{data.devType}</MemberName>
                   <MemberName fontSize={15}>{data.name}</MemberName>
                 </MemInformation>
                 {/* <MemTier></MemTier> */}
