@@ -42,7 +42,7 @@ const ChallengePage = () => {
   const [memberData, setMemberData] = useState([])
   const [showMsgBtn, setShowMsgBtn] = useState(false);
   const [showJoinBtn, setShowJoinBtn] = useState(false);
-  
+
   useEffect(() => {
     const data = fetchData();
     console.log(data);
@@ -59,7 +59,7 @@ const ChallengePage = () => {
 
 
   const fetchData = () => {
-    // const data = await axios.get("aaaa");
+    // const data = await axios.get("/challenge/2");
     const data = challengePageData;
     return data;
   }

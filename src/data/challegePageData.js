@@ -7,8 +7,8 @@ const challengePageData = {
     date: "2021/11/06",
     introductionMsg: "1일 1커밋은 해야 개발자 아입니까?",
   },
-  isLeader: false,
-  isMember: true,
+  isLeader: true,
+  isMember: false,
   members: [
     {
       memberId: 123,
