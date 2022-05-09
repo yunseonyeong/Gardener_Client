@@ -1,0 +1,14 @@
+@font-face { 
+  font-family: "jua";  
+  src: url("./font/Jua-Regular.ttf");
+}
+
+@font-face { 
+  font-family: "dungeunmo";  
+  src: url("./font/DungGeunMo.ttf");
+}
+
+@font-face { 
+  font-family: "roboto";  
+  src: url("./font/Roboto-Regular-webfont.woff");
+}
