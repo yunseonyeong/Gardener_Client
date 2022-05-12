@@ -1,0 +1,40 @@
+.createChallengeBtn{
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #51C15F;
+  border-radius: 15px;
+  flex-basis: 37%;
+  padding : 0.4%;
+
+}
+
+.loginBtn {
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #51C15F;
+  border-radius: 15px;
+  flex-basis: 22%;
+  padding : 0.4%;
+}
+
+
+.logoutBtn {
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #51C15F;
+  border-radius: 15px;
+  flex-basis: 27%;
+  padding : 0.4%;
+}
+
+.buttons{
+  display: flex;
+  width:19%;
+  justify-content: space-around;
+}

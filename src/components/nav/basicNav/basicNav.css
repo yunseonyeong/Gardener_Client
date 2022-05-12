@@ -1,0 +1,11 @@
+
+.logoimg{
+  margin-right: 3%;
+}
+.logotitle{
+  margin-top: 3%;
+}
+
+.buttons{
+  display: flex;
+}
