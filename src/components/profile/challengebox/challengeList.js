@@ -45,11 +45,14 @@ const ChallengeState = () => {
     `;
 
     const OnProgress = styled.span`
-    font-size:0.7rem;
-    font-weight: 400;
-    margin-top: 0.3rem;
-    margin-right: 0.3rem;
-    font-family: 'dungeunmo';
+      font-size: 0.7rem;
+      font-weight: 400;
+      margin-top: 0.3rem;
+      margin-right: 0.3rem;
+      font-family: "dungeunmo";
+      display: flex;
+      align-items: center;
+      justify-content: center;
     `;
 
     const Completed = styled.span`
@@ -58,6 +61,9 @@ const ChallengeState = () => {
     margin-top: 0.3rem;
     margin-right: 0.3rem;
     font-family: 'dungeunmo';
+    display : flex;
+    align-items: center;
+    justify-content: center;
     `;
 
     const CurrentTime = styled.span`

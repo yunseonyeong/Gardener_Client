@@ -12,7 +12,7 @@ const ChListDom = styled.div`
     display: flex;
     flex-direction: row;
     height: 20%;
-    width: 60%;
+    width: 50%;
 `;
 
 const ChalDom = styled.div`

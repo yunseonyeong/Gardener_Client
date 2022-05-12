@@ -17,7 +17,7 @@ const MessageModal = (props) => {
     width: 15%;
     display: inline-block;
     margin-top: 0.8rem;
-    margin-left: 31rem;
+    margin-left: 39.5rem;
     `;
 
     const MessageDom = styled.span`

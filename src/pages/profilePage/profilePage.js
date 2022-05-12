@@ -130,7 +130,7 @@ const NameDom = styled.div`
     display:flex;
     flex-direction : column;
 `;
-const GITHUB_USERNAME = "tngur1101";
+const GITHUB_USERNAME = "leobang17";
 
 // const testData = [
 //     {bgcolor: "#7FC087", getexp: 100 },
@@ -189,7 +189,7 @@ const ProfilePage = () => {
             <LogoDom>
                     <Logo src={getImgUrl("boyLogo")} />
             </LogoDom>
-                <GitLawn username = {GITHUB_USERNAME} month={4} grassSpan={15} grassShape={"Circle"}/>
+                <GitLawn username = {GITHUB_USERNAME} month={4} grassSpan={20} grassShape={"Circle"}/>
             </GardenWrapper>
 
             <ChallengeListWrapper>

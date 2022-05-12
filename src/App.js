@@ -5,6 +5,7 @@ import ChallengePage from "./pages/teamChallengePage/teamChallengePage";
 import SearchResultPage from "./pages/searchResultPage/searchResultPage";
 import GameStartPage from "./pages/minigamePage/gameStartPage";
 import './App.css';
+import ProfilePage from "./pages/profilePage/profilePage";
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
 
       <Route exact path="/minigame">
         <GameStartPage />
+      </Route>
+
+      <Route exact path="/profile/:id">
+        <ProfilePage />
       </Route>
     </>
   );
