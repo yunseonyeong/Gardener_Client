@@ -12,6 +12,7 @@ const MinigameDom = styled.div`
   left : 20.5%;
   top: 10%;
   max-height: 75%;
+  
 `;
 
 const MinigameModal = styled.div`
@@ -38,7 +39,7 @@ const GameQuestion = styled.div`
   align-items: center;
   margin: 1%;
   margin-top: 4%;
-  box-shadow: 1px 1px 1px 1px #D6D6D6;
+  box-shadow: 1px 1px 1px 1px #d6d6d6;
 `;
 
 const GameSelection = styled.div`
@@ -50,7 +51,7 @@ const GameSelection = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  margin : 1%;
+  margin: 1%;
 `;
 
 const SelectionItems = styled.div`
@@ -74,11 +75,11 @@ const ExitBtnWrapper = styled.div`
 
 const ExitButton = styled.div`
   position: relative;
-  width: 5px;
-  height: 5px;
+  width: 10px;
+  height: 10px;
   left : 95.5%;
   padding : 1%;
-  font-size: 20px;
+  font-size: 23px;
   color : gray;
   cursor : pointer;
 

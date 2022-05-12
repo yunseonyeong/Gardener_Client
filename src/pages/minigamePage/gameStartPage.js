@@ -7,10 +7,11 @@ import GameModal from "../../components/minigame/gameModal";
 
 const MiniGamePageDom = styled.div`
   background-color: #f0fcf8;
-  display : flex;
+  display: flex;
   flex-direction: column;
-  height : 100vh;
+  height: 100vh;
   min-height: 100%;
+  font-family: "dungeunmo";
 `;
 const LogoTitleDom = styled.div`
   display: flex;
@@ -36,17 +37,17 @@ const StartButtonDom = styled.div`
 `;
 
 const StartButton = styled.div`
-  background-color: #51c15f;
-  border-radius: 20px;
+  background-color: #ff9067;
+  border-radius: 10px;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.6%;
+  padding: 1%;
   margin-top: 1%;
   &:hover {
-    background-color: #3aa247;
-    cursor : pointer;
+    background-color: #ff7f50;
+    cursor: pointer;
   }
 `;
 
