@@ -37,7 +37,7 @@ const challengePageData = {
     {
       memberId: 125,
       profileImgURL: getImgUrl("mapage"),
-      devType: "뜨거운 감자",
+      devType: "따뜻한 로봇",
       name: "shkim",
       tier: {
         tierType: "bronze",
