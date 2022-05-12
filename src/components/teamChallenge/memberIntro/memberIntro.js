@@ -51,10 +51,10 @@ const MemberName = styled.div`
   font-size: ${props => props.fontSize}px;
 `
 const TodayCommit = styled.div`
-  width : 18px;
+  width: 18px;
   height: 18px;
   border-radius: 4px;
-  background-color: ${props => props.color ? 'green' : 'gray'};
+  background-color: ${(props) => (props.color ? "#2AB66B" : "#CACACA")};
 `;
 
 const MemTier = styled.div``;
@@ -64,7 +64,7 @@ const TodayCommitDom = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right: 11%;
+  margin-right: 11.5%;
   flex-basis: 60%;
 `;
 
