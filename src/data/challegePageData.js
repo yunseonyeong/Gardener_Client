@@ -34,6 +34,54 @@ const challengePageData = {
       todayCommit: false,
       isLeader: false,
     },
+    {
+      memberId: 125,
+      profileImgURL: getImgUrl("mapage"),
+      devType: "뜨거운 감자",
+      name: "shkim",
+      tier: {
+        tierType: "bronze",
+        tierNum: 3,
+      },
+      todayCommit: false,
+      isLeader: false,
+    },
+    {
+      memberId: 112,
+      profileImgURL: getImgUrl("mapage"),
+      devType: "따뜻한 로봇",
+      name: "hihi",
+      tier: {
+        tierType: "bronze",
+        tierNum: 3,
+      },
+      todayCommit: true,
+      isLeader: false,
+    },
+    {
+      memberId: 112,
+      profileImgURL: getImgUrl("mapage"),
+      devType: "폭신한 라일락",
+      name: "rineeee",
+      tier: {
+        tierType: "bronze",
+        tierNum: 3,
+      },
+      todayCommit: true,
+      isLeader: false,
+    },
+    {
+      memberId: 132,
+      profileImgURL: getImgUrl("mapage"),
+      devType: "따뜻한 로봇",
+      name: "yuniiyuns",
+      tier: {
+        tierType: "bronze",
+        tierNum: 3,
+      },
+      todayCommit: true,
+      isLeader: false,
+    },
   ],
 };
 

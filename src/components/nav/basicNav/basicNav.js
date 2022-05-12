@@ -10,6 +10,7 @@ const BasicNavDom = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #f8f8f8;
+  font-family: 'Dungeunmo';
 `;
 
 const BasicGrassImg = styled.img`

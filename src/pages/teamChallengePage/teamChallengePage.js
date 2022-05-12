@@ -14,24 +14,41 @@ const LawnDom = styled.div`
   align-items: center;
 `;
 
+
 const GrassFooter = styled.img`
   width: 100%;
   bottom: 0;
   position: absolute;
   height: 10%;
+  overflow: hidden;
+  /* z-index: 100; */
 `;
 
 const ChallengePageDom = styled.div`
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+  height : 90vh;
+
 `;
+
+const MemberIntroDom = styled.div`
+`;
+
+
 
 const GetGitLawn = () => {
   const GITHUB_USERNAME = "yunseonyeong";
   return (
     <>
       <LawnDom>
-        <GitLawn username={GITHUB_USERNAME} month={6} grassSpan={20} />
+        <GitLawn
+          username={GITHUB_USERNAME}
+          month={6}
+          grassSpan={20}
+          grassShape={"Circle"}
+          color={"GREEN"}
+        />
       </LawnDom>
     </>
   );
@@ -73,9 +90,9 @@ const ChallengePage = () => {
         challengeData={challengeData}
       />
       <GetGitLawn />
-      <MemberIntro 
-        memberData={memberData}      
-      />
+      <MemberIntroDom>
+        <MemberIntro memberData={memberData} />
+      </MemberIntroDom>
       <GrassFooter src={getImgUrl("basicgrass")} />
     </ChallengePageDom>
   );

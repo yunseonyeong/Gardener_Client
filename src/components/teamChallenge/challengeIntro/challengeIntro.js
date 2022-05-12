@@ -6,7 +6,7 @@ import getImgUrl from '../../../globalLogic';
 const TeamIntroductionDom = styled.div`
   display: flex;
   margin: 1%;
-  padding: 3% 18% 3% 18%;
+  padding: 3% 18% 1% 18%;
   justify-content: center;
   font-family: 'dungeunmo';
 `;

@@ -12,3 +12,11 @@
   font-family: "roboto";  
   src: url("./font/Roboto-Regular-webfont.woff");
 }
+
+body { 
+  -webkit-user-select:none; 
+  -moz-user-select:none; 
+  -ms-user-select:none; 
+  user-select:none 
+}
+
