@@ -257,7 +257,6 @@ const GameModal = (props) => {
 
   const handleSelected = (selection_id) => {
     setSelected(selection_id);
-    console.log(selection_id);
   }
 
   const handleNextBtn = () => {
@@ -281,7 +280,8 @@ const GameModal = (props) => {
     setShowResult(true);
   }
 
-
+  let arrow_arr = [1,2,3,4];
+  let selection_arr = [1,2,3,4,5];
 
   return (
     <MinigameDom>
@@ -332,54 +332,29 @@ const GameModal = (props) => {
               </TwoSelection>
               <ArrowDom>
                 <Arrow>
-                  <BiLeftArrow color={"#B8B8B8"} />
-                  <BiLeftArrow color={"#B8B8B8"} />
-                  <BiLeftArrow color={"#B8B8B8"} />
-                  <BiLeftArrow color={"#B8B8B8"} />
+                  {arrow_arr.map(() => {
+                    return <BiLeftArrow color={"#B8B8B8"} />;
+                  })}
                 </Arrow>
                 <Arrow>
-                  <BiRightArrow color={"#B8B8B8"} />
-                  <BiRightArrow color={"#B8B8B8"} />
-                  <BiRightArrow color={"#B8B8B8"} />
-                  <BiRightArrow color={"#B8B8B8"} />
+                  {arrow_arr.map(() => {
+                    return <BiRightArrow color={"#B8B8B8"} />;
+                  })}
                 </Arrow>
               </ArrowDom>
               <FiveSelection>
-                <Answer1
+                {
+                  selection_arr.map((id)=> {
+                    return  <Answer1
                   onClick={() => {
-                    handleSelected(1);
+                    handleSelected(id);
+                    console.log(selected);
                   }}
                   selected={selected}
-                  selection_id={1}
+                  selection_id={id}
                 ></Answer1>
-                <Answer1
-                  onClick={() => {
-                    handleSelected(2);
-                  }}
-                  selected={selected}
-                  selection_id={2}
-                ></Answer1>
-                <Answer1
-                  onClick={() => {
-                    handleSelected(3);
-                  }}
-                  selected={selected}
-                  selection_id={3}
-                ></Answer1>
-                <Answer1
-                  onClick={() => {
-                    handleSelected(4);
-                  }}
-                  selected={selected}
-                  selection_id={4}
-                ></Answer1>
-                <Answer1
-                  onClick={() => {
-                    handleSelected(5);
-                  }}
-                  selected={selected}
-                  selection_id={5}
-                ></Answer1>
+                  })
+                }
               </FiveSelection>
             </GameSelection>
             <Btn>
