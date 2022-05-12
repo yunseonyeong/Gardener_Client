@@ -7,7 +7,12 @@ import styled from 'styled-components';
 const BasicNavTopDom = styled.div`
   display: flex;
   justify-content: space-between;
-  padding : 0.5%;
+  padding: 0.5%;
+  font-family: "Dungeunmo";
+  position: absolute;
+  width: 98%;
+  overflow: hidden;
+  background-color: #f8f8f8;
 `;
 const LogoDom = styled.div`
   display: flex;

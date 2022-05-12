@@ -14,16 +14,29 @@ const LawnDom = styled.div`
   align-items: center;
 `;
 
+
 const GrassFooter = styled.img`
   width: 100%;
   bottom: 0;
   position: absolute;
   height: 10%;
+  overflow: hidden;
+  /* z-index: 100; */
 `;
 
 const ChallengePageDom = styled.div`
   display: flex;
   flex-direction: column;
+  overflow: scroll;
+  height : 100vh;
+  
+`;
+
+const MemberIntroDom = styled.div`
+`;
+
+const FooterDom = styled.div`
+
 `;
 
 const GetGitLawn = () => {
@@ -73,10 +86,12 @@ const ChallengePage = () => {
         challengeData={challengeData}
       />
       <GetGitLawn />
-      <MemberIntro 
-        memberData={memberData}      
-      />
-      <GrassFooter src={getImgUrl("basicgrass")} />
+      <MemberIntroDom>
+        <MemberIntro memberData={memberData} />
+        <FooterDom>
+          <GrassFooter src={getImgUrl("basicgrass")} />
+        </FooterDom>
+      </MemberIntroDom>
     </ChallengePageDom>
   );
 };

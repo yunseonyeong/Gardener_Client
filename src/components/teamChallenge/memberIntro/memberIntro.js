@@ -3,17 +3,33 @@ import styled from 'styled-components';
 import { RiVipCrown2Fill } from "react-icons/ri";
 
 
-const MemberIntroDom = styled.div``;
+const MemberIntroDom = styled.div`
+  display: flex;
+  margin: 1%;
+  padding: 0% 25% 0% 25%;
+  justify-content: center;
+  font-family: "dungeunmo";
+  flex-direction: column;
+`;
 
-const TodayCommitTitle = styled.div``;
+const TitleDom = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const TodayCommitTitle = styled.div`
+  margin-right: 10%;
+`;
 
 const MemberTitle = styled.div`
-  font-size: 10px;
+  font-size: 1.4rem;
 `;
 
 const MemListDom = styled.div`
   display: flex;
   flex-direction: column;
+  overflow-y : hidden;
+  /* height : 150px; */
 `;
 
 const MemListItem = styled.div`
@@ -25,25 +41,45 @@ const MemProfileImg = styled.img``;
 const MemInformation = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin-left: 2%;
+  /* align-items: center; */
+  flex-basis : 30%;
 `;
 
 const MemberName = styled.div`
   font-size: ${props => props.fontSize}px;
 `
 const TodayCommit = styled.div`
-  width : 10px;
-  height: 10px;
+  width : 18px;
+  height: 18px;
+  border-radius: 4px;
   background-color: ${props => props.color ? 'green' : 'gray'};
 `;
 
 const MemTier = styled.div``;
 
+
+const TodayCommitDom = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 11%;
+  flex-basis: 60%;
+`;
+
+
 const MemProfile = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis : 10%;
 `;
 
 const CrownIcon = styled.div`
   visibility: ${props => props.visi ? "visible" : 'hidden'};
+  display: flex;
+  justify-content: center;
 `;
 
 const MemberIntro = (props) => {
@@ -51,28 +87,37 @@ const MemberIntro = (props) => {
   return (
     <MemberIntroDom>
       <MemberTitle>Members</MemberTitle>
-      <TodayCommitTitle>Today</TodayCommitTitle>
+      <TitleDom>
+        <div></div>
+        <TodayCommitTitle>Today</TodayCommitTitle>
+      </TitleDom>
       <MemListDom>
-        {
-          props.memberData.map((data)=>{
-            return (
-              <MemListItem>
-                <MemProfile>
-                  <CrownIcon visi={data.isLeader}>
-                    <RiVipCrown2Fill color="orange" />
-                  </CrownIcon>
-                  <MemProfileImg src={data.profileImgURL} />
-                </MemProfile>
-                <MemInformation>
-                  <MemberName fontSize={10}>{data.devType}</MemberName>
-                  <MemberName fontSize={15}>{data.name}</MemberName>
-                </MemInformation>
-                {/* <MemTier></MemTier> */}
+        {props.memberData.map((data) => {
+          return (
+            <MemListItem>
+              <MemProfile>
+                <CrownIcon visi={data.isLeader}>
+                  <RiVipCrown2Fill color="orange" />
+                </CrownIcon>
+                <MemProfileImg src={data.profileImgURL} />
+              </MemProfile>
+              <MemInformation>
+                <CrownIcon visi={false}>
+                  <RiVipCrown2Fill color="orange" />
+                </CrownIcon>
+                <MemberName fontSize={12}>{data.devType}</MemberName>
+                <MemberName fontSize={18}>{data.name}</MemberName>
+              </MemInformation>
+              {/* <MemTier></MemTier> */}
+              <TodayCommitDom>
+                <CrownIcon visi={false}>
+                  <RiVipCrown2Fill color="orange" />
+                </CrownIcon>
                 <TodayCommit color={data.todayCommit} />
-              </MemListItem>
-            );
-          })
-        }
+              </TodayCommitDom>
+            </MemListItem>
+          );
+        })}
       </MemListDom>
     </MemberIntroDom>
   );
