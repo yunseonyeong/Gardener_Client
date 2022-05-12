@@ -188,7 +188,7 @@ const ProfilePage = () => {
             <LogoDom>
                     <Logo src={getImgUrl("boyLogo")} />
             </LogoDom>
-                <GitLawn username = {GITHUB_USERNAME} month={4} grassSpan={20} grassShape={"Circle"} color={"PURPLE"}/>
+                <GitLawn username = {GITHUB_USERNAME} month={4} grassSpan={20} grassShape={"Circle"} color={"PINK"}/>
             </GardenWrapper>
 
             <ChallengeListWrapper>
