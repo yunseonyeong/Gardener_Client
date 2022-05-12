@@ -12,6 +12,7 @@ const MinigameDom = styled.div`
   left : 20.5%;
   top: 10%;
   max-height: 75%;
+  
 `;
 
 const MinigameModal = styled.div`
@@ -38,7 +39,7 @@ const GameQuestion = styled.div`
   align-items: center;
   margin: 1%;
   margin-top: 4%;
-  box-shadow: 1px 1px 1px 1px #D6D6D6;
+  box-shadow: 1px 1px 1px 1px #d6d6d6;
 `;
 
 const GameSelection = styled.div`
@@ -50,7 +51,7 @@ const GameSelection = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  margin : 1%;
+  margin: 1%;
 `;
 
 const SelectionItems = styled.div`
@@ -74,11 +75,11 @@ const ExitBtnWrapper = styled.div`
 
 const ExitButton = styled.div`
   position: relative;
-  width: 5px;
-  height: 5px;
+  width: 10px;
+  height: 10px;
   left : 95.5%;
   padding : 1%;
-  font-size: 20px;
+  font-size: 23px;
   color : gray;
   cursor : pointer;
 
@@ -92,6 +93,8 @@ const QuestionBox = (props) => {
     </>
   );
 }
+
+
 const StyledBtn = styled.div`
   width: 100px;
   height: 50px;
@@ -198,6 +201,38 @@ const Logo = styled.img`
   margin-top : 7%;
 `;
 
+const TwoSelection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+`;
+
+const Selection1 = styled.div`
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width : 37%;
+
+  height: 100%;
+`;
+
+const FiveSelection = styled.div`
+  display: flex;
+  width: 100%;
+  height: 30%;
+  background-color: #fffae1;
+`;
+
+const Answer1 = styled.div`
+  width: 20%;
+  height: 100%;
+  background-color: ${(props) =>
+    props.selected == props.selection_id ? "#FFC7AD" : "#FFFAE1"};
+  border: solid 1px #d2d2d2;
+`;
+
 const GameModal = (props) => {
   const [questionId, setQuestionId] = useState(1);
   const [selected, setSelected] = useState(miniGameData[0].selected);
@@ -259,7 +294,7 @@ const GameModal = (props) => {
               <QuestionBox questionId={questionId}></QuestionBox>
             </GameQuestion>
             <GameSelection>
-              {miniGameData[questionId - 1].selection.map((selection) => (
+              {/* {miniGameData[questionId - 1].selection.map((selection) => (
                 <SelectionItems
                   onClick={() => {
                     handleSelected(selection.selection_id);
@@ -269,7 +304,23 @@ const GameModal = (props) => {
                 >
                   {selection.selection_content}
                 </SelectionItems>
-              ))}
+              ))} */}
+              <TwoSelection>
+                <Selection1>
+                  {miniGameData[questionId - 1].selection[0].selection_content}
+                </Selection1>
+                <Selection1>
+                  {miniGameData[questionId - 1].selection[1].selection_content}
+                </Selection1>
+              </TwoSelection>
+
+              <FiveSelection>
+                <Answer1 onClick={()=>{handleSelected(1)}} selected={selected} selection_id = {1}></Answer1>
+                <Answer1 onClick={()=>{handleSelected(2)}} selected={selected} selection_id = {2}></Answer1>
+                <Answer1 onClick={()=>{handleSelected(3)}} selected={selected} selection_id = {3}></Answer1>
+                <Answer1 onClick={()=>{handleSelected(4)}} selected={selected} selection_id = {4}></Answer1>
+                <Answer1 onClick={()=>{handleSelected(5)}} selected={selected} selection_id = {5}></Answer1>
+              </FiveSelection>
             </GameSelection>
             <Btn>
               <StyledBtn onClick={handleReturnBtn}>
