@@ -310,18 +310,8 @@ const GameModal = (props) => {
             <GameQuestion>
               <QuestionBox questionId={questionId}></QuestionBox>
             </GameQuestion>
-            <GameSelection>
-              {/* {miniGameData[questionId - 1].selection.map((selection) => (
-                <SelectionItems
-                  onClick={() => {
-                    handleSelected(selection.selection_id);
-                  }}
-                  selected={selected}
-                  selection_id={selection.selection_id}
-                >
-                  {selection.selection_content}
-                </SelectionItems>
-              ))} */}
+            {questionId < 6 ? (
+              <GameSelection>
               <TwoSelection>
                 <Selection1>
                   {miniGameData[questionId - 1].selection[0].selection_content}
@@ -357,6 +347,21 @@ const GameModal = (props) => {
                 }
               </FiveSelection>
             </GameSelection>
+            ):
+            (<GameSelection>{miniGameData[questionId - 1].selection.map((selection) => (
+                <SelectionItems
+                  onClick={() => {
+                    handleSelected(selection.selection_id);
+                  }}
+                  selected={selected}
+                  selection_id={selection.selection_id}
+                >
+                  {selection.selection_content}
+                </SelectionItems>
+              ))}</GameSelection>)
+            
+            }
+            
             <Btn>
               <StyledBtn onClick={handleReturnBtn}>
                 <GrPrevious />

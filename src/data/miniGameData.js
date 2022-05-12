@@ -96,7 +96,7 @@ const miniGameData = [
   },
   {
     "id" : 7,
-    "title" : "내가 관심 있는/공부하고 있는 분야와 활용 수준을 선택하세요.",
+    "title" : "내가 관심 있는 / 학습 분야를 선택하세요.",
     "selection": [
       {
         "selection_id" : 1,
@@ -119,7 +119,7 @@ const miniGameData = [
   },
     {
     "id" : 8,
-    "title" : "원하는 챌린지 팀원의 관심 분야 / 학습 분야와 활용 수준을 선택하세요.",
+    "title" : "원하는 챌린지 팀원의 관심 분야 / 학습 분야를 선택하세요.",
     "selection": [
       {
         "selection_id" : 1,
