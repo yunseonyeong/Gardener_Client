@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import styled, {keyframes} from 'styled-components';
 import miniGameData from '../../data/miniGameData';
 import { GrNext, GrPrevious } from "react-icons/gr";
+import { BiRightArrow, BiLeftArrow } from "react-icons/bi";
 import getImgUrl from '../../globalLogic';
 
 const MinigameDom = styled.div`
@@ -210,11 +211,12 @@ const TwoSelection = styled.div`
 `;
 
 const Selection1 = styled.div`
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  width : 37%;
-
+  padding: 2%;
+  width: 37%;
+  color: #4a4a4a;
   height: 100%;
 `;
 
@@ -231,6 +233,21 @@ const Answer1 = styled.div`
   background-color: ${(props) =>
     props.selected == props.selection_id ? "#FFC7AD" : "#FFFAE1"};
   border: solid 1px #d2d2d2;
+  cursor : pointer;
+`;
+
+const ArrowDom = styled.div`
+  display : flex;
+  justify-content: space-between;
+  width:100%;
+  height : 2%;
+`;
+
+const Arrow = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 10%;
+  height : 100%;
 `;
 
 const GameModal = (props) => {
@@ -313,13 +330,56 @@ const GameModal = (props) => {
                   {miniGameData[questionId - 1].selection[1].selection_content}
                 </Selection1>
               </TwoSelection>
-
+              <ArrowDom>
+                <Arrow>
+                  <BiLeftArrow color={"#B8B8B8"} />
+                  <BiLeftArrow color={"#B8B8B8"} />
+                  <BiLeftArrow color={"#B8B8B8"} />
+                  <BiLeftArrow color={"#B8B8B8"} />
+                </Arrow>
+                <Arrow>
+                  <BiRightArrow color={"#B8B8B8"} />
+                  <BiRightArrow color={"#B8B8B8"} />
+                  <BiRightArrow color={"#B8B8B8"} />
+                  <BiRightArrow color={"#B8B8B8"} />
+                </Arrow>
+              </ArrowDom>
               <FiveSelection>
-                <Answer1 onClick={()=>{handleSelected(1)}} selected={selected} selection_id = {1}></Answer1>
-                <Answer1 onClick={()=>{handleSelected(2)}} selected={selected} selection_id = {2}></Answer1>
-                <Answer1 onClick={()=>{handleSelected(3)}} selected={selected} selection_id = {3}></Answer1>
-                <Answer1 onClick={()=>{handleSelected(4)}} selected={selected} selection_id = {4}></Answer1>
-                <Answer1 onClick={()=>{handleSelected(5)}} selected={selected} selection_id = {5}></Answer1>
+                <Answer1
+                  onClick={() => {
+                    handleSelected(1);
+                  }}
+                  selected={selected}
+                  selection_id={1}
+                ></Answer1>
+                <Answer1
+                  onClick={() => {
+                    handleSelected(2);
+                  }}
+                  selected={selected}
+                  selection_id={2}
+                ></Answer1>
+                <Answer1
+                  onClick={() => {
+                    handleSelected(3);
+                  }}
+                  selected={selected}
+                  selection_id={3}
+                ></Answer1>
+                <Answer1
+                  onClick={() => {
+                    handleSelected(4);
+                  }}
+                  selected={selected}
+                  selection_id={4}
+                ></Answer1>
+                <Answer1
+                  onClick={() => {
+                    handleSelected(5);
+                  }}
+                  selected={selected}
+                  selection_id={5}
+                ></Answer1>
               </FiveSelection>
             </GameSelection>
             <Btn>
