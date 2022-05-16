@@ -64,6 +64,7 @@ const JoinTitle = styled.div`
   font-size: 1.3rem;
 `;
 const JoinModal = (props) => {
+
   return (
     <JoinModalDom>
       <JoinTitle>챌린지 참가 요청</JoinTitle>
@@ -71,7 +72,9 @@ const JoinModal = (props) => {
       <JoinMsg>참가 요청 메시지를 보낼까요?</JoinMsg>
       <BtnWrapper>
         <ExitAcceptButton onClick={props.handleJoinBtn}>취소</ExitAcceptButton>
-        <ExitAcceptButton bgcolor={"#51C15F"}>확인</ExitAcceptButton>
+        <ExitAcceptButton onClick={props.handleAcceptBtn} bgcolor={"#51C15F"}>
+          확인
+        </ExitAcceptButton>
       </BtnWrapper>
     </JoinModalDom>
   );

@@ -112,9 +112,15 @@ const ShareButton = styled.div`
 const ChallengeIntro = (props) => {
 
   const [joinModalOpen, setJoinModalOpen] = useState(false);
+  const [welcomeMsgOpen, setWelcomeMsgOpen] = useState(false);
+
   const handleJoinBtn = () => {
     setJoinModalOpen(!joinModalOpen);
-    console.log(joinModalOpen);
+  };
+
+  const handleAcceptBtn = () => {
+    setWelcomeMsgOpen(true);
+    setJoinModalOpen(false);
   };
   
 
@@ -139,7 +145,8 @@ const ChallengeIntro = (props) => {
         joinModalOpen ? (
           <JoinModal
           challName = {props.challengeData.name}
-          handleJoinBtn={handleJoinBtn} />
+          handleJoinBtn={handleJoinBtn}
+          handleAcceptBtn = {handleAcceptBtn} />
         ) : null
       }
     </TeamIntroductionDom>
