@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import { TiHeart } from "react-icons/ti";
 import getImgUrl from '../../../globalLogic';
 import JoinModal from '../joinModal/joinModal';
-
+import WelcomeModal from '../welcomeModal/welcomeModal';
 
 const TeamIntroductionDom = styled.div`
   display: flex;
@@ -107,7 +107,12 @@ const ShareButton = styled.div`
   color : white;
 `;
 
-
+const WelcomeDom = styled.div`
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  background-color: gray;
+`;
 
 const ChallengeIntro = (props) => {
 
@@ -122,8 +127,12 @@ const ChallengeIntro = (props) => {
     setWelcomeMsgOpen(true);
     setJoinModalOpen(false);
   };
-  
 
+  // useEffect(() => {
+  //   setTimeout(()=> setWelcomeMsgOpen(false), 7000);
+  // }, [welcomeMsgOpen])
+  
+  
   return (
     <TeamIntroductionDom>
       <TeamProfileImg src={props.challengeData.profileImgURL}></TeamProfileImg>
@@ -136,19 +145,26 @@ const ChallengeIntro = (props) => {
       </TeamMsgDom>
       <ButtonDom>
         <ShareButton>URL공유</ShareButton>
-        <JoinButton join={props.showJoinBtn} onClick={handleJoinBtn}>참가하기</JoinButton>
+        <JoinButton join={props.showJoinBtn} onClick={handleJoinBtn}>
+          참가하기
+        </JoinButton>
         <MsgButton msg={props.showMsgBtn}>
           <TiHeart color="coral" size={35} />
         </MsgButton>
       </ButtonDom>
-      {
-        joinModalOpen ? (
-          <JoinModal
-          challName = {props.challengeData.name}
+      {joinModalOpen ? (
+        <JoinModal
+          challName={props.challengeData.name}
           handleJoinBtn={handleJoinBtn}
-          handleAcceptBtn = {handleAcceptBtn} />
-        ) : null
-      }
+          handleAcceptBtn={handleAcceptBtn}
+        />
+      ) : null}
+
+      {welcomeMsgOpen ? (
+        <WelcomeDom>
+          <WelcomeModal setWelcomeMsgOpen = {setWelcomeMsgOpen} />
+        </WelcomeDom>
+      ) : null}
     </TeamIntroductionDom>
   );
 }
