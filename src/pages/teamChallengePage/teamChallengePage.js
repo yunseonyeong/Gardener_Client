@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { GitLawn } from "git-lawn";
+import { GitLawn } from "git-lawn-hackathon";
 import getImgUrl from "../../globalLogic";
 import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
 import axios from "axios";
@@ -39,7 +39,7 @@ const MemberIntroDom = styled.div`
 
 
 const GetGitLawn = () => {
-  const GITHUB_USERNAME = "yunseonyeong";
+  const GITHUB_USERNAME = "leobang17";
   return (
     <>
       <LawnDom>
@@ -47,8 +47,8 @@ const GetGitLawn = () => {
           username={GITHUB_USERNAME}
           month={6}
           grassSpan={20}
-          grassShape={"Circle"}
-          color={"GREEN"}
+          grassShape={"Rectangle"}
+          color={"PURPLE"}
         />
       </LawnDom>
     </>

@@ -3,7 +3,7 @@ import BlueNav from "../../components/nav/basicNav/blueNav";
 import styled from "styled-components";
 import getImgUrl from '../../globalLogic';
 import ExpBar from "../../components/profile/expBar/expBar";
-import { GitLawn } from "git-lawn";
+import { GitLawn } from "git-lawn-hackathon";
 import { AiOutlineMessage } from "react-icons/ai";
 import MessageModal from "../../components/profile/mModal/mModal";
 import ChallengeState from "../../components/profile/challengebox/challengeList";
@@ -58,7 +58,6 @@ const GardenWrapper = styled.div`
 const ChallengeListWrapper = styled.div`
     display: flex;
     justify-content: center;
-    alignt-items: center;
     flex-direction: column;
     margin-bottom: 10%;
 `;
@@ -191,7 +190,7 @@ const ProfilePage = () => {
             <LogoDom>
                     <Logo src={getImgUrl("boyLogo")} />
             </LogoDom>
-                <GitLawn username = {GITHUB_USERNAME} month={4} grassSpan={20} grassShape={"Circle"}/>
+                <GitLawn username = {GITHUB_USERNAME} month={4} grassSpan={20} grassShape={"Circle"} color={"PINK"}/>
             </GardenWrapper>
 
             <ChallengeListWrapper>

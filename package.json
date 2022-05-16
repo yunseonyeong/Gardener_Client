@@ -12,7 +12,11 @@
     "@types/react-dom": "^17.0.14",
     "axios": "^0.26.1",
     "git-lawn": "^0.0.8",
+<<<<<<< HEAD
     "http-proxy-middleware": "^2.0.6",
+=======
+    "git-lawn-hackathon": "^0.0.1",
+>>>>>>> d3be3ba7bc026401604482e87dd4cd8371753b47
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
