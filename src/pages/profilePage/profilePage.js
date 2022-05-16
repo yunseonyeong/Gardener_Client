@@ -11,6 +11,7 @@ import ChallengeContents from "../../components/profile/challengebox/challengeCo
 import profilePageData from "../../data/profilePageData";
 import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
 import {useParams} from 'react-router-dom';
+import axios from "axios";
 
 const ProfileWrapper = styled.div`
     display: flex;
@@ -142,21 +143,22 @@ const ProfilePage = () => {
     const [listData, setListData] = useState([]);
     const {profileId}=useParams();
 
-    const fetchData = ()=>{
-        const data = profilePageData;
-        return data;
+    const fetchData = async ()=>{
+        const data = await axios.get('http://localhost:8000/api/user/1')
+        setProfileData(data.data.profile);
+        setListData(data.data.challenges);
+        console.log(data.data.profile);
+        console.log(profileData);
     }
 
     useEffect(() => {
-        const data = fetchData();
-        console.log(data);
-        setProfileData(data.profile);
-        setListData(data.challenges);
+        fetchData();
+        
     
       }, [])
 
       useEffect(() => {
-        console.log(profileData)
+        
       }, [profileData])
 
     return(
@@ -168,8 +170,8 @@ const ProfilePage = () => {
                     {/* <UserName>{profileData.nickname}</UserName> */}
                     <Profilewrap>
                     <NameDom>
-                    <MbtiName>폭신한 라일락</MbtiName>
-                    <UserName>yunsyonng</UserName>
+                    <MbtiName>{profileData.devType}</MbtiName>
+                    <UserName>{profileData.nickname}</UserName>
                     </NameDom>
                     <TierDom>
                     <TierImg src={getImgUrl("flower")}/>
