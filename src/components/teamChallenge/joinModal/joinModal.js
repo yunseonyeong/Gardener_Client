@@ -7,7 +7,7 @@ const JoinModalDom = styled.div`
   width: 300px;
   height: 200px;
   border-radius: 15px;
-  background-color: #c5eaff;
+  background-color: #c7edff;
   z-index: 2;
   right: 17%;
   bottom: 55%;
