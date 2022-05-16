@@ -51,7 +51,7 @@ const GetGitLawn = () => {
           month={6}
           grassSpan={20}
           grassShape={"Rectangle"}
-          color={"PURPLE"}
+          color={"BLUE"}
         />
       </LawnDom>
     </>

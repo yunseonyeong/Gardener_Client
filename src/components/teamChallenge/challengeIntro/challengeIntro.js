@@ -108,11 +108,11 @@ const ShareButton = styled.div`
 `;
 
 const WelcomeDom = styled.div`
-  bottom: 50%;
+  bottom: 55%;
   position: absolute;
-  width: 600px;
-  height: 80px;
-  background-color: #ff7777;
+  width: 50%;
+  height: 9%;
+  background-color: #add11b;
   border-radius: 100px;
   z-index: 2;
   display: flex;

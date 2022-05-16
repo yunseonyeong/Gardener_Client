@@ -13,7 +13,7 @@ const Msg = styled.div`
 
 const WelcomeModal = (props) => {
 
-  const txt = "Welcome to New Challenge!";
+  const txt = "Welcome to New Challenge !!!";
   const [text, setText] = useState('');
   const [count, setCount] = useState(0);
   
