@@ -13,6 +13,7 @@ const LawnDom = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 `;
 
 
@@ -37,12 +38,14 @@ const MemberIntroDom = styled.div`
 `;
 
 
-
 const GetGitLawn = () => {
+  
   const GITHUB_USERNAME = "leobang17";
+
   return (
     <>
       <LawnDom>
+       
         <GitLawn
           username={GITHUB_USERNAME}
           month={6}
@@ -53,6 +56,8 @@ const GetGitLawn = () => {
       </LawnDom>
     </>
   );
+  
+  
 };
 
 const ChallengePage = () => {
@@ -63,11 +68,12 @@ const ChallengePage = () => {
   let {id} = useParams();
 
   useEffect(() => {
-    fetchData();    
+    fetchData(); 
   }, [])
 
 
-  const fetchData = async() => {
+
+  const fetchData = () => {
     
    // const data = await axios.get("http://localhost:8000/api/challenge/2");
     // const data = await axios.get(`http://localhost:8000/api/challenge/${id}`);
@@ -91,7 +97,7 @@ const ChallengePage = () => {
         showMsgBtn={showMsgBtn}
         challengeData={challengeData}
       />
-      <GetGitLawn />
+      <GetGitLawn/>
       <MemberIntroDom>
         <MemberIntro memberData={memberData} />
       </MemberIntroDom>

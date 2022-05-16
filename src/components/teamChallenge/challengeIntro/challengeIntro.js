@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import { TiHeart } from "react-icons/ti";
 import getImgUrl from '../../../globalLogic';
+import JoinModal from '../joinModal/joinModal';
+
 
 const TeamIntroductionDom = styled.div`
   display: flex;
@@ -89,6 +91,7 @@ const JoinButton = styled.div`
   padding-top: 2%;
   padding-bottom: 2%;
   color: white;
+  cursor : pointer;
 `;
 
 const ShareButton = styled.div`
@@ -107,6 +110,14 @@ const ShareButton = styled.div`
 
 
 const ChallengeIntro = (props) => {
+
+  const [joinModalOpen, setJoinModalOpen] = useState(false);
+  const handleJoinBtn = () => {
+    setJoinModalOpen(!joinModalOpen);
+    console.log(joinModalOpen);
+  };
+  
+
   return (
     <TeamIntroductionDom>
       <TeamProfileImg src={props.challengeData.profileImgURL}></TeamProfileImg>
@@ -119,11 +130,18 @@ const ChallengeIntro = (props) => {
       </TeamMsgDom>
       <ButtonDom>
         <ShareButton>URL공유</ShareButton>
-        <JoinButton join={props.showJoinBtn}>참가하기</JoinButton>
+        <JoinButton join={props.showJoinBtn} onClick={handleJoinBtn}>참가하기</JoinButton>
         <MsgButton msg={props.showMsgBtn}>
           <TiHeart color="coral" size={35} />
         </MsgButton>
       </ButtonDom>
+      {
+        joinModalOpen ? (
+          <JoinModal
+          challName = {props.challengeData.name}
+          handleJoinBtn={handleJoinBtn} />
+        ) : null
+      }
     </TeamIntroductionDom>
   );
 }
