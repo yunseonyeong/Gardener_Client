@@ -111,10 +111,13 @@ const WelcomeDom = styled.div`
   bottom: 50%;
   position: absolute;
   width: 600px;
-  height: 100px;
+  height: 80px;
   background-color: #ff7777;
   border-radius: 100px;
   z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const ChallengeIntro = (props) => {
