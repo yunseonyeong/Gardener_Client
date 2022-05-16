@@ -12,10 +12,15 @@
     "@types/react-dom": "^17.0.14",
     "axios": "^0.26.1",
     "git-lawn": "^0.0.8",
+<<<<<<< HEAD
+    "http-proxy-middleware": "^2.0.6",
+=======
     "git-lawn-hackathon": "^0.0.1",
+>>>>>>> d3be3ba7bc026401604482e87dd4cd8371753b47
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
+    "react-is": "^18.1.0",
     "react-modal": "^3.15.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
@@ -46,5 +51,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "favicons-webpack-plugin": "^5.0.2",
+    "webpack-pwa-manifest": "^4.3.0"
   }
 }

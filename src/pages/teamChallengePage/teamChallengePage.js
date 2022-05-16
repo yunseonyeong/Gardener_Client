@@ -7,6 +7,7 @@ import axios from "axios";
 import challengePageData from "../../data/challegePageData";
 import ChallengeIntro from "../../components/teamChallenge/challengeIntro/challengeIntro";
 import MemberIntro from "../../components/teamChallenge/memberIntro/memberIntro";
+import {useParams} from "react-router-dom";
 
 const LawnDom = styled.div`
   display: flex;
@@ -59,26 +60,24 @@ const ChallengePage = () => {
   const [memberData, setMemberData] = useState([])
   const [showMsgBtn, setShowMsgBtn] = useState(false);
   const [showJoinBtn, setShowJoinBtn] = useState(false);
+  let {id} = useParams();
 
   useEffect(() => {
-    const data = fetchData();
-    console.log(data);
-    setChallengeData(data.challenge);
-    setMemberData(data.members);
-    setShowMsgBtn(data.isLeader);
-    setShowJoinBtn(data.isMember);
-
+    fetchData();    
   }, [])
 
-  useEffect(() => {
-    console.log(challengeData)
-  }, [challengeData])
 
+  const fetchData = async() => {
+    
+   // const data = await axios.get("http://localhost:8000/api/challenge/2");
+    const data = await axios.get(`http://localhost:8000/api/challenge/${id}`);
 
-  const fetchData = () => {
-    // const data = await axios.get("/challenge/2");
-    const data = challengePageData;
-    return data;
+    setChallengeData(data.data.challenge);
+    setMemberData(data.data.members);
+    setShowMsgBtn(data.data.isLeader);
+    setShowJoinBtn(data.data.isMember);
+    console.log(memberData);
+    //const data = challengePageData;
   }
 
   return (

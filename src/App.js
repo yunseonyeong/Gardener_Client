@@ -10,6 +10,10 @@ import ProfilePage from "./pages/profilePage/profilePage";
 function App() {
   return (
     <>
+
+      <Route exact path="/">
+        {console.log("success")}
+      </Route>
       <Route exact path="/search">
         <SearchPage />
       </Route>
@@ -18,7 +22,7 @@ function App() {
         <SearchResultPage />
       </Route>
 
-      <Route exact path="/challenge">
+      <Route exact path="/challenge/:id">
         <ChallengePage />
       </Route>
 
