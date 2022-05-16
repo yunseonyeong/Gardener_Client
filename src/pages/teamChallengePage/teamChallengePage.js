@@ -70,14 +70,17 @@ const ChallengePage = () => {
   const fetchData = async() => {
     
    // const data = await axios.get("http://localhost:8000/api/challenge/2");
-    const data = await axios.get(`http://localhost:8000/api/challenge/${id}`);
+    // const data = await axios.get(`http://localhost:8000/api/challenge/${id}`);
+    const data = challengePageData;
 
-    setChallengeData(data.data.challenge);
-    setMemberData(data.data.members);
-    setShowMsgBtn(data.data.isLeader);
-    setShowJoinBtn(data.data.isMember);
-    console.log(memberData);
-    //const data = challengePageData;
+    // setChallengeData(data.data.challenge);
+    // setMemberData(data.data.members);
+    // setShowMsgBtn(data.data.isLeader);
+    // setShowJoinBtn(data.data.isMember);
+    setChallengeData(data.challenge);
+    setMemberData(data.members);
+    setShowMsgBtn(data.isLeader);
+    setShowJoinBtn(data.isMember);
   }
 
   return (
