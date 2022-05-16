@@ -108,10 +108,13 @@ const ShareButton = styled.div`
 `;
 
 const WelcomeDom = styled.div`
+  bottom: 50%;
   position: absolute;
-  width: 400px;
-  height: 300px;
-  background-color: gray;
+  width: 600px;
+  height: 100px;
+  background-color: #ff7777;
+  border-radius: 100px;
+  z-index: 2;
 `;
 
 const ChallengeIntro = (props) => {
