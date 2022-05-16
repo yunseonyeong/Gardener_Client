@@ -135,6 +135,24 @@ const GITHUB_USERNAME = "leobang17";
 //     {bgcolor: "#7FC087", getexp: 100 },
 // ];
 
+const handleTierLawn = (tier) => {
+  if(tier === 'bronze'){
+    return 'GREEN';
+  }
+  else if(tier === 'silver'){
+    return 'ORANGE';
+  }
+  else if(tier === 'gold'){
+    return 'PINK';
+  }
+  else if(tier === 'diamond'){
+    return 'PURPLE';
+  }
+  else if(tier === 'platinum'){
+    return 'BLUE';
+  }
+}
+
 
 const ProfilePage = () => {
     const [profileData, setProfileData] = useState([]);
@@ -188,7 +206,7 @@ const ProfilePage = () => {
             <LogoDom>
                     <Logo src={getImgUrl("boyLogo")} />
             </LogoDom>
-                <GitLawn username = {GITHUB_USERNAME} month={4} grassSpan={20} grassShape={"Circle"} color={"PINK"}/>
+                <GitLawn username = {GITHUB_USERNAME} month={4} grassSpan={20} grassShape={"Circle"} color={handleTierLawn(profileData.tierType)}/>
             </GardenWrapper>
 
             <ChallengeListWrapper>
