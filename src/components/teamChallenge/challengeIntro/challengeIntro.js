@@ -112,7 +112,7 @@ const WelcomeDom = styled.div`
   position: absolute;
   width: 50%;
   height: 9%;
-  background-color: #add11b;
+  background-color: #a9d177;
   border-radius: 100px;
   z-index: 2;
   display: flex;

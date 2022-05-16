@@ -25,7 +25,7 @@ const WelcomeModal = (props) => {
     const interval = setInterval(() => {
       setText(text + txt[count]); // 이전 set한 문자 + 다음 문자
       setCount(count + 1); // 개수 만큼 체크
-    }, 120);
+    }, 110);
     if (count === txt.length) {
       // Count를 따로 두지 않고 Text.length 체크도 가능
       clearInterval(interval); // 문자열 체크를 통해 setInterval을 해제합니다
