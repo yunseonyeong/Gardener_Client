@@ -60,10 +60,13 @@ const OkButton = styled.div`
   justify-content: center;
   align-items: center;
   color: gray;
-  font-size : 1.15rem;
+  font-size: 1.15rem;
   background-color: #d8f6e4;
   border-radius: 15px;
-  cursor: pointer;
+  &:hover {
+    background-color: #b3f5cd;
+    cursor: pointer;
+  }
 `;
 
 
