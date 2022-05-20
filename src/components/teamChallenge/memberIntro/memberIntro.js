@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import { RiVipCrown2Fill } from "react-icons/ri";
 
@@ -10,6 +10,7 @@ const MemberIntroDom = styled.div`
   justify-content: center;
   font-family: "dungeunmo";
   flex-direction: column;
+  z-index: 0;
 `;
 
 const TitleDom = styled.div`
@@ -55,6 +56,7 @@ const TodayCommit = styled.div`
   height: 18px;
   border-radius: 4px;
   background-color: ${(props) => (props.color ? "#00AFE7" : "#CACACA")};
+  cursor: ${(props) => (props.color ? "default" : "pointer")};
 `;
 
 const MemTier = styled.div``;
@@ -82,8 +84,28 @@ const CrownIcon = styled.div`
   justify-content: center;
 `;
 
+const AwakeModal = styled.div`
+  width : 300px;
+  height: 100px;
+  background-color: rebeccapurple;
+  z-index: 3;
+  position: absolute;
+  left: 75%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+`;
+
 const MemberIntro = (props) => {
-  
+  const [awakeTodayCommit, setAwakeTodayCommit] = useState(false);
+  const handleTodayCommit = (isCommit) => {
+    if (!isCommit){
+      setAwakeTodayCommit(true);
+    }
+  }
+
   return (
     <MemberIntroDom>
       <MemberTitle>Members</MemberTitle>
@@ -113,11 +135,17 @@ const MemberIntro = (props) => {
                 <CrownIcon visi={false}>
                   <RiVipCrown2Fill color="orange" />
                 </CrownIcon>
-                <TodayCommit color={data.todayCommit} />
+                <TodayCommit
+                  color={data.todayCommit}
+                  onClick={() => {
+                    handleTodayCommit(data.todayCommit);
+                  }}
+                />
               </TodayCommitDom>
             </MemListItem>
           );
         })}
+        {awakeTodayCommit ? <AwakeModal>깨울까?</AwakeModal> : null}
       </MemListDom>
     </MemberIntroDom>
   );
