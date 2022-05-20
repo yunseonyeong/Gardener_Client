@@ -10,9 +10,8 @@ import ProfilePage from "./pages/profilePage/profilePage";
 function App() {
   return (
     <>
-
       <Route exact path="/">
-        {console.log("success")}
+        <GameStartPage />
       </Route>
       <Route exact path="/search">
         <SearchPage />
@@ -24,10 +23,6 @@ function App() {
 
       <Route exact path="/challenge/:id">
         <ChallengePage />
-      </Route>
-
-      <Route exact path="/minigame">
-        <GameStartPage />
       </Route>
 
       <Route exact path="/profile/:id">

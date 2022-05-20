@@ -8,6 +8,7 @@ import challengePageData from "../../data/challegePageData";
 import ChallengeIntro from "../../components/teamChallenge/challengeIntro/challengeIntro";
 import MemberIntro from "../../components/teamChallenge/memberIntro/memberIntro";
 import {useParams} from "react-router-dom";
+import NotifyModal from "../../components/teamChallenge/notifyModal/notifyModal";
 
 const LawnDom = styled.div`
   display: flex;
@@ -65,6 +66,7 @@ const ChallengePage = () => {
   const [memberData, setMemberData] = useState([])
   const [showMsgBtn, setShowMsgBtn] = useState(false);
   const [showJoinBtn, setShowJoinBtn] = useState(false);
+  const [notifyModalOpen, setNotifyModalOpen] = useState(false);
   let {id} = useParams();
 
   useEffect(() => {
@@ -96,11 +98,18 @@ const ChallengePage = () => {
         showJoinBtn={showJoinBtn}
         showMsgBtn={showMsgBtn}
         challengeData={challengeData}
+        setNotifyModalOpen={setNotifyModalOpen}
       />
-      <GetGitLawn/>
+      <GetGitLawn />
       <MemberIntroDom>
         <MemberIntro memberData={memberData} />
       </MemberIntroDom>
+      {notifyModalOpen ? (
+        <NotifyModal
+          setNotifyModalOpen={setNotifyModalOpen}
+          challengeData={challengeData}
+        ></NotifyModal>
+      ) : null}
       <GrassFooter src={getImgUrl("basicgrass")} />
     </ChallengePageDom>
   );

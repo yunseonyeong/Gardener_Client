@@ -4,6 +4,7 @@ import { TiHeart } from "react-icons/ti";
 import getImgUrl from '../../../globalLogic';
 import JoinModal from '../joinModal/joinModal';
 import WelcomeModal from '../welcomeModal/welcomeModal';
+import NotifyModal from '../notifyModal/notifyModal';
 
 const TeamIntroductionDom = styled.div`
   display: flex;
@@ -118,12 +119,15 @@ const WelcomeDom = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 5px dashed #13A74D;
+  box-sizing: content-box;
 `;
 
 const ChallengeIntro = (props) => {
 
   const [joinModalOpen, setJoinModalOpen] = useState(false);
   const [welcomeMsgOpen, setWelcomeMsgOpen] = useState(false);
+  
 
   const handleJoinBtn = () => {
     setJoinModalOpen(!joinModalOpen);
@@ -168,10 +172,11 @@ const ChallengeIntro = (props) => {
 
       {welcomeMsgOpen ? (
         <WelcomeDom>
-          <WelcomeModal setWelcomeMsgOpen = {setWelcomeMsgOpen} />
+          <WelcomeModal setWelcomeMsgOpen = {setWelcomeMsgOpen} setNotifyModalOpen = {props.setNotifyModalOpen} />
         </WelcomeDom>
       ) : null}
     </TeamIntroductionDom>
+    
   );
 }
 

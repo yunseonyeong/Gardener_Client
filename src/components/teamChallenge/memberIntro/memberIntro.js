@@ -54,7 +54,7 @@ const TodayCommit = styled.div`
   width: 18px;
   height: 18px;
   border-radius: 4px;
-  background-color: ${(props) => (props.color ? "#2AB66B" : "#CACACA")};
+  background-color: ${(props) => (props.color ? "#00AFE7" : "#CACACA")};
 `;
 
 const MemTier = styled.div``;

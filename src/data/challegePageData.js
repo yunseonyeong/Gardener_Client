@@ -32,7 +32,7 @@ const challengePageData = {
         "tierNum": 2,
       },
       "todayCommit": true,
-      "isLeader": true,
+      "isLeader": false,
     },
         {
       "memberId": 123,
@@ -43,8 +43,8 @@ const challengePageData = {
         "tierType": "bronze",
         "tierNum": 2,
       },
-      "todayCommit": true,
-      "isLeader": true,
+      "todayCommit": false,
+      "isLeader":false,
     },
     
   ],
