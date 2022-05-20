@@ -5,6 +5,7 @@ import getImgUrl from '../../../globalLogic';
 import JoinModal from '../joinModal/joinModal';
 import WelcomeModal from '../welcomeModal/welcomeModal';
 import NotifyModal from '../notifyModal/notifyModal';
+import { BsFillBellFill } from "react-icons/bs";
 
 const TeamIntroductionDom = styled.div`
   display: flex;
@@ -78,6 +79,14 @@ const MsgButton = styled.div`
   display : flex;
   justify-content: center;
   align-items: center;
+`;
+
+const NotifyButton = styled.div`
+  flex-basis: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 `;
 
 const JoinButton = styled.div`
@@ -161,6 +170,9 @@ const ChallengeIntro = (props) => {
         <MsgButton msg={props.showMsgBtn}>
           <TiHeart color="coral" size={35} />
         </MsgButton>
+        <NotifyButton>
+          <BsFillBellFill onClick={()=>{props.setNotifyModalOpen(true)}} color="orange" size={23} />
+        </NotifyButton>
       </ButtonDom>
       {joinModalOpen ? (
         <JoinModal
@@ -172,11 +184,13 @@ const ChallengeIntro = (props) => {
 
       {welcomeMsgOpen ? (
         <WelcomeDom>
-          <WelcomeModal setWelcomeMsgOpen = {setWelcomeMsgOpen} setNotifyModalOpen = {props.setNotifyModalOpen} />
+          <WelcomeModal
+            setWelcomeMsgOpen={setWelcomeMsgOpen}
+            setNotifyModalOpen={props.setNotifyModalOpen}
+          />
         </WelcomeDom>
       ) : null}
     </TeamIntroductionDom>
-    
   );
 }
 

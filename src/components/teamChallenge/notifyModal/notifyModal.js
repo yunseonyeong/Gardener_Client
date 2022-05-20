@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaAppleAlt } from "react-icons/fa";
 
+
+
 const NotifyModalDom = styled.div`
   z-index: 3;
   position: absolute;
