@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
 const RepoUrlModalDom = styled.div`
@@ -74,6 +75,18 @@ const RepoTitleMsg = styled.div`
 `;
 
 const RepoUrlModal = (props) => {
+  const [repoInput, setRepoInput] = useState("");
+  const handelInputChange = ({target : {value}}) => {
+    setRepoInput(value);
+  }
+
+  const postRepoUrl = (repoUrl) => {
+    axios.post("/api/repo", {
+      data: { repoUrl : repoUrl },
+    });
+    props.handleRepoBtn();
+  }
+
   return (
     <RepoUrlModalDom>
       <RepoTitle>🤍 레포지토리 연동 🤍</RepoTitle>
@@ -81,10 +94,10 @@ const RepoUrlModal = (props) => {
         챌린지에 연동할 Git <br /> 레포지토리 주소를 입력하세요.
       </RepoTitleMsg>
       <RepoInputDom>
-        <RepoInputBox />
+        <RepoInputBox name="input" value={repoInput} onChange={handelInputChange}/>
       </RepoInputDom>
       <BtnWrapper>
-        <ExitYesButton bgcolor={"#51C15F"} onClick={props.handleRepoBtn}>확인</ExitYesButton>
+        <ExitYesButton bgcolor={"#51C15F"} onClick={()=>{postRepoUrl(repoInput)}}>확인</ExitYesButton>
         <ExitYesButton onClick = {()=>{props.setRepoUrlOpen(false)}}>취소</ExitYesButton>
       </BtnWrapper>
     </RepoUrlModalDom>
