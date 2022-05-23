@@ -143,10 +143,11 @@ const MemberIntro = (props) => {
     }
   }
 
-  const postAwakeMem = (memId) => {
+  const putAwakeMem = (memId) => {
     axios.put("/api/mail", {
       data : {Memid : memId},
-    })
+    });
+    setAwakeTodayCommit(false);
   }
 
   return (
@@ -192,7 +193,7 @@ const MemberIntro = (props) => {
           <AwakeModal>
             <AwakeTxt>{selectedUncommit[1]} 님을 깨울까요?</AwakeTxt>
             <AwakeButtonDom>
-              <AwakeBtn onClick={()=>{postAwakeMem(selectedUncommit[0])}}>네!!</AwakeBtn>
+              <AwakeBtn onClick={()=>{putAwakeMem(selectedUncommit[0])}}>네!!</AwakeBtn>
               <AwakeBtn onClick={()=>{setAwakeTodayCommit(false)}}>아니오</AwakeBtn>
             </AwakeButtonDom>
           </AwakeModal>

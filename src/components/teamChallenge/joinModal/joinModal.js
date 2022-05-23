@@ -10,7 +10,7 @@ const JoinModalDom = styled.div`
   background-color: #c7edff;
   z-index: 2;
   right: 17%;
-  bottom: 55%;
+  bottom: 60%;
   font-family: "dungeunmo";
   box-shadow: 0.5px 0.5px 0.5px 0.5px #ededed;
   display: flex;

@@ -5,6 +5,7 @@ import getImgUrl from '../../../globalLogic';
 import JoinModal from '../joinModal/joinModal';
 import WelcomeModal from '../welcomeModal/welcomeModal';
 import NotifyModal from '../notifyModal/notifyModal';
+import RepoUrlModal from '../repoUrlModal/repoUrlModal';
 import { BsFillBellFill } from "react-icons/bs";
 
 const TeamIntroductionDom = styled.div`
@@ -132,20 +133,27 @@ const WelcomeDom = styled.div`
   box-sizing: content-box;
 `;
 
+
+
 const ChallengeIntro = (props) => {
 
   const [joinModalOpen, setJoinModalOpen] = useState(false);
   const [welcomeMsgOpen, setWelcomeMsgOpen] = useState(false);
-  
+  const [repoUrlOpen, setRepoUrlOpen] = useState(false);
 
   const handleJoinBtn = () => {
     setJoinModalOpen(!joinModalOpen);
   };
 
   const handleAcceptBtn = () => {
-    setWelcomeMsgOpen(true);
+    setRepoUrlOpen(true);
     setJoinModalOpen(false);
   };
+
+  const handleRepoBtn = () => {
+    setRepoUrlOpen(false);
+    setWelcomeMsgOpen(true);
+  }
 
   // useEffect(() => {
   //   setTimeout(()=> setWelcomeMsgOpen(false), 7000);
@@ -181,6 +189,10 @@ const ChallengeIntro = (props) => {
           handleAcceptBtn={handleAcceptBtn}
         />
       ) : null}
+
+      {repoUrlOpen ? (
+        <RepoUrlModal handleRepoBtn={handleRepoBtn} setRepoUrlOpen={setRepoUrlOpen}/>
+      ):null}
 
       {welcomeMsgOpen ? (
         <WelcomeDom>
