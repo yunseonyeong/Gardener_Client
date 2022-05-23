@@ -11,10 +11,10 @@ const NotifyModalDom = styled.div`
   border : 2px solid #D4D4D4;
   box-shadow: 3px 3px 3px 5px #D4D4D4;
   border-radius: 20px;
-  width: 35%;
-  height: 80%;
-  left: 32.5%;
-  top: 5%;
+  width: 30%;
+  height: 60%;
+  left: 35%;
+  top: 8%;
   display: flex;
   flex-direction: column;
   font-family: 'dungeunmo';
