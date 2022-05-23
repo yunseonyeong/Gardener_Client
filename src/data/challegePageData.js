@@ -23,7 +23,7 @@ const challengePageData = {
       "isLeader": true,
     },
     {
-      "memberId": 123,
+      "memberId": 456,
       "profileImgURL": getImgUrl("mapage"),
       "devType": "폭신한 하이",
       "name": "yunseon",
@@ -35,7 +35,7 @@ const challengePageData = {
       "isLeader": false,
     },
         {
-      "memberId": 123,
+      "memberId": 789,
       "profileImgURL": getImgUrl("mapage"),
       "devType": "폭신한 안녕",
       "name": "yunseonyeong",

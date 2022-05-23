@@ -69,6 +69,14 @@ const OkButton = styled.div`
   }
 `;
 
+const ContentBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size : 1.1rem;
+  line-height: 1.3rem;
+`;
+
 
 const NotifyModal = (props) => {
   return (
@@ -81,8 +89,32 @@ const NotifyModal = (props) => {
         </Title>
         <ChallengeName>{props.challengeData.name}</ChallengeName>
       </NotifyModalTitleDom>
-      <ContentDom></ContentDom>
-      <OkButton onClick={()=>{props.setNotifyModalOpen(false)}}>확인</OkButton>
+      <ContentDom>
+        <ContentBox>
+          🤍{props.challengeData.name}🤍에 가입하신 것을 환영합니다.
+          <br />
+          <br />
+          저희 🤍{props.challengeData.name}🤍 는 중앙대학교 학생들로 구성된{" "}
+          <br />
+          알고리즘 커밋 챌린지 팀입니다. <br />
+          <br />
+          매주 금요일 1시간 동안 <br />
+          타임어택 챌린지 이벤트가 진행되고 있습니다. <br />
+          <br />
+          이벤트 시간 내에 알고리즘 문제를 풀어 커밋하시면
+          <br /> 커밋 경험치를 2배 드리는 이벤트입니다. <br />
+          많은 참여 바랍니다. <br />
+          <br />
+          {props.challengeData.name} 파이팅 ❗❗
+        </ContentBox>
+      </ContentDom>
+      <OkButton
+        onClick={() => {
+          props.setNotifyModalOpen(false);
+        }}
+      >
+        확인
+      </OkButton>
     </NotifyModalDom>
   );
 }

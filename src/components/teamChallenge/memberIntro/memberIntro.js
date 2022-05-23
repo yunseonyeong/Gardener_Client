@@ -85,26 +85,64 @@ const CrownIcon = styled.div`
 `;
 
 const AwakeModal = styled.div`
-  width : 300px;
+  width: 300px;
   height: 100px;
-  background-color: rebeccapurple;
-  z-index: 3;
+  background-color: #53d787;
+  z-index: 2;
   position: absolute;
   left: 75%;
   border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  flex-direction: column;
 `;
+
+const AwakeTxt = styled.div`
+  flex-basis : 50%;
+  color : white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+`;
+
+const AwakeButtonDom = styled.div`
+  flex-basis: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const AwakeBtn = styled.div`
+  font-size: 0.9rem;
+  width: 18%;
+  padding: 1.5%;
+  background-color: #fbfbfb;
+  color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+  border-radius: 8px;
+  cursor: pointer;
+`;
+
+
+
 
 const MemberIntro = (props) => {
   const [awakeTodayCommit, setAwakeTodayCommit] = useState(false);
-  const handleTodayCommit = (isCommit) => {
+  const [selectedUncommit, setSelectedUncommit] = useState("");
+
+  const handleTodayCommit = (isCommit, name) => {
     if (!isCommit){
       setAwakeTodayCommit(true);
+      setSelectedUncommit(name);
     }
   }
+  
 
   return (
     <MemberIntroDom>
@@ -138,14 +176,22 @@ const MemberIntro = (props) => {
                 <TodayCommit
                   color={data.todayCommit}
                   onClick={() => {
-                    handleTodayCommit(data.todayCommit);
+                    handleTodayCommit(data.todayCommit, data.name);
                   }}
                 />
               </TodayCommitDom>
             </MemListItem>
           );
         })}
-        {awakeTodayCommit ? <AwakeModal>깨울까?</AwakeModal> : null}
+        {awakeTodayCommit ? (
+          <AwakeModal>
+            <AwakeTxt>{selectedUncommit} 님을 깨울까요?</AwakeTxt>
+            <AwakeButtonDom>
+              <AwakeBtn>네!!</AwakeBtn>
+              <AwakeBtn>아니오</AwakeBtn>
+            </AwakeButtonDom>
+          </AwakeModal>
+        ) : null}
       </MemListDom>
     </MemberIntroDom>
   );
