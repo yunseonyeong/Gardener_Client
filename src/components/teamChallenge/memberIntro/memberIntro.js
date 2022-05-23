@@ -56,7 +56,7 @@ const TodayCommit = styled.div`
   height: 18px;
   border-radius: 4px;
   background-color: ${(props) => (props.color ? "#00AFE7" : "#CACACA")};
-  cursor: ${(props) => (props.color ? "default" : "pointer")};
+  cursor: pointer;
 `;
 
 const MemTier = styled.div``;
@@ -136,12 +136,16 @@ const MemberIntro = (props) => {
   const [awakeTodayCommit, setAwakeTodayCommit] = useState(false);
   const [selectedUncommit, setSelectedUncommit] = useState(["id","name"]);
 
-  const handleTodayCommit = (isCommit, id,name) => {
+  const handleTodayCommit = (isCommit, id, name, repoUrl) => {
     if (!isCommit){
       setAwakeTodayCommit(true);
       setSelectedUncommit([id,name]);
     }
+    else {
+      window.open(repoUrl, '_blank')
+    }
   }
+  
 
   const putAwakeMem = (memId) => {
     axios.put("/api/mail", {
@@ -182,7 +186,7 @@ const MemberIntro = (props) => {
                 <TodayCommit
                   color={data.todayCommit}
                   onClick={() => {
-                    handleTodayCommit(data.todayCommit, data.memberId, data.name);
+                    handleTodayCommit(data.todayCommit, data.memberId, data.name, data.repoUrl);
                   }}
                 />
               </TodayCommitDom>
