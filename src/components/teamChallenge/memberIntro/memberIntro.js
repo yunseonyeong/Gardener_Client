@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import { RiVipCrown2Fill } from "react-icons/ri";
-
+import axios from 'axios'; 
 
 const MemberIntroDom = styled.div`
   display: flex;
@@ -134,15 +134,20 @@ const AwakeBtn = styled.div`
 
 const MemberIntro = (props) => {
   const [awakeTodayCommit, setAwakeTodayCommit] = useState(false);
-  const [selectedUncommit, setSelectedUncommit] = useState("");
+  const [selectedUncommit, setSelectedUncommit] = useState(["id","name"]);
 
-  const handleTodayCommit = (isCommit, name) => {
+  const handleTodayCommit = (isCommit, id,name) => {
     if (!isCommit){
       setAwakeTodayCommit(true);
-      setSelectedUncommit(name);
+      setSelectedUncommit([id,name]);
     }
   }
-  
+
+  const postAwakeMem = (memId) => {
+    axios.put("/api/mail", {
+      data : {Memid : memId},
+    })
+  }
 
   return (
     <MemberIntroDom>
@@ -176,7 +181,7 @@ const MemberIntro = (props) => {
                 <TodayCommit
                   color={data.todayCommit}
                   onClick={() => {
-                    handleTodayCommit(data.todayCommit, data.name);
+                    handleTodayCommit(data.todayCommit, data.memberId, data.name);
                   }}
                 />
               </TodayCommitDom>
@@ -185,10 +190,10 @@ const MemberIntro = (props) => {
         })}
         {awakeTodayCommit ? (
           <AwakeModal>
-            <AwakeTxt>{selectedUncommit} 님을 깨울까요?</AwakeTxt>
+            <AwakeTxt>{selectedUncommit[1]} 님을 깨울까요?</AwakeTxt>
             <AwakeButtonDom>
-              <AwakeBtn>네!!</AwakeBtn>
-              <AwakeBtn>아니오</AwakeBtn>
+              <AwakeBtn onClick={()=>{postAwakeMem(selectedUncommit[0])}}>네!!</AwakeBtn>
+              <AwakeBtn onClick={()=>{setAwakeTodayCommit(false)}}>아니오</AwakeBtn>
             </AwakeButtonDom>
           </AwakeModal>
         ) : null}
