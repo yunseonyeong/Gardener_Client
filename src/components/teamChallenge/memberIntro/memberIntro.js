@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import { RiVipCrown2Fill } from "react-icons/ri";
-
+import axios from 'axios'; 
 
 const MemberIntroDom = styled.div`
   display: flex;
@@ -10,6 +10,7 @@ const MemberIntroDom = styled.div`
   justify-content: center;
   font-family: "dungeunmo";
   flex-direction: column;
+  z-index: 0;
 `;
 
 const TitleDom = styled.div`
@@ -54,7 +55,8 @@ const TodayCommit = styled.div`
   width: 18px;
   height: 18px;
   border-radius: 4px;
-  background-color: ${(props) => (props.color ? "#2AB66B" : "#CACACA")};
+  background-color: ${(props) => (props.color ? "#00AFE7" : "#CACACA")};
+  cursor: pointer;
 `;
 
 const MemTier = styled.div``;
@@ -82,8 +84,76 @@ const CrownIcon = styled.div`
   justify-content: center;
 `;
 
+const AwakeModal = styled.div`
+  width: 300px;
+  height: 100px;
+  background-color: #53d787;
+  z-index: 2;
+  position: absolute;
+  left: 75%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const AwakeTxt = styled.div`
+  flex-basis : 50%;
+  color : white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+`;
+
+const AwakeButtonDom = styled.div`
+  flex-basis: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const AwakeBtn = styled.div`
+  font-size: 0.9rem;
+  width: 18%;
+  padding: 1.5%;
+  background-color: #fbfbfb;
+  color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+  border-radius: 8px;
+  cursor: pointer;
+`;
+
+
+
+
 const MemberIntro = (props) => {
+  const [awakeTodayCommit, setAwakeTodayCommit] = useState(false);
+  const [selectedUncommit, setSelectedUncommit] = useState(["id","name"]);
+
+  const handleTodayCommit = (isCommit, id, name, repoUrl) => {
+    if (!isCommit){
+      setAwakeTodayCommit(true);
+      setSelectedUncommit([id,name]);
+    }
+    else {
+      window.open(repoUrl, '_blank')
+    }
+  }
   
+
+  const putAwakeMem = (memId) => {
+    axios.put("/api/mail", {
+      data : {Memid : memId},
+    });
+    setAwakeTodayCommit(false);
+  }
+
   return (
     <MemberIntroDom>
       <MemberTitle>Members</MemberTitle>
@@ -113,11 +183,25 @@ const MemberIntro = (props) => {
                 <CrownIcon visi={false}>
                   <RiVipCrown2Fill color="orange" />
                 </CrownIcon>
-                <TodayCommit color={data.todayCommit} />
+                <TodayCommit
+                  color={data.todayCommit}
+                  onClick={() => {
+                    handleTodayCommit(data.todayCommit, data.memberId, data.name, data.repoUrl);
+                  }}
+                />
               </TodayCommitDom>
             </MemListItem>
           );
         })}
+        {awakeTodayCommit ? (
+          <AwakeModal>
+            <AwakeTxt>{selectedUncommit[1]} 님을 깨울까요?</AwakeTxt>
+            <AwakeButtonDom>
+              <AwakeBtn onClick={()=>{putAwakeMem(selectedUncommit[0])}}>네!!</AwakeBtn>
+              <AwakeBtn onClick={()=>{setAwakeTodayCommit(false)}}>아니오</AwakeBtn>
+            </AwakeButtonDom>
+          </AwakeModal>
+        ) : null}
       </MemListDom>
     </MemberIntroDom>
   );
