@@ -81,7 +81,7 @@ const RepoUrlModal = (props) => {
   }
 
   const postRepoUrl = (repoUrl) => {
-    axios.post("/api/repo", {
+    axios.post("/api/challenge/participate", {
       data: { repoUrl : repoUrl },
     });
     props.handleRepoBtn();

@@ -73,7 +73,7 @@ const ContentBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size : 1.1rem;
+  font-size : 0.9rem;
   line-height: 1.3rem;
 `;
 
