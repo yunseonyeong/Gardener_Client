@@ -3,7 +3,7 @@ import BlueNav from "../../components/nav/basicNav/blueNav";
 import styled from "styled-components";
 import getImgUrl from '../../globalLogic';
 import ExpBar from "../../components/profile/expBar/expBar";
-import { GitLawn } from "git-lawn";
+import { GitLawn } from "git-lawn-hackathon";
 import { AiOutlineMessage } from "react-icons/ai";
 import MessageModal from "../../components/profile/mModal/mModal";
 import ChallengeState from "../../components/profile/challengebox/challengeList";
@@ -11,6 +11,7 @@ import ChallengeContents from "../../components/profile/challengebox/challengeCo
 import profilePageData from "../../data/profilePageData";
 import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
 import {useParams} from 'react-router-dom';
+import axios from "axios";
 
 const ProfileWrapper = styled.div`
     display: flex;
@@ -57,7 +58,6 @@ const GardenWrapper = styled.div`
 const ChallengeListWrapper = styled.div`
     display: flex;
     justify-content: center;
-    alignt-items: center;
     flex-direction: column;
     margin-bottom: 10%;
 `;
@@ -136,27 +136,46 @@ const GITHUB_USERNAME = "leobang17";
 //     {bgcolor: "#7FC087", getexp: 100 },
 // ];
 
+const handleTierLawn = (tier) => {
+  if(tier === 'bronze'){
+    return 'GREEN';
+  }
+  else if(tier === 'silver'){
+    return 'ORANGE';
+  }
+  else if(tier === 'gold'){
+    return 'PINK';
+  }
+  else if(tier === 'diamond'){
+    return 'PURPLE';
+  }
+  else if(tier === 'platinum'){
+    return 'BLUE';
+  }
+}
+
 
 const ProfilePage = () => {
     const [profileData, setProfileData] = useState([]);
     const [listData, setListData] = useState([]);
     const {profileId}=useParams();
 
-    const fetchData = ()=>{
-        const data = profilePageData;
-        return data;
+    const fetchData = async ()=>{
+        const data = await axios.get('http://localhost:8000/api/user/1')
+        setProfileData(data.data.profile);
+        setListData(data.data.challenges);
+        console.log(data.data.profile);
+        console.log(profileData);
     }
 
     useEffect(() => {
-        const data = fetchData();
-        console.log(data);
-        setProfileData(data.profile);
-        setListData(data.challenges);
+        fetchData();
+        
     
       }, [])
 
       useEffect(() => {
-        console.log(profileData)
+        
       }, [profileData])
 
     return(
@@ -168,8 +187,8 @@ const ProfilePage = () => {
                     {/* <UserName>{profileData.nickname}</UserName> */}
                     <Profilewrap>
                     <NameDom>
-                    <MbtiName>폭신한 라일락</MbtiName>
-                    <UserName>yunsyonng</UserName>
+                    <MbtiName>{profileData.devType}</MbtiName>
+                    <UserName>{profileData.nickname}</UserName>
                     </NameDom>
                     <TierDom>
                     <TierImg src={getImgUrl("flower")}/>
@@ -189,7 +208,7 @@ const ProfilePage = () => {
             <LogoDom>
                     <Logo src={getImgUrl("boyLogo")} />
             </LogoDom>
-                <GitLawn username = {GITHUB_USERNAME} month={4} grassSpan={20} grassShape={"Circle"}/>
+                <GitLawn username = {GITHUB_USERNAME} month={4} grassSpan={20} grassShape={"Circle"} color={handleTierLawn(profileData.tierType)}/>
             </GardenWrapper>
 
             <ChallengeListWrapper>

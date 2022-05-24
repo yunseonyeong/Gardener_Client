@@ -6,7 +6,7 @@ const profilePageData = {
         nickname: "yunsyonng",
         devType: "폭신한 라일락",
         exp: 60,
-        tierType: "bronze",
+        tierType: "diamond",
         tierNum: 2,
     },
     challenges: [

@@ -61,7 +61,7 @@ const GrassFooter = styled.img`
 
 
 const GameStartPage = () => {
-
+  
   const [gameModalOpen, setGameModalOpen] = useState(false);
   const handleStartBtn = () => {
     setGameModalOpen(!gameModalOpen);
