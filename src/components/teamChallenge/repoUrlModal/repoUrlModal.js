@@ -79,9 +79,8 @@ const RepoUrlModal = (props) => {
   const handelInputChange = ({target : {value}}) => {
     setRepoInput(value);
   }
-
-  const postRepoUrl = (repoUrl) => {
-    axios.post("/api/challenge/participate", {
+  const putRepoUrl = (repoUrl) => {
+    axios.put("http://localhost:8000/api/challenge/participate", {
       data: { repoUrl : repoUrl },
     });
     props.handleRepoBtn();
@@ -97,7 +96,7 @@ const RepoUrlModal = (props) => {
         <RepoInputBox name="input" value={repoInput} onChange={handelInputChange}/>
       </RepoInputDom>
       <BtnWrapper>
-        <ExitYesButton bgcolor={"#51C15F"} onClick={()=>{postRepoUrl(repoInput)}}>확인</ExitYesButton>
+        <ExitYesButton bgcolor={"#51C15F"} onClick={()=>{putRepoUrl(repoInput)}}>확인</ExitYesButton>
         <ExitYesButton onClick = {()=>{props.setRepoUrlOpen(false)}}>취소</ExitYesButton>
       </BtnWrapper>
     </RepoUrlModalDom>
