@@ -21,7 +21,7 @@ const challengePageData = {
       },
       todayCommit: true,
       isLeader: true,
-      repoUrl: "https://github.com/yunseonyeong/LonelyAlgorithm/commits/master",
+      // repoUrl: "https://github.com/yunseonyeong/LonelyAlgorithm/commits/master",
     },
     {
       memberId: 456,
@@ -34,7 +34,7 @@ const challengePageData = {
       },
       todayCommit: false,
       isLeader: false,
-      repoUrl: "https://github.com/yunseonyeong/LonelyAlgorithm/commits/master",
+      // repoUrl: "https://github.com/yunseonyeong/LonelyAlgorithm/commits/master",
     },
     {
       memberId: 789,
@@ -47,7 +47,7 @@ const challengePageData = {
       },
       todayCommit: false,
       isLeader: false,
-      repoUrl: "https://github.com/yunseonyeong/LonelyAlgorithm/commits/master",
+      // repoUrl: "https://github.com/yunseonyeong/LonelyAlgorithm/commits/master",
     },
   ],
 };

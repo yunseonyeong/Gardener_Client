@@ -143,10 +143,10 @@ const handleTierLawn = (tier) => {
   else if(tier === 'silver'){
     return 'ORANGE';
   }
-  else if(tier === 'gold'){
+  else if(tier === 'pink'){
     return 'PINK';
   }
-  else if(tier === 'diamond'){
+  else if(tier === 'purple'){
     return 'PURPLE';
   }
   else if(tier === 'platinum'){
@@ -195,7 +195,7 @@ const ProfilePage = () => {
                     </TierDom>
                     <MessageModal />
                     </Profilewrap>
-                        <ExpBar getexp = "60" />
+                        <ExpBar tierType = {profileData.tierType} getexp = "60" />
                         
                     {/* <MbtiName>{profileData.devType}</MbtiName> */}
                     
