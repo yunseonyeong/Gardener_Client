@@ -148,7 +148,7 @@ const MemberIntro = (props) => {
   
 
   const putAwakeMem = (memId) => {
-    axios.put("/api/mail", {
+    axios.put("http://localhost:8000/api/mail", {
       data : {Memid : memId},
     });
     setAwakeTodayCommit(false);
