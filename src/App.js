@@ -26,6 +26,10 @@ function App() {
         <ChallengePage />
       </Route>
 
+      <Route exact path="/testresult">
+        <TestResultPage />
+      </Route>
+
       <Route exact path="/profile/:id">
         <ProfilePage />
       </Route>

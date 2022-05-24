@@ -197,7 +197,7 @@ const ProfilePage = () => {
                     </TierDom>
                     <MessageModal />
                     </Profilewrap>
-                        <ExpBar getexp = "60" />
+                        <ExpBar tierType = {profileData.tierType} getexp = "60" />
                         
                     {/* <MbtiName>{profileData.devType}</MbtiName> */}
                     

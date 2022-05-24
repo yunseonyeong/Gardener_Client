@@ -17,7 +17,7 @@ const expBar = (props) => {
         width: ${getexp}%;
         background: linear-gradient(90deg, #519259 0%, #7FC087 100%);
         border-radius: 10px;
-        textAlign: 'right';
+        text-align: 'right';
     `;
 
     const labelStyles = {

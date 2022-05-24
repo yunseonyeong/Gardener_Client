@@ -76,7 +76,6 @@ const ButtonDom = styled.div`
 
 const MsgButton = styled.div`
   flex-basis: 15%;
-  visibility: ${(props) => (props.msg ? "visible" : "hidden")};
   display : flex;
   justify-content: center;
   align-items: center;
