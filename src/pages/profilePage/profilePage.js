@@ -143,10 +143,10 @@ const handleTierLawn = (tier) => {
   else if(tier === 'silver'){
     return 'ORANGE';
   }
-  else if(tier === 'gold'){
+  else if(tier === 'pink'){
     return 'PINK';
   }
-  else if(tier === 'diamond'){
+  else if(tier === 'purple'){
     return 'PURPLE';
   }
   else if(tier === 'platinum'){
