@@ -10,7 +10,7 @@ import ChallengeState from "../../components/profile/challengebox/challengeList"
 import ChallengeContents from "../../components/profile/challengebox/challengeContents";
 import profilePageData from "../../data/profilePageData";
 import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 import axios from "axios";
 
 const ProfileWrapper = styled.div`
@@ -175,8 +175,10 @@ const ProfilePage = () => {
       }, [])
 
       useEffect(() => {
-        
-      }, [profileData])
+        if(profileData.levelup==true){
+            
+        }
+      }, [])
 
     return(
         <ProfileWrapper>

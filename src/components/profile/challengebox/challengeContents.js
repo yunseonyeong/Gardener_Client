@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {Link} from 'react-router-dom';
 
 const ListTitle = styled.div`
     display: flex;
@@ -34,10 +35,12 @@ const ChallengeContents = (props) => {
             {
                 props.listData.map((data)=>{
                     return(
+                        <Link to={`/challenge/${data.challengeId}`}>
                         <ChalDom>
                             <ListTitle>{data.challengeTitle}</ListTitle>
                             <ListImg src={data.challengeImgURL}/>
                         </ChalDom>
+                        </Link>
                     );
                 })
             }

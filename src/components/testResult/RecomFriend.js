@@ -42,7 +42,6 @@ const RecommandFriend = (props) => {
             {
                 props.friendData.map((data)=>{
                     return(
-                        
                         <FrlDom>
                             {/* <FlistTitle>{data.name}</FlistTitle> */}
                             <Link to={`/profile/${data.Id}`}>
