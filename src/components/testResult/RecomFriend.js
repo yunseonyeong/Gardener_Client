@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 const FriendListtDom = styled.div`
     display: flex;
@@ -27,7 +28,7 @@ const FrlDom = styled.div`
     align-items: center;
     height: 100%;
     width: 100%;
-
+    cursor: pointer;
 `;
 
 const FriendImg = styled.img`
@@ -41,11 +42,15 @@ const RecommandFriend = (props) => {
             {
                 props.friendData.map((data)=>{
                     return(
+                        
                         <FrlDom>
                             {/* <FlistTitle>{data.name}</FlistTitle> */}
+                            <Link to={`/profile/${data.Id}`}>
                             <FriendImg src={data.profileImgURL}/>
                             {/* <DevTypeTitle>{data.devType}</DevTypeTitle> */}
+                            </Link>
                         </FrlDom>
+                        
                     );
                 })
             }

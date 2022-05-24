@@ -161,7 +161,7 @@ const ProfilePage = () => {
     const {profileId}=useParams();
 
     const fetchData = async ()=>{
-        const data = await axios.get('http://localhost:8000/api/user/1')
+        const data = await axios.get(`http://localhost:8000/api/user/${profileId}`)
         setProfileData(data.data.profile);
         setListData(data.data.challenges);
         console.log(data.data.profile);
