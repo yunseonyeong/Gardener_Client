@@ -1,19 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const FriendListtDom = styled.div`
-    display: flex;
-    flex-direction: row;
-    height: 100px;
-    width: 120%;
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  width: 120%;
+  cursor: pointer;
 `;
-
-const FlistTitle = styled.div`
-    display: flex;
-    
-    margin-bottom: 3%;
-    font-family: 'dungeunmo';
-    `;
 
 const DevTypeTitle = styled.div`
     display: flex;
@@ -40,12 +35,14 @@ const RecommandFriend = (props) => {
         <FriendListtDom>
             {
                 props.friendData.map((data)=>{
-                    return(
-                        <FrlDom>
-                            {/* <FlistTitle>{data.name}</FlistTitle> */}
-                            <FriendImg src={data.profileImgURL}/>
-                            {/* <DevTypeTitle>{data.devType}</DevTypeTitle> */}
-                        </FrlDom>
+                    return (
+                      <FrlDom>
+                        {/* <FlistTitle>{data.name}</FlistTitle> */}
+                        <Link to={`/profile/${data.Id}`}>
+                          <FriendImg src={data.profileImgURL} />
+                          {/* <DevTypeTitle>{data.devType}</DevTypeTitle> */}
+                        </Link>
+                      </FrlDom>
                     );
                 })
             }
