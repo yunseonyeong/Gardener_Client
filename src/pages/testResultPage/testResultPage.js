@@ -10,7 +10,7 @@ const BodyWrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top : 3%;
+    margin-top : 2%;
 `;
 
 const BodyTop = styled.div`
@@ -19,7 +19,7 @@ const BodyTop = styled.div`
     align-items: center;
     font-family: 'dungeunmo';
     font-weight: 400;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: #707070;
 `;
 
@@ -43,7 +43,7 @@ const BodyTitle = styled.div`
 const TypeWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 10%;
+    margin-top : 4%;
 `;
 
 const TitleExplanation = styled.div`
@@ -54,7 +54,7 @@ const TitleExplanation = styled.div`
     font-family: 'dungeunmo';
     font-weight: 400;
     font-size: 1rem;
-    padding : 2%;
+    padding : 5% 0 5% 0;
 `;
 
 const TypeTitle = styled.div`
@@ -63,24 +63,25 @@ const TypeTitle = styled.div`
     align-items: center;
     font-family: 'dungeunmo';
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #845CF3;
 `;
 
 const ExpBody = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30%;
-    width: 80%;
-    background: #FFC5AB;
-    margin-top: 5%;
-    border-radius: 10px;
-    font-family: 'dungeunmo';
-    font-weight: 400;
-    font-size: 1rem;
-    flex-direction: column;
-    color: #707070;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+  width: 70%;
+  background: #ffc5ab;
+  margin-top: 5%;
+  border-radius: 10px;
+  font-family: "dungeunmo";
+  font-weight: 400;
+  font-size: 1.1rem;
+  flex-direction: column;
+  color: #4b4b4b;
+  border : 4px dashed gray;
 `;
 
 const RecWholeBodyWrapper = styled.div`
@@ -102,9 +103,10 @@ const RecBodyWrapper = styled.div`
 
 
 const RecBodyTitle = styled.div`
-    font-family: 'dungeunmo';
-    font-weight: 400;
-    font-size: 1rem;
+  font-family: "dungeunmo";
+  font-weight: 400;
+  font-size: 1rem;
+  color: #333333;
 `;
 
 const RecBody = styled.div`
@@ -121,9 +123,10 @@ const RecCAUBodyWrapper = styled.div`
 `;
 
 const RecCAUTitle = styled.div`
-    font-family: 'dungeunmo';
-    font-weight: 400;
-    font-size: 1rem;
+  font-family: "dungeunmo";
+  font-weight: 400;
+  font-size: 1rem;
+  color: #333333;
 `;
 
 const RecCAUBody = styled.div`
@@ -138,6 +141,7 @@ const ImgDom = styled.div`
 
 const CauImg = styled.img`
     width: 80%;
+    cursor: pointer;
 `;
 
 
