@@ -9,6 +9,7 @@ import ChallengeIntro from "../../components/teamChallenge/challengeIntro/challe
 import MemberIntro from "../../components/teamChallenge/memberIntro/memberIntro";
 import {useParams} from "react-router-dom";
 import NotifyModal from "../../components/teamChallenge/notifyModal/notifyModal";
+import TimeAttack from "../../components/teamChallenge/timeAttack/timeAttack";
 
 const LawnDom = styled.div`
   display: flex;
@@ -46,7 +47,6 @@ const GetGitLawn = () => {
   return (
     <>
       <LawnDom>
-       
         <GitLawn
           username={GITHUB_USERNAME}
           month={6}
@@ -57,22 +57,39 @@ const GetGitLawn = () => {
       </LawnDom>
     </>
   );
-  
-  
 };
 
+const TimerBtn = styled.div`
+  width: 18%;
+  height: 100%;
+`;
+
+const Dom = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
+
 const ChallengePage = () => {
+
+
+  
+
   const [challengeData, setChallengeData] = useState({});
   const [memberData, setMemberData] = useState([])
   const [showMsgBtn, setShowMsgBtn] = useState(false);
   const [showJoinBtn, setShowJoinBtn] = useState(false);
   const [notifyModalOpen, setNotifyModalOpen] = useState(false);
+  const [showTimer, setShowTimer] = useState(false);
+
+  const targetTime = '2022-05-29T09:00:00.000Z';
+
+
   let {id} = useParams();
 
   useEffect(() => {
-    fetchData(); 
+    fetchData();
   }, [])
-
 
 
   const fetchData = async () => {
@@ -99,8 +116,17 @@ const ChallengePage = () => {
         showMsgBtn={showMsgBtn}
         challengeData={challengeData}
         setNotifyModalOpen={setNotifyModalOpen}
+        fetchData={fetchData}
       />
-      <GetGitLawn />
+
+      <Dom>
+        <TimeAttack targetTime={targetTime} showTimer={showTimer}/>
+        <GetGitLawn />
+        <TimerBtn onClick={() => {
+          setShowTimer(!showTimer);
+        }} />
+      </Dom>
+
       <MemberIntroDom>
         <MemberIntro memberData={memberData} />
       </MemberIntroDom>
