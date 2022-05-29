@@ -4,7 +4,6 @@ import styled from "styled-components";
 import getImgUrl from '../../globalLogic';
 import ExpBar from "../../components/profile/expBar/expBar";
 import { GitLawn } from "git-lawn-hackathon";
-import { AiOutlineMessage } from "react-icons/ai";
 import MessageModal from "../../components/profile/mModal/mModal";
 import ChallengeState from "../../components/profile/challengebox/challengeList";
 import ChallengeContents from "../../components/profile/challengebox/challengeContents";
@@ -12,6 +11,8 @@ import profilePageData from "../../data/profilePageData";
 import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
 import {useParams, Link} from 'react-router-dom';
 import axios from "axios";
+import { TiHeart } from "react-icons/ti";
+import LevelUpModal from "../../components/profile/mModal/levelUpModal";
 
 const ProfileWrapper = styled.div`
     display: flex;
@@ -109,6 +110,13 @@ const Profilewrap = styled.div`
     display: flex;
     margin-bottom: 0.7rem;
     width: 90%;
+
+    .Heart{
+        position: absolute;
+        right: 23%;
+        top: 8%;
+        cursor: pointer;
+    }
 `;
 
 const TierImg = styled.img`
@@ -130,6 +138,23 @@ const NameDom = styled.div`
     display:flex;
     flex-direction : column;
 `;
+
+const LevelUpDom = styled.div`
+  left: 25%;
+  bottom: 55%;
+  position: absolute;
+  width: 50%;
+  height: 9%;
+  background-color: #a9d177;
+  border-radius: 100px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px dashed #13A74D;
+  box-sizing: content-box;
+`;
+
 const GITHUB_USERNAME = "leobang17";
 
 // const testData = [
@@ -159,6 +184,12 @@ const ProfilePage = () => {
     const [profileData, setProfileData] = useState([]);
     const [listData, setListData] = useState([]);
     const {profileId}=useParams();
+    const [messageModalOpen, setMessageModalOpen]= useState(false);
+    const [levelUp, setLevelUp]=useState(false);
+
+    const handleModal = () => {
+        setMessageModalOpen(!messageModalOpen); 
+    }
 
     const fetchData = async ()=>{
         const data = await axios.get(`http://localhost:8000/api/user/${profileId}`)
@@ -166,6 +197,10 @@ const ProfilePage = () => {
         setListData(data.data.challenges);
         console.log(data.data.profile);
         console.log(profileData);
+        // const data=profilePageData;
+        // setProfileData(data.profile);
+        // setListData(data.challenges);
+        // console.log(profileData);
     }
 
     useEffect(() => {
@@ -175,8 +210,8 @@ const ProfilePage = () => {
       }, [])
 
       useEffect(() => {
-        if(profileData.levelup==true){
-            
+        if(profileData.levelup===true){
+            setLevelUp(true);
         }
       }, [])
 
@@ -195,9 +230,10 @@ const ProfilePage = () => {
                     <TierDom>
                     <TierImg src={getImgUrl("flower")}/>
                     </TierDom>
-                    <MessageModal />
+                    <TiHeart color="coral" size={35} className="Heart" onClick={handleModal}/>
+                    {messageModalOpen&&<MessageModal setMessageModalOpen={setMessageModalOpen}/>}
                     </Profilewrap>
-                        <ExpBar tierType = {profileData.tierType} getexp = "60" />
+                        <ExpBar tierType = {profileData.tierType} getexp = {profileData.exp} />
                         
                     {/* <MbtiName>{profileData.devType}</MbtiName> */}
                     
@@ -222,7 +258,15 @@ const ProfilePage = () => {
                 </ChallengeBodyDom>
             </ChallengeListWrapper>
             <GrassFooter src={getImgUrl("basicgrass")} />
+            {
+                levelUp ? (
+                    <LevelUpDom>
+                        <LevelUpModal setLevelUp={setLevelUp}/>
+                    </LevelUpDom>
+                ):null
+            }
         </ProfileWrapper>
+        
     );
 };
 

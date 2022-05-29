@@ -5,9 +5,10 @@ const profilePageData = {
         Id: 135,
         nickname: "yunsyonng",
         devType: "폭신한 라일락",
-        exp: 60,
+        exp: 80,
         tierType: "diamond",
         tierNum: 2,
+        levelup:true,
     },
     challenges: [
         {
