@@ -6,13 +6,13 @@ import SearchResultPage from "./pages/searchResultPage/searchResultPage";
 import GameStartPage from "./pages/minigamePage/gameStartPage";
 import './App.css';
 import ProfilePage from "./pages/profilePage/profilePage";
+import TestResultPage from "./pages/testResultPage/testResultPage";
 
 function App() {
   return (
     <>
-
       <Route exact path="/">
-        {console.log("success")}
+        <GameStartPage />
       </Route>
       <Route exact path="/search">
         <SearchPage />
@@ -26,13 +26,18 @@ function App() {
         <ChallengePage />
       </Route>
 
-      <Route exact path="/minigame">
-        <GameStartPage />
+      <Route exact path="/testresult">
+        <TestResultPage />
       </Route>
 
       <Route exact path="/profile/:id">
         <ProfilePage />
       </Route>
+
+      <Route exact path="/testresult/:id">
+        <TestResultPage />
+      </Route>
+
     </>
   );
 } 

@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import { TiHeart } from "react-icons/ti";
 import getImgUrl from '../../../globalLogic';
+import JoinModal from '../joinModal/joinModal';
+import WelcomeModal from '../welcomeModal/welcomeModal';
+import NotifyModal from '../notifyModal/notifyModal';
+import RepoUrlModal from '../repoUrlModal/repoUrlModal';
+import { BsFillBellFill } from "react-icons/bs";
 
 const TeamIntroductionDom = styled.div`
   display: flex;
@@ -71,10 +76,17 @@ const ButtonDom = styled.div`
 
 const MsgButton = styled.div`
   flex-basis: 15%;
-  visibility: ${(props) => (props.msg ? "visible" : "hidden")};
   display : flex;
   justify-content: center;
   align-items: center;
+`;
+
+const NotifyButton = styled.div`
+  flex-basis: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 `;
 
 const JoinButton = styled.div`
@@ -89,6 +101,7 @@ const JoinButton = styled.div`
   padding-top: 2%;
   padding-bottom: 2%;
   color: white;
+  cursor : pointer;
 `;
 
 const ShareButton = styled.div`
@@ -104,9 +117,48 @@ const ShareButton = styled.div`
   color : white;
 `;
 
+const WelcomeDom = styled.div`
+  bottom: 55%;
+  position: absolute;
+  width: 50%;
+  height: 9%;
+  background-color: #a9d177;
+  border-radius: 100px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px dashed #13A74D;
+  box-sizing: content-box;
+`;
+
 
 
 const ChallengeIntro = (props) => {
+
+  const [joinModalOpen, setJoinModalOpen] = useState(false);
+  const [welcomeMsgOpen, setWelcomeMsgOpen] = useState(false);
+  const [repoUrlOpen, setRepoUrlOpen] = useState(false);
+
+  const handleJoinBtn = () => {
+    setJoinModalOpen(!joinModalOpen);
+  };
+
+  const handleAcceptBtn = () => {
+    setRepoUrlOpen(true);
+    setJoinModalOpen(false);
+  };
+
+  const handleRepoBtn = () => {
+    setRepoUrlOpen(false);
+    setWelcomeMsgOpen(true);
+  }
+
+  // useEffect(() => {
+  //   setTimeout(()=> setWelcomeMsgOpen(false), 7000);
+  // }, [welcomeMsgOpen])
+  
+  
   return (
     <TeamIntroductionDom>
       <TeamProfileImg src={props.challengeData.profileImgURL}></TeamProfileImg>
@@ -119,11 +171,36 @@ const ChallengeIntro = (props) => {
       </TeamMsgDom>
       <ButtonDom>
         <ShareButton>URL공유</ShareButton>
-        <JoinButton join={props.showJoinBtn}>참가하기</JoinButton>
+        <JoinButton join={props.showJoinBtn} onClick={handleJoinBtn}>
+          참가하기
+        </JoinButton>
         <MsgButton msg={props.showMsgBtn}>
           <TiHeart color="coral" size={35} />
         </MsgButton>
+        <NotifyButton>
+          <BsFillBellFill onClick={()=>{props.setNotifyModalOpen(true)}} color="orange" size={23} />
+        </NotifyButton>
       </ButtonDom>
+      {joinModalOpen ? (
+        <JoinModal
+          challName={props.challengeData.name}
+          handleJoinBtn={handleJoinBtn}
+          handleAcceptBtn={handleAcceptBtn}
+        />
+      ) : null}
+
+      {repoUrlOpen ? (
+        <RepoUrlModal handleRepoBtn={handleRepoBtn} setRepoUrlOpen={setRepoUrlOpen}/>
+      ):null}
+
+      {welcomeMsgOpen ? (
+        <WelcomeDom>
+          <WelcomeModal
+            setWelcomeMsgOpen={setWelcomeMsgOpen}
+            setNotifyModalOpen={props.setNotifyModalOpen}
+          />
+        </WelcomeDom>
+      ) : null}
     </TeamIntroductionDom>
   );
 }
