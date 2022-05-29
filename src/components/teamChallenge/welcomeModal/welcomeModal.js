@@ -27,7 +27,7 @@ const WelcomeModal = (props) => {
     const interval = setInterval(() => {
       setText(text + txt[count]); 
       setCount(count + 1); 
-    }, 110);
+    }, 70);
     if (count === txt.length) {
      
       clearInterval(interval); 

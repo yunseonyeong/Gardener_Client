@@ -4,6 +4,7 @@ import miniGameData from '../../data/miniGameData';
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { BiRightArrow, BiLeftArrow } from "react-icons/bi";
 import getImgUrl from '../../globalLogic';
+import TestResultPage from '../../pages/testResultPage/testResultPage';
 
 const MinigameDom = styled.div`
   position: absolute;
@@ -179,7 +180,8 @@ const Loader = styled.div`
     background-color: #ffc5ab;
   }
 
-  animation: ${move} 2s linear infinite;
+  animation: ${move} 1.1s linear infinite;
+  animation-iteration-count: 2;
 `;
 
 const LoadTitle = styled.div`
@@ -250,10 +252,20 @@ const Arrow = styled.div`
   height : 100%;
 `;
 
+const HandleResultPage = () => {
+  return(
+    <>
+    <Loader />
+    <LoadTitle>Loading ...</LoadTitle>
+    </>
+  );
+}
+
 const GameModal = (props) => {
   const [questionId, setQuestionId] = useState(1);
   const [selected, setSelected] = useState(miniGameData[0].selected);
   const [showResult, setShowResult] = useState(false);
+  const [showTestResult, setShowTestResult] = useState(false);
 
   const handleSelected = (selection_id) => {
     setSelected(selection_id);
@@ -278,6 +290,10 @@ const GameModal = (props) => {
 
   const handleResultBtn = () => {
     setShowResult(true);
+    setInterval(()=> {
+      setShowTestResult(true);
+      setShowResult(false);
+    }, 2200);
   }
 
   let arrow_arr = [1,2,3,4];
@@ -289,10 +305,12 @@ const GameModal = (props) => {
         <ExitBtnWrapper>
           <ExitButton onClick={props.handleStartBtn}>X</ExitButton>
         </ExitBtnWrapper>
-        {showResult ? (
+
+        {showTestResult ? (
+          <TestResultPage />
+        ) : showResult ? (
           <>
-            <Loader />
-            <LoadTitle>Loading ...</LoadTitle>
+            <HandleResultPage />
           </>
         ) : questionId == miniGameData.length + 1 ? (
           <>
@@ -312,56 +330,63 @@ const GameModal = (props) => {
             </GameQuestion>
             {questionId < 6 ? (
               <GameSelection>
-              <TwoSelection>
-                <Selection1>
-                  {miniGameData[questionId - 1].selection[0].selection_content}
-                </Selection1>
-                <Selection1>
-                  {miniGameData[questionId - 1].selection[1].selection_content}
-                </Selection1>
-              </TwoSelection>
-              <ArrowDom>
-                <Arrow>
-                  {arrow_arr.map(() => {
-                    return <BiLeftArrow color={"#B8B8B8"} />;
+                <TwoSelection>
+                  <Selection1>
+                    {
+                      miniGameData[questionId - 1].selection[0]
+                        .selection_content
+                    }
+                  </Selection1>
+                  <Selection1>
+                    {
+                      miniGameData[questionId - 1].selection[1]
+                        .selection_content
+                    }
+                  </Selection1>
+                </TwoSelection>
+                <ArrowDom>
+                  <Arrow>
+                    {arrow_arr.map(() => {
+                      return <BiLeftArrow color={"#B8B8B8"} />;
+                    })}
+                  </Arrow>
+                  <Arrow>
+                    {arrow_arr.map(() => {
+                      return <BiRightArrow color={"#B8B8B8"} />;
+                    })}
+                  </Arrow>
+                </ArrowDom>
+                <FiveSelection>
+                  {selection_arr.map((id) => {
+                    return (
+                      <Answer1
+                        onClick={() => {
+                          handleSelected(id);
+                          console.log(selected);
+                        }}
+                        selected={selected}
+                        selection_id={id}
+                      ></Answer1>
+                    );
                   })}
-                </Arrow>
-                <Arrow>
-                  {arrow_arr.map(() => {
-                    return <BiRightArrow color={"#B8B8B8"} />;
-                  })}
-                </Arrow>
-              </ArrowDom>
-              <FiveSelection>
-                {
-                  selection_arr.map((id)=> {
-                    return  <Answer1
-                  onClick={() => {
-                    handleSelected(id);
-                    console.log(selected);
-                  }}
-                  selected={selected}
-                  selection_id={id}
-                ></Answer1>
-                  })
-                }
-              </FiveSelection>
-            </GameSelection>
-            ):
-            (<GameSelection>{miniGameData[questionId - 1].selection.map((selection) => (
-                <SelectionItems
-                  onClick={() => {
-                    handleSelected(selection.selection_id);
-                  }}
-                  selected={selected}
-                  selection_id={selection.selection_id}
-                >
-                  {selection.selection_content}
-                </SelectionItems>
-              ))}</GameSelection>)
-            
-            }
-            
+                </FiveSelection>
+              </GameSelection>
+            ) : (
+              <GameSelection>
+                {miniGameData[questionId - 1].selection.map((selection) => (
+                  <SelectionItems
+                    onClick={() => {
+                      handleSelected(selection.selection_id);
+                    }}
+                    selected={selected}
+                    selection_id={selection.selection_id}
+                  >
+                    {selection.selection_content}
+                  </SelectionItems>
+                ))}
+              </GameSelection>
+            )}
+
             <Btn>
               <StyledBtn onClick={handleReturnBtn}>
                 <GrPrevious />
