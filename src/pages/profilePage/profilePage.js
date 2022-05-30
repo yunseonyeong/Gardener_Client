@@ -110,22 +110,21 @@ const Profilewrap = styled.div`
     display: flex;
     margin-bottom: 0.7rem;
     width: 90%;
-
     .Heart{
-        position: absolute;
-        right: 23%;
-        top: 8%;
+        margin-left: 35%;
         cursor: pointer;
+        width: 20%;
     }
 `;
 
 const TierImg = styled.img`
-width: 2rem;
+    width: 15%;
 `;
 
-const TierDom = styled.span`
+const TierDom = styled.div`
     margin-left : 2%;
-    margin-right: 1%;
+    width: 30%;
+    height: 10%;
 `;
 
 const contentbody = styled.div`
@@ -179,6 +178,23 @@ const handleTierLawn = (tier) => {
   }
 }
 
+const ChalDom = styled.div`
+    display: flex;
+    flex-direction:column;
+    justify-content: center ;
+    align-items: center;
+    flex:2;
+`;
+
+const ListTitle = styled.div`
+    display: flex;
+    margin-bottom: 3%;
+    font-family: 'dungeunmo';
+    `;
+
+const ListImg = styled.img`
+    max-width: 60%;
+`;
 
 const ProfilePage = () => {
     const [profileData, setProfileData] = useState([]);
@@ -186,34 +202,154 @@ const ProfilePage = () => {
     const {profileId}=useParams();
     const [messageModalOpen, setMessageModalOpen]= useState(false);
     const [levelUp, setLevelUp]=useState(false);
+    const [bgColor, setBgColor] = useState([]);
 
     const handleModal = () => {
         setMessageModalOpen(!messageModalOpen); 
     }
 
     const fetchData = async ()=>{
-        const data = await axios.get(`http://localhost:8000/api/user/${profileId}`)
-        setProfileData(data.data.profile);
-        setListData(data.data.challenges);
-        console.log(data.data.profile);
-        console.log(profileData);
-        // const data=profilePageData;
-        // setProfileData(data.profile);
-        // setListData(data.challenges);
+        // const data = await axios.get(`http://localhost:8000/api/user/${profileId}`)
+        // setProfileData(data.data.profile);
+        // setListData(data.data.challenges);
+        // console.log(data.data.profile);
         // console.log(profileData);
+        const data=profilePageData;
+        console.log(data);
+        setProfileData(data.profile);
+        setListData(data.challenges);
+        console.log(profileData);
+        console.log(listData);
     }
 
     useEffect(() => {
         fetchData();
-        
-    
-      }, [])
+      }, []);
 
-      useEffect(() => {
+    useEffect(() => {
         if(profileData.levelup===true){
             setLevelUp(true);
         }
-      }, [])
+      }, [profileData])
+
+      const SelectTierImg = (tier,tierNum) => {
+        if(tier === "bronze"){
+            if(tierNum === 1){
+              return <TierImg src={getImgUrl("bronze1")}/>;
+            }
+            else if(tierNum === 2){
+              return <TierImg src={getImgUrl("bronze2")}/>;
+            }
+            else if(tierNum === 3){
+              return <TierImg src={getImgUrl("bronze3")}/>;
+            }
+            else if(tierNum === 4){
+              return <TierImg src={getImgUrl("bronze4")}/>;
+            }
+            else if(tierNum === 5){
+              return <TierImg src={getImgUrl("bronze5")}/>;
+            }
+          }
+          else if(tier === "silver"){
+           if(tierNum === 1){
+              return <TierImg src={getImgUrl("silver1")}/>;
+            }
+            else if(tierNum === 2){
+              return <TierImg src={getImgUrl("silver2")}/>;
+            }
+            else if(tierNum === 3){
+              return <TierImg src={getImgUrl("silver3")}/>;
+            }
+            else if(tierNum === 4){
+              return <TierImg src={getImgUrl("silver4")}/>;
+            }
+            else if(tierNum === 5){
+              return <TierImg src={getImgUrl("silver5")}/>;
+            }
+          }
+          else if(tier === "pink"){
+            if(tierNum === 1){
+              return <TierImg src={getImgUrl("pink1")}/>;
+            }
+            else if(tierNum === 2){
+              console.log(tierNum);
+              return <TierImg src={getImgUrl("pink2")}/>;
+            }
+            else if(tierNum === 3){
+              return <TierImg src={getImgUrl("pink3")}/>;
+            }
+            else if(tierNum === 4){
+              return <TierImg src={getImgUrl("pink4")}/>;
+            }
+            else if(tierNum === 5){
+              return <TierImg src={getImgUrl("pink5")}/>;
+            }
+          }
+          else if(tier === "purple"){
+            if(tierNum === 1){
+              return <TierImg src={getImgUrl("purple1")}/>;
+            }
+            else if(tierNum === 2){
+              return <TierImg src={getImgUrl("purple2")}/>;
+            }
+            else if(tierNum === 3){
+              return <TierImg src={getImgUrl("purple3")}/>;
+            }
+            else if(tierNum === 4){
+              return <TierImg src={getImgUrl("purple4")}/>;
+            }
+            else if(tierNum === 5){
+              return <TierImg src={getImgUrl("purple5")}/>;
+            }
+          }
+          else if(tier === "platinum"){
+            if(tierNum === 1){
+              return <TierImg src={getImgUrl("platinum1")}/>;
+            }
+            else if(tierNum === 2){
+              return <TierImg src={getImgUrl("platinum2")}/>;
+            }
+            else if(tierNum === 3){
+              return <TierImg src={getImgUrl("platinum3")}/>;
+            }
+            else if(tierNum === 4){
+              return <TierImg src={getImgUrl("platinum4")}/>;
+            }
+            else if(tierNum === 5){
+              return <TierImg src={getImgUrl("platinum5")}/>;
+            }
+          }
+      }
+
+      const SelectLogoImg = (tier) => {
+        if(tier === "bronze"){
+            return <Logo src={getImgUrl("boyLogo")} />;
+          }
+          else if(tier === "silver"){
+            return <Logo src={getImgUrl("boyLogo2")} />;
+          }
+          else if(tier === "pink"){
+            return <Logo src={getImgUrl("boyLogo3")} />;
+          }
+          else if(tier === "purple"){
+            return <Logo src={getImgUrl("boyLogo4")} />;
+          }
+          else if(tier === "platinum"){
+            return 'BLUE';
+          }
+      }
+
+      useEffect(()=>{
+        if(profileData.tierType === "bronze"){
+          setBgColor(["#8ed49c","#5fb871"]);
+        }
+        else if(profileData.tierType === "pink"){
+          setBgColor(["#d98fd0","#a85993"]);
+        }
+        else if(profileData.tierType === "purple"){
+          setBgColor(["#a882cf","#723491"]);
+        }
+      },[profileData])
 
     return(
         <ProfileWrapper>
@@ -228,23 +364,20 @@ const ProfilePage = () => {
                     <UserName>{profileData.nickname}</UserName>
                     </NameDom>
                     <TierDom>
-                    <TierImg src={getImgUrl("flower")}/>
+                    {SelectTierImg(profileData.tierType, profileData.tierNum)}
                     </TierDom>
                     <TiHeart color="coral" size={35} className="Heart" onClick={handleModal}/>
                     {messageModalOpen&&<MessageModal setMessageModalOpen={setMessageModalOpen}/>}
                     </Profilewrap>
-                        <ExpBar tierType = {profileData.tierType} getexp = {profileData.exp} />
                         
-                    {/* <MbtiName>{profileData.devType}</MbtiName> */}
-                    
-                    
+                        <ExpBar bgcolor = {bgColor} getexp = {profileData.exp} />
                 </ProfileDom>
                 
             </ExpBarWrapper>
 
             <GardenWrapper>
             <LogoDom>
-                    <Logo src={getImgUrl("boyLogo")} />
+                   {SelectLogoImg(profileData.tierType)}
             </LogoDom>
                 <GitLawn username = {GITHUB_USERNAME} month={4} grassSpan={20} grassShape={"Circle"} color={handleTierLawn(profileData.tierType)}/>
             </GardenWrapper>
@@ -255,6 +388,12 @@ const ProfilePage = () => {
                 </ChallengeTitleDom>
                 <ChallengeBodyDom>
                     <ChallengeContents listData = {listData}/>
+                    <Link to={`/challenge/${listData.challengeId}`}>
+                        <ChalDom>
+                            <ListTitle>{listData.challengeTitle}</ListTitle>
+                            <ListImg src={listData.challengeImgURL}/>
+                        </ChalDom>
+                    </Link>
                 </ChallengeBodyDom>
             </ChallengeListWrapper>
             <GrassFooter src={getImgUrl("basicgrass")} />

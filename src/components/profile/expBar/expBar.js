@@ -4,7 +4,7 @@ import styled from "styled-components";
 const expBar = (props) => {
     
     const {bgcolor, getexp} = props;
-    
+    console.log(bgcolor);
     const ContainerStyle = {
         height:30,
         width: '80%',
@@ -15,7 +15,7 @@ const expBar = (props) => {
     const FilterStyle = styled.div`
         height: 100%;
         width: ${getexp}%;
-        background: linear-gradient(90deg, #519259 0%, #7FC087 100%);
+        background: linear-gradient(90deg, ${bgcolor[0]} 0%, ${bgcolor[1]} 100%);
         border-radius: 10px;
         text-align: 'right';
     `;

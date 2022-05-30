@@ -6,14 +6,14 @@ const profilePageData = {
         nickname: "yunsyonng",
         devType: "폭신한 라일락",
         exp: 80,
-        tierType: "diamond",
+        tierType: "purple",
         tierNum: 2,
-        levelup:true,
+        levelup:false,
     },
     challenges: [
         {
             challengeId: 12345,
-            challengeImgURL: getImg("gardenerch"),
+            challengeImgURL: getImg("im3"),
             challengeTitle: "선영이와 아이들",
             todayCommit: true,
         },
