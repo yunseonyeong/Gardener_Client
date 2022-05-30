@@ -1,4 +1,4 @@
-import React,{ useEffect, useState } from "react";
+import React,{ useEffect, useState, Link } from "react";
 import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
 import styled from "styled-components";
 import getImgUrl from '../../globalLogic';
@@ -191,13 +191,15 @@ const TestResultPage = () => {
             <RecCAUTitle> &lt;중앙대학교&gt; 정원사를 찾나요?</RecCAUTitle>
             <RecCAUBody>
               <ImgDom>
+                
                 <CauImg src={getImgUrl("rin")} />
+                
               </ImgDom>
               <ImgDom>
-                <CauImg src={getImgUrl("rin")} />
+                <CauImg src={getImgUrl("soo")} />
               </ImgDom>
               <ImgDom>
-                <CauImg src={getImgUrl("rin")} />
+                <CauImg src={getImgUrl("mapage")} />
               </ImgDom>
             </RecCAUBody>
           </RecCAUBodyWrapper>
