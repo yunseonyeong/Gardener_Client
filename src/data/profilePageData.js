@@ -2,11 +2,11 @@ import getImg from "../globalLogic";
 
 const profilePageData = {
     profile:{
-        Id: 135,
+        Id: 2,
         nickname: "yunsyonng",
         devType: "폭신한 라일락",
-        exp: 60,
-        tierType: "diamond",
+        exp: 97,
+        tierType: "purple",
         tierNum: 2,
     },
     challenges: [
