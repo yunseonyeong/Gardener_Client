@@ -4,7 +4,6 @@ import styled from "styled-components";
 import getImgUrl from '../../globalLogic';
 import ExpBar from "../../components/profile/expBar/expBar";
 import { GitLawn } from "git-lawn-hackathon";
-import { AiOutlineMessage } from "react-icons/ai";
 import MessageModal from "../../components/profile/mModal/mModal";
 import ChallengeState from "../../components/profile/challengebox/challengeList";
 import ChallengeContents from "../../components/profile/challengebox/challengeContents";
@@ -12,6 +11,8 @@ import profilePageData from "../../data/profilePageData";
 import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
 import {useParams} from 'react-router-dom';
 import axios from "axios";
+import LevelUpModal from "../../components/profile/mModal/levelUpModal";
+import { TiHeart } from "react-icons/ti";
 
 const ProfileWrapper = styled.div`
     display: flex;
@@ -106,9 +107,15 @@ const GrassFooter = styled.img`
 `;
 
 const Profilewrap = styled.div`
-    display: flex;
-    margin-bottom: 0.7rem;
-    width: 90%;
+  display: flex;
+  margin-bottom: 0.7rem;
+  width: 90%;
+  .Heart {
+    position: absolute;
+    right: 23%;
+    top: 8%;
+    cursor: pointer;
+  }
 `;
 
 const TierImg = styled.img`
@@ -158,69 +165,89 @@ const handleTierLawn = (tier) => {
 const ProfilePage = () => {
     const [profileData, setProfileData] = useState([]);
     const [listData, setListData] = useState([]);
-    const {profileId}=useParams();
+    const {id}=useParams();
+    const [messageModalOpen, setMessageModalOpen] = useState(false);
+    const [levelUp, setLevelUp] = useState(false);
 
     const fetchData = async ()=>{
-        const data = await axios.get('http://localhost:8000/api/user/1')
-        setProfileData(data.data.profile);
-        setListData(data.data.challenges);
-        console.log(data.data.profile);
-        console.log(profileData);
+        // const data = await axios.get('http://localhost:8000/api/user/${id}')
+        // setProfileData(data.data.profile);
+        // setListData(data.data.challenges);
+        // console.log(data.data.profile);
+        // console.log(profileData);
+        const data = profilePageData;
+        setProfileData(data.profile);
+        setListData(data.challenges);
     }
 
     useEffect(() => {
         fetchData();
-        
-    
       }, [])
 
       useEffect(() => {
-        
+        if (profileData.levelup === true) {
+          setLevelUp(true);
+        }
       }, [profileData])
 
-    return(
-        <ProfileWrapper>
-            <BasicNavTop />
+      const handleModal = () => {
+        setMessageModalOpen(!messageModalOpen);
+      };
 
-            <ExpBarWrapper>
-                <ProfileDom>
-                    {/* <UserName>{profileData.nickname}</UserName> */}
-                    <Profilewrap>
-                    <NameDom>
-                    <MbtiName>{profileData.devType}</MbtiName>
-                    <UserName>{profileData.nickname}</UserName>
-                    </NameDom>
-                    <TierDom>
-                    <TierImg src={getImgUrl("flower")}/>
-                    </TierDom>
-                    <MessageModal />
-                    </Profilewrap>
-                        <ExpBar tierType = {profileData.tierType} getexp = "60" />
-                        
-                    {/* <MbtiName>{profileData.devType}</MbtiName> */}
-                    
-                    
-                </ProfileDom>
-                
-            </ExpBarWrapper>
+    return (
+      <ProfileWrapper>
+        <BasicNavTop />
 
-            <GardenWrapper>
-            <LogoDom>
-                    <Logo src={getImgUrl("boyLogo")} />
-            </LogoDom>
-                <GitLawn username = {GITHUB_USERNAME} month={4} grassSpan={20} grassShape={"Circle"} color={handleTierLawn(profileData.tierType)}/>
-            </GardenWrapper>
+        <ExpBarWrapper>
+          <ProfileDom>
+            {/* <UserName>{profileData.nickname}</UserName> */}
+            <Profilewrap>
+              <NameDom>
+                <MbtiName>{profileData.devType}</MbtiName>
+                <UserName>{profileData.nickname}</UserName>
+              </NameDom>
+              <TierDom>
+                <TierImg src={getImgUrl("flower")} />
+              </TierDom>
+              <TiHeart
+                color="coral"
+                size={35}
+                className="Heart"
+                onClick={handleModal}
+              />
+              {messageModalOpen && (
+                <MessageModal setMessageModalOpen={setMessageModalOpen} />
+              )}
+            </Profilewrap>
+            <ExpBar tierType={profileData.tierType} getexp={profileData.exp} />
 
-            <ChallengeListWrapper>
-                <ChallengeTitleDom>
-                    <ChallengeState />
-                </ChallengeTitleDom>
-                <ChallengeBodyDom>
-                    <ChallengeContents listData = {listData}/>
-                </ChallengeBodyDom>
-            </ChallengeListWrapper>
-            <GrassFooter src={getImgUrl("basicgrass")} />
-        </ProfileWrapper>
+            {/* <MbtiName>{profileData.devType}</MbtiName> */}
+          </ProfileDom>
+        </ExpBarWrapper>
+
+        <GardenWrapper>
+          <LogoDom>
+            <Logo src={getImgUrl("boyLogo4")} />
+          </LogoDom>
+          <GitLawn
+            username={GITHUB_USERNAME}
+            month={4}
+            grassSpan={20}
+            grassShape={"Circle"}
+            color={handleTierLawn(profileData.tierType)}
+          />
+        </GardenWrapper>
+
+        <ChallengeListWrapper>
+          <ChallengeTitleDom>
+            <ChallengeState />
+          </ChallengeTitleDom>
+          <ChallengeBodyDom>
+            <ChallengeContents listData={listData} />
+          </ChallengeBodyDom>
+        </ChallengeListWrapper>
+        <GrassFooter src={getImgUrl("basicgrass")} />
+      </ProfileWrapper>
     );
 };
 
