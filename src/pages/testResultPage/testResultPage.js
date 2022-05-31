@@ -193,9 +193,9 @@ const TestResultPage = () => {
             <RecCAUTitle> &lt;중앙대학교&gt; 정원사를 찾나요?</RecCAUTitle>
             <RecCAUBody>
               <ImgDom>
-                
-                <CauImg src={getImgUrl("rin")} />
-                
+                <Link to={`/profile/${1}`}>
+                  <CauImg src={getImgUrl("rin")} />
+                </Link>
               </ImgDom>
               <ImgDom>
                 <CauImg src={getImgUrl("soo")} />
