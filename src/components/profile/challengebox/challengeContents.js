@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {Link} from 'react-router-dom';
+import getImgUrl from "../../../globalLogic";
 
 const ListTitle = styled.div`
     display: flex;
@@ -35,10 +36,10 @@ const ChallengeContents = (props) => {
             {
                 props.listData.map((data)=>{
                     return(
-                        <Link to={`/challenge/${data.challengeId}`}>
+                        <Link to={`/challenge/${data.challengeId}`} style={{ color : "black", textDecoration: "none" }}>
                         <ChalDom>
                             <ListTitle>{data.challengeTitle}</ListTitle>
-                            <ListImg src={data.challengeImgURL}/>
+                            <ListImg src={getImgUrl(data.challengeImgURL)}/>
                         </ChalDom>
                         </Link>
                     );

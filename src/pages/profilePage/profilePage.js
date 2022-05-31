@@ -78,6 +78,7 @@ const MbtiName = styled.span`
     font-size: 0.9rem;
     margin-left: 2%;
     margin-right: 1%;
+    width: 100%;
 `;
 
 const ChallengeTitleDom = styled.div`
@@ -85,17 +86,14 @@ const ChallengeTitleDom = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 5%;
-    margin-left: 10%;
+    margin-top: 3%;
 `;
 
 const ChallengeBodyDom = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
-    margin-top: 2%;
-    margin-left: 5%;
+    margin-top : 2%;
 `;
 
 const GrassFooter = styled.img`
@@ -112,9 +110,7 @@ const Profilewrap = styled.div`
     width: 90%;
 
     .Heart{
-        position: absolute;
-        right: 23%;
-        top: 8%;
+        margin-left:65%;
         cursor: pointer;
     }
 `;
@@ -153,6 +149,7 @@ const LevelUpDom = styled.div`
   align-items: center;
   border: 5px dashed #13A74D;
   box-sizing: content-box;
+  font-family : 'dungeunmo';
 `;
 
 const GITHUB_USERNAME = "leobang17";
@@ -183,7 +180,7 @@ const handleTierLawn = (tier) => {
 const ProfilePage = () => {
     const [profileData, setProfileData] = useState([]);
     const [listData, setListData] = useState([]);
-    const {profileId}=useParams();
+    const {id}=useParams();
     const [messageModalOpen, setMessageModalOpen]= useState(false);
     const [levelUp, setLevelUp]=useState(false);
 
@@ -192,28 +189,30 @@ const ProfilePage = () => {
     }
 
     const fetchData = async ()=>{
-        const data = await axios.get(`http://localhost:8000/api/user/${profileId}`)
+        /*
+        const data = await axios.get(`http://localhost:8000/api/user/${id}`)
         setProfileData(data.data.profile);
         setListData(data.data.challenges);
         console.log(data.data.profile);
-        console.log(profileData);
-        // const data=profilePageData;
-        // setProfileData(data.profile);
-        // setListData(data.challenges);
-        // console.log(profileData);
+        console.log(data.data.challenges);
+        console.log('----------------------------------------------------');
+        console.log(listData);
+        */
+         const data=profilePageData;
+         setProfileData(data.profile);
+         setListData(data.challenges);
+         console.log(profileData);
     }
 
     useEffect(() => {
         fetchData();
-        
-    
-      }, [])
+      },[])
 
       useEffect(() => {
         if(profileData.levelup===true){
             setLevelUp(true);
         }
-      }, [])
+      }, [profileData])
 
     return(
         <ProfileWrapper>

@@ -22,8 +22,7 @@
 }
 
 
-.logoutBtn {
-  color: white;
+.mypageBtn {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -35,6 +34,6 @@
 
 .buttons{
   display: flex;
-  width:19%;
+  width:21%;
   justify-content: space-around;
 }

@@ -44,6 +44,8 @@ const SendModalBtn = styled.div`
     border-radius: 5px;
     justify-content: center;
     align-items: center;
+    cursor : pointer;
+    
 `;
 
 const BtnWrapper = styled.div`
@@ -51,7 +53,10 @@ const BtnWrapper = styled.div`
   width : 100%;
   justify-content: center;
   flex-basis: 12%;
+  padding-top : 3%;
   margin-top : 4%;
+  font-family :'dungeunmo';
+  font-size : 0.8rem;
   
 `;
 
@@ -62,24 +67,16 @@ const MessageField = styled.div`
     justify-content: center;
     font-family: 'dungeunmo';
     font-weight: 400;
-    font-size: 0.9rem;
+    font-size: 1.rem;
 `;
 
 const InputField = styled.input`
-    border-left-width:0;
-    border-right-width:0;
-    border-top-width:0;
-    border-bottom-width:1;
-    width: 80%;
+    margin-top :1%;
+    width: 70%;
+    height : 100px;
 `;
 
-const sendToField = styled.input`
-border-left-width:0;
-border-right-width:0;
-border-top-width:0;
-border-bottom-width:1;
-width: 60%;
-`;
+
 
 const MessageModal = (props) => {
 
@@ -87,9 +84,6 @@ const MessageModal = (props) => {
         <MessageModalDom>
             <MessageField>쪽지 보내기</MessageField>
             <MessageField><InputField/></MessageField>
-            <MessageField><InputField /></MessageField>
-            <MessageField><InputField /></MessageField>
-            <MessageField><InputField /></MessageField>
             <BtnWrapper>
                 <CloseModalBtn onClick={()=>{props.setMessageModalOpen(false)}}>취소</CloseModalBtn>
                 <SendModalBtn onClick={()=>{props.setMessageModalOpen(false)}}>보내기</SendModalBtn>

@@ -8,6 +8,7 @@ import NotifyModal from '../notifyModal/notifyModal';
 import RepoUrlModal from '../repoUrlModal/repoUrlModal';
 import { BsFillBellFill } from "react-icons/bs";
 
+
 const TeamIntroductionDom = styled.div`
   display: flex;
   margin: 1%;
@@ -161,7 +162,7 @@ const ChallengeIntro = (props) => {
   
   return (
     <TeamIntroductionDom>
-      <TeamProfileImg src={props.challengeData.profileImgURL}></TeamProfileImg>
+      <TeamProfileImg src={getImgUrl(props.challengeData.profileImgURL)}></TeamProfileImg>
       <TeamTitleDom>
         <TeamTitle>{props.challengeData.name}</TeamTitle>
         <TeamDate>{props.challengeData.date}~</TeamDate>

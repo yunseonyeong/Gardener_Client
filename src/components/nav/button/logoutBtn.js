@@ -4,9 +4,11 @@ import { Link, useParams } from "react-router-dom";
 const LogoutBtn = () => {
   let { id } = useParams();
   return (
-    <Link to={`/profile/${id}`}>
-      <div className="logoutBtn">My Page</div>
-    </Link>
+    <div className="mypageBtn">
+      <Link to={`/profile/${id}`} style={{textDecoration:'none', color:'white'}}>
+        <div>My Page</div>
+      </Link>
+    </div>
   );
 };
 
