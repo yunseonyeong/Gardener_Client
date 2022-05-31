@@ -132,8 +132,15 @@ const AwakeBtn = styled.div`
   cursor: pointer;
 `;
 
-
-
+const SuccessModal = styled.div`
+  width : 300px;
+  position : absolute;
+  z-index: 4;
+  left : 50%;
+  height: 100px;
+  background-color: gray;
+  color: white;
+`;
 
 const MemberIntro = (props) => {
   const [awakeTodayCommit, setAwakeTodayCommit] = useState(false);
@@ -157,6 +164,9 @@ const MemberIntro = (props) => {
     setAwakeTodayCommit(false);
   }
 
+  const [success, setSuccess] = useState(false);
+  
+
   return (
     <MemberIntroDom>
       <MemberTitle>Members</MemberTitle>
@@ -166,6 +176,9 @@ const MemberIntro = (props) => {
       </TitleDom>
       <MemListDom>
         {props.memberData.map((data) => {
+          if(data.name === "yunseonyeong" && data.todayCommit === true){
+            setSuccess(true);
+          }
           return (
             <MemListItem>
               <MemProfile>
@@ -205,6 +218,9 @@ const MemberIntro = (props) => {
             </AwakeButtonDom>
           </AwakeModal>
         ) : null}
+        {success ? (
+          <SuccessModal>타임어택 성공 !!!</SuccessModal>
+        ):<></>}
       </MemListDom>
     </MemberIntroDom>
   );
