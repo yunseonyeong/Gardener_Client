@@ -1,4 +1,3 @@
-import getImg from "../globalLogic";
 
 const profilePageData = {
     profile:{
@@ -12,7 +11,7 @@ const profilePageData = {
     },
     challenges: [
         {
-            challengeId: 12346,
+            challengeId: 2,
             challengeImgURL: "gardenerch1",
             challengeTitle: "Cau 알고리즘",
             todayCommit: true,
