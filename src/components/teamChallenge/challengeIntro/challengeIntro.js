@@ -162,7 +162,7 @@ const ChallengeIntro = (props) => {
   
   return (
     <TeamIntroductionDom>
-      <TeamProfileImg src={props.challengeData.profileImgURL}></TeamProfileImg>
+      <TeamProfileImg src={getImgUrl(props.challengeData.profileImgURL)}></TeamProfileImg>
       <TeamTitleDom>
         <TeamTitle>{props.challengeData.name}</TeamTitle>
         <TeamDate>{props.challengeData.date}~</TeamDate>
