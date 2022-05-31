@@ -152,6 +152,7 @@ const ChallengeIntro = (props) => {
 
   const handleRepoBtn = () => {
     setRepoUrlOpen(false);
+    props.fetchData();
     setWelcomeMsgOpen(true);
   }
 

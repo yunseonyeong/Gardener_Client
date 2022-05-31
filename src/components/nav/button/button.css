@@ -17,18 +17,19 @@
   align-items: center;
   background: #51C15F;
   border-radius: 15px;
-  flex-basis: 22%;
+  flex-basis: 28%;
   padding : 0.4%;
 }
 
 
 .mypageBtn {
+  color: white;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background: #51C15F;
   border-radius: 15px;
-  flex-basis: 27%;
+  flex-basis: 25%;
   padding : 0.4%;
 }
 
