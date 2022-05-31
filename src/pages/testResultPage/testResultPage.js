@@ -1,4 +1,4 @@
-import React,{ useEffect, useState, Link } from "react";
+import React,{ useEffect, useState} from "react";
 import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
 import styled from "styled-components";
 import getImgUrl from '../../globalLogic';

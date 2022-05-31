@@ -93,7 +93,7 @@ const RepoUrlModal = (props) => {
         챌린지에 연동할 Git <br /> 레포지토리 주소를 입력하세요.
       </RepoTitleMsg>
       <RepoInputDom>
-        <RepoInputBox name="input" value={repoInput} onChange={handelInputChange}/>
+        <RepoInputBox name="input" value={repoInput} onChange={handelInputChange}  autocomplete="off" />
       </RepoInputDom>
       <BtnWrapper>
         <ExitYesButton bgcolor={"#51C15F"} onClick={()=>{putRepoUrl(repoInput)}}>확인</ExitYesButton>

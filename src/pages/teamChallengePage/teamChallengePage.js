@@ -81,7 +81,7 @@ const ChallengePage = () => {
   const [notifyModalOpen, setNotifyModalOpen] = useState(false);
   const [showTimer, setShowTimer] = useState(false);
 
-  const targetTime = '2022-05-29T20:00:00.000Z';
+  const targetTime = '2022-05-31T20:00:00.000Z';
 
 
   let {id} = useParams();
