@@ -71,9 +71,6 @@ const Dom = styled.div`
 
 const ChallengePage = () => {
 
-
-  
-
   const [challengeData, setChallengeData] = useState({});
   const [memberData, setMemberData] = useState([])
   const [showMsgBtn, setShowMsgBtn] = useState(false);
@@ -96,7 +93,6 @@ const ChallengePage = () => {
    // const data = await axios.get("http://localhost:8000/api/challenge/2");
     const data = await axios.get(`http://localhost:8000/api/challenge/${id}`);
     // const data = challengePageData;
-    console.log(data);
 
     setChallengeData(data.data.challenge);
     setMemberData(data.data.members);
