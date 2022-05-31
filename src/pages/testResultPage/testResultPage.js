@@ -4,6 +4,7 @@ import styled from "styled-components";
 import getImgUrl from '../../globalLogic';
 import FriendList from "../../data/friendList";
 import RecommandFriend from "../../components/testResult/RecomFriend";
+import {useParams, Link} from 'react-router-dom';
 
 const BodyWrapper = styled.div`
     display: flex;
@@ -147,6 +148,7 @@ const CauImg = styled.img`
 
 const TestResultPage = () => {
     const [friendData, setFriendData] = useState([]);
+    const {id}=useParams();
     const fetchData = ()=>{
         const data = FriendList;
         return data;

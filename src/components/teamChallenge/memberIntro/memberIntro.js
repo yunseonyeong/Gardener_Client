@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import { RiVipCrown2Fill } from "react-icons/ri";
-import axios from 'axios'; 
-import getImgUrl from '../../../globalLogic';
+import axios from 'axios';
+import getImgUrl from "../../../globalLogic"; 
 
 const MemberIntroDom = styled.div`
   display: flex;
@@ -38,7 +38,9 @@ const MemListItem = styled.div`
   display: flex;
 `;
 
-const MemProfileImg = styled.img``;
+const MemProfileImg = styled.img`{
+  max-width: 60%;
+}`;
 
 const MemInformation = styled.div`
   display: flex;

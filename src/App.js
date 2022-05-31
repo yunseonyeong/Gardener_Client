@@ -33,6 +33,11 @@ function App() {
       <Route exact path="/profile/:id">
         <ProfilePage />
       </Route>
+
+      <Route exact path="/testresult/:id">
+        <TestResultPage />
+      </Route>
+
     </>
   );
 } 

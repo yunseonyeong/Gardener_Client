@@ -9,10 +9,10 @@ import ChallengeState from "../../components/profile/challengebox/challengeList"
 import ChallengeContents from "../../components/profile/challengebox/challengeContents";
 import profilePageData from "../../data/profilePageData";
 import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 import axios from "axios";
-import LevelUpModal from "../../components/profile/mModal/levelUpModal";
 import { TiHeart } from "react-icons/ti";
+import LevelUpModal from "../../components/profile/mModal/levelUpModal";
 
 const ProfileWrapper = styled.div`
     display: flex;
@@ -78,6 +78,7 @@ const MbtiName = styled.span`
     font-size: 0.9rem;
     margin-left: 2%;
     margin-right: 1%;
+    width: 100%;
 `;
 
 const ChallengeTitleDom = styled.div`
@@ -85,17 +86,14 @@ const ChallengeTitleDom = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 5%;
-    margin-left: 10%;
+    margin-top: 3%;
 `;
 
 const ChallengeBodyDom = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
-    margin-top: 2%;
-    margin-left: 5%;
+    margin-top : 2%;
 `;
 
 const GrassFooter = styled.img`
@@ -107,15 +105,14 @@ const GrassFooter = styled.img`
 `;
 
 const Profilewrap = styled.div`
-  display: flex;
-  margin-bottom: 0.7rem;
-  width: 90%;
-  .Heart {
-    position: absolute;
-    right: 23%;
-    top: 8%;
-    cursor: pointer;
-  }
+    display: flex;
+    margin-bottom: 0.7rem;
+    width: 90%;
+
+    .Heart{
+        margin-left:65%;
+        cursor: pointer;
+    }
 `;
 
 const TierImg = styled.img`
@@ -137,6 +134,24 @@ const NameDom = styled.div`
     display:flex;
     flex-direction : column;
 `;
+
+const LevelUpDom = styled.div`
+  left: 25%;
+  bottom: 55%;
+  position: absolute;
+  width: 50%;
+  height: 9%;
+  background-color: #a9d177;
+  border-radius: 100px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px dashed #13A74D;
+  box-sizing: content-box;
+  font-family : 'dungeunmo';
+`;
+
 const GITHUB_USERNAME = "leobang17";
 
 // const testData = [
@@ -166,88 +181,91 @@ const ProfilePage = () => {
     const [profileData, setProfileData] = useState([]);
     const [listData, setListData] = useState([]);
     const {id}=useParams();
-    const [messageModalOpen, setMessageModalOpen] = useState(false);
-    const [levelUp, setLevelUp] = useState(false);
+    const [messageModalOpen, setMessageModalOpen]= useState(false);
+    const [levelUp, setLevelUp]=useState(false);
+
+    const handleModal = () => {
+        setMessageModalOpen(!messageModalOpen); 
+    }
 
     const fetchData = async ()=>{
-        // const data = await axios.get('http://localhost:8000/api/user/${id}')
-        // setProfileData(data.data.profile);
-        // setListData(data.data.challenges);
-        // console.log(data.data.profile);
-        // console.log(profileData);
-        const data = profilePageData;
-        setProfileData(data.profile);
-        setListData(data.challenges);
+        /*
+        const data = await axios.get(`http://localhost:8000/api/user/${id}`)
+        setProfileData(data.data.profile);
+        setListData(data.data.challenges);
+        console.log(data.data.profile);
+        console.log(data.data.challenges);
+        console.log('----------------------------------------------------');
+        console.log(listData);
+        */
+         const data=profilePageData;
+         setProfileData(data.profile);
+         setListData(data.challenges);
+         console.log(profileData);
     }
 
     useEffect(() => {
         fetchData();
-      }, [])
+      },[])
 
       useEffect(() => {
-        if (profileData.levelup === true) {
-          setLevelUp(true);
+        if(profileData.levelup===true){
+            setLevelUp(true);
         }
       }, [profileData])
 
-      const handleModal = () => {
-        setMessageModalOpen(!messageModalOpen);
-      };
+    return(
+        <ProfileWrapper>
+            <BasicNavTop />
 
-    return (
-      <ProfileWrapper>
-        <BasicNavTop />
+            <ExpBarWrapper>
+                <ProfileDom>
+                    {/* <UserName>{profileData.nickname}</UserName> */}
+                    <Profilewrap>
+                    <NameDom>
+                    <MbtiName>{profileData.devType}</MbtiName>
+                    <UserName>{profileData.nickname}</UserName>
+                    </NameDom>
+                    <TierDom>
+                    <TierImg src={getImgUrl("flower")}/>
+                    </TierDom>
+                    <TiHeart color="coral" size={35} className="Heart" onClick={handleModal}/>
+                    {messageModalOpen&&<MessageModal setMessageModalOpen={setMessageModalOpen}/>}
+                    </Profilewrap>
+                        <ExpBar tierType = {profileData.tierType} getexp = {profileData.exp} />
+                        
+                    {/* <MbtiName>{profileData.devType}</MbtiName> */}
+                    
+                    
+                </ProfileDom>
+                
+            </ExpBarWrapper>
 
-        <ExpBarWrapper>
-          <ProfileDom>
-            {/* <UserName>{profileData.nickname}</UserName> */}
-            <Profilewrap>
-              <NameDom>
-                <MbtiName>{profileData.devType}</MbtiName>
-                <UserName>{profileData.nickname}</UserName>
-              </NameDom>
-              <TierDom>
-                <TierImg src={getImgUrl("flower")} />
-              </TierDom>
-              <TiHeart
-                color="coral"
-                size={35}
-                className="Heart"
-                onClick={handleModal}
-              />
-              {messageModalOpen && (
-                <MessageModal setMessageModalOpen={setMessageModalOpen} />
-              )}
-            </Profilewrap>
-            <ExpBar tierType={profileData.tierType} getexp={profileData.exp} />
+            <GardenWrapper>
+            <LogoDom>
+                    <Logo src={getImgUrl("boyLogo")} />
+            </LogoDom>
+                <GitLawn username = {GITHUB_USERNAME} month={4} grassSpan={20} grassShape={"Circle"} color={handleTierLawn(profileData.tierType)}/>
+            </GardenWrapper>
 
-            {/* <MbtiName>{profileData.devType}</MbtiName> */}
-          </ProfileDom>
-        </ExpBarWrapper>
-
-        <GardenWrapper>
-          <LogoDom>
-            <Logo src={getImgUrl("boyLogo4")} />
-          </LogoDom>
-          <GitLawn
-            username={GITHUB_USERNAME}
-            month={4}
-            grassSpan={20}
-            grassShape={"Circle"}
-            color={handleTierLawn(profileData.tierType)}
-          />
-        </GardenWrapper>
-
-        <ChallengeListWrapper>
-          <ChallengeTitleDom>
-            <ChallengeState />
-          </ChallengeTitleDom>
-          <ChallengeBodyDom>
-            <ChallengeContents listData={listData} />
-          </ChallengeBodyDom>
-        </ChallengeListWrapper>
-        <GrassFooter src={getImgUrl("basicgrass")} />
-      </ProfileWrapper>
+            <ChallengeListWrapper>
+                <ChallengeTitleDom>
+                    <ChallengeState />
+                </ChallengeTitleDom>
+                <ChallengeBodyDom>
+                    <ChallengeContents listData = {listData}/>
+                </ChallengeBodyDom>
+            </ChallengeListWrapper>
+            <GrassFooter src={getImgUrl("basicgrass")} />
+            {
+                levelUp ? (
+                    <LevelUpDom>
+                        <LevelUpModal setLevelUp={setLevelUp}/>
+                    </LevelUpDom>
+                ):null
+            }
+        </ProfileWrapper>
+        
     );
 };
 

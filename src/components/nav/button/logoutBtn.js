@@ -5,7 +5,7 @@ const LogoutBtn = () => {
   let { id } = useParams();
   return (
     <div className="mypageBtn">
-      <Link to={`/profile/${id}`} style={{ color : "white", textDecoration: "none" }}>
+      <Link to={`/profile/${id}`} style={{textDecoration:'none', color:'white'}}>
         <div>My Page</div>
       </Link>
     </div>

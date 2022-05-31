@@ -15,14 +15,14 @@ const expBar = (props) => {
     const FilterStyle = styled.div`
         height: 100%;
         width: ${getexp}%;
-        background: linear-gradient(90deg, #519259 0%, #7FC087 100%);
+        background: linear-gradient(90deg, #FF7056 0%, #FFD6CF 100%);
         border-radius: 10px;
         text-align: 'right';
     `;
 
     const labelStyles = {
         padding: 5,
-        color: 'white',
+        color: 'gray',
         fontWeight: 'bold',
         fontSize: 5,
         float: "right",

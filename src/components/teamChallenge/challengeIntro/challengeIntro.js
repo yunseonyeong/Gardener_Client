@@ -8,6 +8,7 @@ import NotifyModal from '../notifyModal/notifyModal';
 import RepoUrlModal from '../repoUrlModal/repoUrlModal';
 import { BsFillBellFill } from "react-icons/bs";
 
+
 const TeamIntroductionDom = styled.div`
   display: flex;
   margin: 1%;
