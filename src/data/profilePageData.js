@@ -2,7 +2,7 @@
 const profilePageData = {
     profile:{
         Id: 2,
-        nickname: "yunsyonng",
+        nickname: "tngur1101",
         devType: "폭신한 라일락",
         exp: 97,
         tierType: "purple",
@@ -13,7 +13,7 @@ const profilePageData = {
         {
             challengeId: 2,
             challengeImgURL: "gardenerch1",
-            challengeTitle: "Cau 알고리즘",
+            challengeTitle: "CAU 알고리즘",
             todayCommit: true,
         },
         {

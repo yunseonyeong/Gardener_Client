@@ -92,10 +92,8 @@ const ChallengeTitleDom = styled.div`
 const ChallengeBodyDom = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
-  margin-top: 2%;
-  margin-left: 5%;
+  margin-top: 2.5%;
 `;
 
 const GrassFooter = styled.img`
