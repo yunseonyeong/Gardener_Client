@@ -341,13 +341,13 @@ const ProfilePage = () => {
 
       useEffect(()=>{
         if(profileData.tierType === "bronze"){
-          setBgColor(["#8ed49c","#5fb871"]);
+          setBgColor(["#5fb871","#8ed49c"]);
         }
         else if(profileData.tierType === "pink"){
-          setBgColor(["#fae6dc","#e88b5d"]);
+          setBgColor(["#e88b5d","#fae6dc"]);
         }
         else if(profileData.tierType === "purple"){
-          setBgColor(["#a882cf","#723491"]);
+          setBgColor(["#723491","#a882cf"]);
         }
       },[profileData])
 
