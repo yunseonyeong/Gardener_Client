@@ -97,6 +97,7 @@ const ChallengePage = () => {
    // const data = await axios.get("http://localhost:8000/api/challenge/2");
     const data = await axios.get(`http://localhost:8000/api/challenge/${id}`);
     // const data = challengePageData;
+    console.log(data);
 
     setChallengeData(data.data.challenge);
     setMemberData(data.data.members);

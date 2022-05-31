@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import { RiVipCrown2Fill } from "react-icons/ri";
 import axios from 'axios'; 
+import getImgUrl from '../../../globalLogic';
 
 const MemberIntroDom = styled.div`
   display: flex;
@@ -169,7 +170,7 @@ const MemberIntro = (props) => {
                 <CrownIcon visi={data.isLeader}>
                   <RiVipCrown2Fill color="orange" />
                 </CrownIcon>
-                <MemProfileImg src={data.profileImgURL} />
+                <MemProfileImg src={getImgUrl(data.profileImgURL)} />
               </MemProfile>
               <MemInformation>
                 <CrownIcon visi={false}>
