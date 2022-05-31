@@ -344,7 +344,7 @@ const ProfilePage = () => {
           setBgColor(["#8ed49c","#5fb871"]);
         }
         else if(profileData.tierType === "pink"){
-          setBgColor(["#d98fd0","#a85993"]);
+          setBgColor(["#fae6dc","#e88b5d"]);
         }
         else if(profileData.tierType === "purple"){
           setBgColor(["#a882cf","#723491"]);
