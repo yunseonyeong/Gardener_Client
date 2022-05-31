@@ -41,7 +41,7 @@ function useInterval(callback) {
   }, []);
 }
 
-const TimeAttack = ({ targetTime, showTimer }) => {
+const TimeAttack = ({ targetTime, showTimer, setShowTimer }) => {
   const calculator = () => Math.floor((new Date(targetTime) - new Date() - 9*60*60*1000 ) / 1000);
   const [hour, setHour] = useState(calculator());
   const [min, setMin] = useState(calculator());
@@ -52,6 +52,8 @@ const TimeAttack = ({ targetTime, showTimer }) => {
     setMin(parseInt(calculator()/60 % 60));
     setSec(calculator()%60);
   }, 100)
+
+
 
   return (
     <TimeAttackDom>
