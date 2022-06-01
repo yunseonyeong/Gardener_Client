@@ -203,19 +203,17 @@ const ProfilePage = () => {
   };
 
   const fetchData = async () => {
-     const data = await axios.get(`http://localhost:8000/api/user/${id}`)
-     setProfileData(data.data.profile);
-     setListData(data.data.challenges);
-     console.log(data.data.profile);
+    const data = await axios.get(`http://localhost:8000/api/user/${id}`)
+    setProfileData(data.data.profile);
+    setListData(data.data.challenges);
+    console.log(data.data.profile);
     console.log(profileData);
-    /*
-    const data = profilePageData;
-    console.log(data);
-    setProfileData(data.profile);
-    setListData(data.challenges);
-    console.log(profileData);
-    console.log(listData);
-    */
+    // const data = profilePageData;
+    // console.log(data);
+    // setProfileData(data.profile);
+    // setListData(data.challenges);
+    // console.log(profileData);
+    // console.log(listData);
   };
 
   useEffect(() => {

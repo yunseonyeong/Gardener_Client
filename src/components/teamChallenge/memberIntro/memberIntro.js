@@ -133,13 +133,24 @@ const AwakeBtn = styled.div`
 `;
 
 const SuccessModal = styled.div`
-  width : 300px;
-  position : absolute;
+  width: 50%;
+  position: absolute;
   z-index: 4;
-  left : 50%;
-  height: 100px;
-  background-color: gray;
+  left: 25%;
+  top: 30%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  font-size: 2.9rem;
+  border-radius: 25px;
+  align-items: center;
+  background-color: #a98bff;
   color: white;
+`;
+
+const ClickSuccess = styled.div`
+  width : 100%;
+  height : 20px;
 `;
 
 const MemberIntro = (props) => {
@@ -169,6 +180,13 @@ const MemberIntro = (props) => {
 
   return (
     <MemberIntroDom>
+      <ClickSuccess
+        onClick={() => {
+          console.log(success);
+          setSuccess(!success);
+        }}
+      />
+
       <MemberTitle>Members</MemberTitle>
       <TitleDom>
         <div></div>
@@ -202,7 +220,12 @@ const MemberIntro = (props) => {
                 <TodayCommit
                   color={data.todayCommit}
                   onClick={() => {
-                    handleTodayCommit(data.todayCommit, data.memberId, data.name, data.repoUrl);
+                    handleTodayCommit(
+                      data.todayCommit,
+                      data.memberId,
+                      data.name,
+                      data.repoUrl
+                    );
                   }}
                 />
               </TodayCommitDom>
@@ -213,14 +236,25 @@ const MemberIntro = (props) => {
           <AwakeModal>
             <AwakeTxt>{selectedUncommit[1]} 님을 깨울까요?</AwakeTxt>
             <AwakeButtonDom>
-              <AwakeBtn onClick={()=>{putAwakeMem(selectedUncommit[0])}}>네!!</AwakeBtn>
-              <AwakeBtn onClick={()=>{setAwakeTodayCommit(false)}}>아니오</AwakeBtn>
+              <AwakeBtn
+                onClick={() => {
+                  putAwakeMem(selectedUncommit[0]);
+                }}
+              >
+                네!!
+              </AwakeBtn>
+              <AwakeBtn
+                onClick={() => {
+                  setAwakeTodayCommit(false);
+                }}
+              >
+                아니오
+              </AwakeBtn>
             </AwakeButtonDom>
           </AwakeModal>
         ) : null}
-        {/* {success ? (
-          <SuccessModal>타임어택 성공 !!!</SuccessModal>
-        ):<></>} */}
+
+        {success ? <SuccessModal>MISSION COMPLETE !</SuccessModal> : null}
       </MemListDom>
     </MemberIntroDom>
   );
