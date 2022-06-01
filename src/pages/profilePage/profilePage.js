@@ -193,7 +193,7 @@ const ListImg = styled.img`
 const ProfilePage = () => {
   const [profileData, setProfileData] = useState([]);
   const [listData, setListData] = useState([]);
-  const { profileId } = useParams();
+  const { id } = useParams();
   const [messageModalOpen, setMessageModalOpen] = useState(false);
   const [levelUp, setLevelUp] = useState(false);
   const [bgColor, setBgColor] = useState([]);
@@ -203,17 +203,19 @@ const ProfilePage = () => {
   };
 
   const fetchData = async () => {
-    // const data = await axios.get(`http://localhost:8000/api/user/${profileId}`)
-    // setProfileData(data.data.profile);
-    // setListData(data.data.challenges);
-    // console.log(data.data.profile);
-    // console.log(profileData);
+     const data = await axios.get(`http://localhost:8000/api/user/${id}`)
+     setProfileData(data.data.profile);
+     setListData(data.data.challenges);
+     console.log(data.data.profile);
+    console.log(profileData);
+    /*
     const data = profilePageData;
     console.log(data);
     setProfileData(data.profile);
     setListData(data.challenges);
     console.log(profileData);
     console.log(listData);
+    */
   };
 
   useEffect(() => {

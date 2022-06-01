@@ -176,9 +176,9 @@ const MemberIntro = (props) => {
       </TitleDom>
       <MemListDom>
         {props.memberData.map((data) => {
-          if(data.name === "yunseonyeong" && data.todayCommit === true){
-            setSuccess(true);
-          }
+          // if(data.name === "yunseonyeong" && data.todayCommit === true){
+          //   setSuccess(true);
+          // }
           return (
             <MemListItem>
               <MemProfile>
@@ -218,9 +218,9 @@ const MemberIntro = (props) => {
             </AwakeButtonDom>
           </AwakeModal>
         ) : null}
-        {success ? (
+        {/* {success ? (
           <SuccessModal>타임어택 성공 !!!</SuccessModal>
-        ):<></>}
+        ):<></>} */}
       </MemListDom>
     </MemberIntroDom>
   );
