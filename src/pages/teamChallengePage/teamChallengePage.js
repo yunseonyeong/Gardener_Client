@@ -78,7 +78,7 @@ const ChallengePage = () => {
   const [notifyModalOpen, setNotifyModalOpen] = useState(false);
   const [showTimer, setShowTimer] = useState(false);
 
-  const targetTime = '2022-06-02T02:07:00.000Z';
+  const targetTime = '2022-06-10T18:00:00.000Z';
 
 
   let {id} = useParams();
@@ -116,11 +116,9 @@ const ChallengePage = () => {
       />
 
       <Dom>
-        <TimeAttack targetTime={targetTime} showTimer={showTimer}/>
+        <TimeAttack targetTime={targetTime} showJoinBtn={showJoinBtn}/>
         <GetGitLawn />
-        <TimerBtn onClick={() => {
-          setShowTimer(!showTimer);
-        }} />
+        <TimerBtn />
       </Dom>
 
       <MemberIntroDom>

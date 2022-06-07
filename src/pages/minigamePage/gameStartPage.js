@@ -3,7 +3,7 @@ import styled from "styled-components";
 import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
 import getImgUrl from "../../globalLogic";
 import GameModal from "../../components/minigame/gameModal";
-
+import SchoolModal from "../../components/minigame/schoolModal";
 
 const MiniGamePageDom = styled.div`
   background-color: #f0fcf8;
@@ -60,11 +60,14 @@ const GrassFooter = styled.img`
 
 
 
+
 const GameStartPage = () => {
   
   const [gameModalOpen, setGameModalOpen] = useState(false);
+  const [schoolModalOpen, setSchoolModalOpen] = useState(false);
   const handleStartBtn = () => {
-    setGameModalOpen(!gameModalOpen);
+    setSchoolModalOpen(!schoolModalOpen);
+    // setGameModalOpen(!gameModalOpen);
   }
 
   return (
@@ -93,6 +96,11 @@ const GameStartPage = () => {
 
         </GameModal>
       ) : null}
+      {
+        schoolModalOpen ? (
+          <SchoolModal setSchoolModalOpen={setSchoolModalOpen} setGameModalOpen={setGameModalOpen} />
+        ):null
+      }
     </MiniGamePageDom>
   );
 }
