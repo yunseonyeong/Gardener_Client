@@ -9,7 +9,7 @@ const TimeAttackDom = styled.div`
 `;
 
 const Timer = styled.div`
-  visibility: ${(props) => (props.showTimer ? "visible" : "hidden")};
+  visibility: ${(props) => (props.join ? "visible" : "hidden")};
   background-color: #ff9595;
   width: 80%;
   height: 30%;
@@ -20,7 +20,7 @@ const Timer = styled.div`
   font-family: "dungeunmo";
   color: white;
   border-radius: 20px;
-  padding : 3%;
+  padding: 3%;
 `;
 
 
@@ -41,7 +41,7 @@ function useInterval(callback) {
   }, []);
 }
 
-const TimeAttack = ({ targetTime, showJoinBtn, setShowTimer }) => {
+const TimeAttack = ({ targetTime, showJoinBtn }) => {
   const calculator = () => Math.floor((new Date(targetTime) - new Date() - 9*60*60*1000 ) / 1000);
   const [hour, setHour] = useState(calculator());
   const [min, setMin] = useState(calculator());
@@ -55,7 +55,7 @@ const TimeAttack = ({ targetTime, showJoinBtn, setShowTimer }) => {
 
   return (
     <TimeAttackDom>
-      <Timer showTimer={showJoinBtn}>
+      <Timer join={showJoinBtn}>
         {hour} : {min} : {sec}
       </Timer>
     </TimeAttackDom>

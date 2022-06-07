@@ -152,8 +152,8 @@ const ChallengeIntro = (props) => {
 
   const handleRepoBtn = () => {
     setRepoUrlOpen(false);
-    props.fetchData();
     setWelcomeMsgOpen(true);
+    props.fetchData();
   }
 
   // useEffect(() => {
@@ -200,7 +200,6 @@ const ChallengeIntro = (props) => {
           <WelcomeModal
             setWelcomeMsgOpen={setWelcomeMsgOpen}
             setNotifyModalOpen={props.setNotifyModalOpen}
-            setShowTimer= {props.setShowTimer}
           />
         </WelcomeDom>
       ) : null}

@@ -98,6 +98,7 @@ const ChallengePage = () => {
     setMemberData(data.data.members);
     setShowMsgBtn(data.data.isLeader);
     setShowJoinBtn(data.data.isMember);
+    console.log(showJoinBtn)
     // setChallengeData(data.challenge);
     // setMemberData(data.members);
     // setShowMsgBtn(data.isLeader);

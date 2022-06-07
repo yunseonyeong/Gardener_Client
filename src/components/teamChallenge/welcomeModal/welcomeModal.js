@@ -20,7 +20,6 @@ const WelcomeModal = (props) => {
   const handleAfterAction = () => {
     props.setWelcomeMsgOpen(false);
     props.setNotifyModalOpen(true);
-    props.setShowTimer(true);
   }
 
   useEffect(() => {
