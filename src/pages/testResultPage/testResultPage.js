@@ -198,7 +198,9 @@ const TestResultPage = () => {
                 </Link>
               </ImgDom>
               <ImgDom>
+                <Link to={`/profile/${3}`}>
                 <CauImg src={getImgUrl("soo")} />
+                </Link>
               </ImgDom>
               <ImgDom>
                 <CauImg src={getImgUrl("mapage")} />
