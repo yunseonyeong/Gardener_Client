@@ -206,14 +206,14 @@ const ProfilePage = () => {
     const data = await axios.get(`http://localhost:8000/api/user/${id}`)
     setProfileData(data.data.profile);
     setListData(data.data.challenges);
-    console.log(data.data.profile);
-    console.log(profileData);
+    //console.log(data.data.profile);
+   // setListDataconsole.log(profileData);
     // const data = profilePageData;
     // console.log(data);
     // setProfileData(data.profile);
     // setListData(data.challenges);
     // console.log(profileData);
-    // console.log(listData);
+     //console.log(listData);
   };
 
   useEffect(() => {
