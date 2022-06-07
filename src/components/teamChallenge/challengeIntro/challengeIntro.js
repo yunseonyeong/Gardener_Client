@@ -200,6 +200,7 @@ const ChallengeIntro = (props) => {
           <WelcomeModal
             setWelcomeMsgOpen={setWelcomeMsgOpen}
             setNotifyModalOpen={props.setNotifyModalOpen}
+            setShowTimer= {props.setShowTimer}
           />
         </WelcomeDom>
       ) : null}
