@@ -7,7 +7,7 @@ const expBar = (props) => {
     
     const ContainerStyle = {
         height:30,
-        width: '80%',
+        width: '100%',
         background: '#EEEEEE',
         borderRadius: '10px',
         }

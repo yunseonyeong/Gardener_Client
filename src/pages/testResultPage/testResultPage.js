@@ -194,7 +194,7 @@ const TestResultPage = () => {
             <RecCAUBody>
               <ImgDom>
                 <Link to={`/profile/${1}`}>
-                  <CauImg src={getImgUrl("rin")} />
+                  <CauImg src={getImgUrl("seon")} />
                 </Link>
               </ImgDom>
               <ImgDom>

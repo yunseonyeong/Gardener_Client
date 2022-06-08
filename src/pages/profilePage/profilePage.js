@@ -21,31 +21,56 @@ const ProfileWrapper = styled.div`
   height: 90vh;
 `;
 
+const ProfileDom = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top : 5%;
+  align-items : center;
+`;
+
+const Profilewrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width : 55%;
+`;
+
 const ExpBarWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3%;
-  margin-left: 15%;
+  width : 55%;
+  margin-top : 1%;  
+`;
+
+const NameTierDom = styled.div`
+  display : flex;
+  justify-content : space-around;
+  flex-basis : 25%;
+`;
+
+const TiHeartDom = styled.div`
+  cursor : pointer;
+  display : flex;
+  justify-content : center;
+  align-items : center;
 `;
 
 const LogoDom = styled.div`
   display: flex;
   justify-content: center;
-  width: 20%;
-  margin-left: 20%;
+  width: 30%;
+  align-items : center;
 `;
 
 const Logo = styled.img`
-  max-width: 90%;
+  max-width: 80%;
   margin-top: 7%;
 `;
 
-const ProfileDom = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 80%;
+const GardenDom = styled.div`
+  display : flex;
+  justify-content : center;
+  width : 60%;
 `;
 
 const GardenWrapper = styled.div`
@@ -53,47 +78,46 @@ const GardenWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 3%;
-  width: 80%;
+  width: 100%;
 `;
 
 const ChallengeListWrapper = styled.div`
   display: flex;
   justify-content: center;
+  align-items : center;
   flex-direction: column;
   margin-bottom: 10%;
+  width : 100%;
 `;
 
 const UserName = styled.span`
+  flex-basis: 50%;
   font-family: "dungeunmo";
-  font-weight: 400;
-  font-size: 1.4rem;
   margin-bottom: 3%;
-  margin-right: 2%;
-  margin-left: 1%;
+  font-size : 1.3rem;
 `;
 
-const MbtiName = styled.span`
+const MbtiName = styled.div`
+  flex-basis : 50%;
   font-family: "dungeunmo";
-  font-weight: 400;
-  font-size: 0.9rem;
-  margin-left: 2%;
-  margin-right: 1%;
+  font-size : 0.9rem;
 `;
 
 const ChallengeTitleDom = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 5%;
-  margin-left: 10%;
+  width : 55%;
 `;
 
 const ChallengeBodyDom = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 2.5%;
+  width : 55%;
 `;
 
 const GrassFooter = styled.img`
@@ -104,32 +128,18 @@ const GrassFooter = styled.img`
   overflow: hidden;
 `;
 
-const Profilewrap = styled.div`
-  display: flex;
-  margin-bottom: 0.7rem;
-  width: 90%;
-  .Heart {
-    margin-left: 35%;
-    cursor: pointer;
-    width: 20%;
-  }
-`;
+
 
 const TierImg = styled.img`
-  width: 15%;
+  width: 50%;
 `;
 
 const TierDom = styled.div`
-  margin-left: 2%;
-  width: 30%;
-  height: 10%;
+  flex-basis : 40%;
 `;
 
-const contentbody = styled.div`
-  display: inline-block;
-  height: 40%;
-  width: 30%;
-`;
+
+
 
 const NameDom = styled.div`
   display: flex;
@@ -153,11 +163,6 @@ const LevelUpDom = styled.div`
 `;
 
 const GITHUB_USERNAME = "leobang17";
-
-// const testData = [
-//     {bgcolor: "#7FC087", getexp: 100 },
-// ];
-
 const handleTierLawn = (tier) => {
   if (tier === "bronze") {
     return "GREEN";
@@ -172,26 +177,8 @@ const handleTierLawn = (tier) => {
   }
 };
 
-const ChalDom = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 2;
-`;
-
-const ListTitle = styled.div`
-  display: flex;
-  margin-bottom: 3%;
-  font-family: "dungeunmo";
-`;
-
-const ListImg = styled.img`
-  max-width: 60%;
-`;
-
 const ProfilePage = () => {
-  const [profileData, setProfileData] = useState([]);
+  const [profileData, setProfileData] = useState({});
   const [listData, setListData] = useState([]);
   const { id } = useParams();
   const [messageModalOpen, setMessageModalOpen] = useState(false);
@@ -206,14 +193,15 @@ const ProfilePage = () => {
     const data = await axios.get(`http://localhost:8000/api/user/${id}`)
     setProfileData(data.data.profile);
     setListData(data.data.challenges);
-    //console.log(data.data.profile);
-   // setListDataconsole.log(profileData);
+    console.log(data.data.profile);
+  //  setListDataconsole.log(profileData);
     // const data = profilePageData;
     // console.log(data);
+    // console.log(data.profile)
     // setProfileData(data.profile);
-    // setListData(data.challenges);
     // console.log(profileData);
-     //console.log(listData);
+    // setListData(data.challenges);
+    // console.log(listData);
   };
 
   useEffect(() => {
@@ -318,34 +306,35 @@ const ProfilePage = () => {
   return (
     <ProfileWrapper>
       <BasicNavTop />
-
-      <ExpBarWrapper>
-        <ProfileDom>
-          {/* <UserName>{profileData.nickname}</UserName> */}
-          <Profilewrap>
-            <NameDom>
-              <MbtiName>{profileData.devType}</MbtiName>
-              <UserName>{profileData.nickname}</UserName>
-            </NameDom>
-            <TierDom>
-              {SelectTierImg(profileData.tierType, profileData.tierNum)}
-            </TierDom>
-            <TiHeart
-              color="coral"
-              size={35}
-              className="Heart"
-              onClick={handleModal}
-            />
-            {messageModalOpen && (
-              <MessageModal setMessageModalOpen={setMessageModalOpen} />
-            )}
-          </Profilewrap>
-
-          <ExpBar bgcolor={bgColor} getexp={profileData.exp} />
-        </ProfileDom>
-      </ExpBarWrapper>
-
+      <ProfileDom>
+        <Profilewrap>
+          <NameTierDom>
+          <NameDom>
+            <MbtiName>{profileData.devType}</MbtiName>
+            <UserName>{profileData.nickname}</UserName>
+          </NameDom>
+          <TierDom>
+            {SelectTierImg(profileData.tierType, profileData.tierNum)}
+          </TierDom>
+          </NameTierDom>
+          <TiHeartDom>
+          <TiHeart
+            color="coral"
+            size={35}
+            className="Heart"
+            onClick={handleModal}
+          />
+          </TiHeartDom>
+          {messageModalOpen && (
+            <MessageModal setMessageModalOpen={setMessageModalOpen} />
+          )}
+        </Profilewrap>
+        <ExpBarWrapper>
+        <ExpBar bgcolor={bgColor} getexp={profileData.exp} />
+        </ExpBarWrapper>
+      </ProfileDom>
       <GardenWrapper>
+        <GardenDom>
         <LogoDom>{SelectLogoImg(profileData.tierType)}</LogoDom>
         <GitLawn
           username={GITHUB_USERNAME}
@@ -354,6 +343,7 @@ const ProfilePage = () => {
           grassShape={"Circle"}
           color={handleTierLawn(profileData.tierType)}
         />
+        </GardenDom>
       </GardenWrapper>
 
       <ChallengeListWrapper>
