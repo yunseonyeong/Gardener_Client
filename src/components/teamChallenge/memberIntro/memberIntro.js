@@ -193,7 +193,7 @@ const MemberIntro = (props) => {
         <TodayCommitTitle>Today</TodayCommitTitle>
       </TitleDom>
       <MemListDom>
-        {props.memberData.map((data) => {
+        {props.memberData.sort((a,b)=>a.memberId - b.memberId).map((data) => {
           // if(data.name === "yunseonyeong" && data.todayCommit === true){
           //   setSuccess(true);
           // }

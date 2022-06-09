@@ -8,6 +8,7 @@ const Content = styled.div`
   align-items: center;
   justify-content: center;
   color : white;
+  font-family: 'dungeunmo';
 `;
 
 const LevelUpModal = (props) => {

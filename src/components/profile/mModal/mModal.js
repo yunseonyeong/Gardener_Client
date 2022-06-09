@@ -77,7 +77,7 @@ const InputField = styled.textarea`
 
 const MessageModal = (props) => {
 
-  const [value, setValue] = useState("'안녕하세요 tngur1101님   '폭신한 라일락' yunsyonng 입니다.'");
+  const [value, setValue] = useState("'안녕하세요 tngur1101님   '폭신한 라일락' rineeee 입니다.'");
 
   const onChange = useCallback(
     (e) => {

@@ -3,16 +3,6 @@ import styled from "styled-components";
 
 const ChallengeState = () => {
 
-    const todayTime = () => {
-        let now = new Date;
-        let todayMonth = now.getMonth();
-        let todayDay = now.getDate();
-        let hours = now.getHours();
-        let minutes = now.getMinutes();
-        
-        return todayMonth+'/'+todayDay + ' ' + hours + ':' + minutes + ' '
-    }
-
     const StateDom = styled.div`
     display: flex;
     flex-direction: row;
@@ -76,11 +66,6 @@ const ChallengeState = () => {
     return(
         <StateDom>
             <ChallengeState>진행중인 챌린지</ChallengeState>
-            <ChallengeCompleted />
-            <Completed>완료</Completed>
-            <ChallengeOnProgress />
-            <OnProgress>미완료</OnProgress>
-            <CurrentTime>{todayTime()}기준</CurrentTime>
         </StateDom>
     );
 };
