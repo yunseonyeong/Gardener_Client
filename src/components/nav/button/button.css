@@ -17,24 +17,24 @@
   align-items: center;
   background: #51C15F;
   border-radius: 15px;
-  flex-basis: 22%;
+  flex-basis: 28%;
   padding : 0.4%;
 }
 
 
-.logoutBtn {
+.mypageBtn {
   color: white;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background: #51C15F;
   border-radius: 15px;
-  flex-basis: 27%;
+  flex-basis: 25%;
   padding : 0.4%;
 }
 
 .buttons{
   display: flex;
-  width:19%;
+  width:21%;
   justify-content: space-around;
 }

@@ -1,5 +1,5 @@
-import React, { useEffect,useState } from "react";
-import styled from 'styled-components';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 
 const Content = styled.div`
   font-size: 2.5rem;
@@ -7,7 +7,8 @@ const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color : #9999FF;
+  color : white;
+  font-family: 'dungeunmo';
 `;
 
 const LevelUpModal = (props) => {

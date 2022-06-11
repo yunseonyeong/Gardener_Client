@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { GitLawn } from "git-lawn-hackathon";
+import { GitLawnServer } from "git-lawn-hackathon-url";
 import getImgUrl from "../../globalLogic";
 import BasicNavTop from "../../components/nav/basicNav/basicNavTop";
 import axios from "axios";
@@ -9,6 +10,7 @@ import ChallengeIntro from "../../components/teamChallenge/challengeIntro/challe
 import MemberIntro from "../../components/teamChallenge/memberIntro/memberIntro";
 import {useParams} from "react-router-dom";
 import NotifyModal from "../../components/teamChallenge/notifyModal/notifyModal";
+import TimeAttack from "../../components/teamChallenge/timeAttack/timeAttack";
 
 const LawnDom = styled.div`
   display: flex;
@@ -41,14 +43,11 @@ const MemberIntroDom = styled.div`
 
 const GetGitLawn = () => {
   
-  const GITHUB_USERNAME = "leobang17";
-
   return (
     <>
       <LawnDom>
-       
-        <GitLawn
-          username={GITHUB_USERNAME}
+        <GitLawnServer
+          challengeId={2}
           month={6}
           grassSpan={20}
           grassShape={"Rectangle"}
@@ -57,22 +56,36 @@ const GetGitLawn = () => {
       </LawnDom>
     </>
   );
-  
-  
 };
 
+const TimerBtn = styled.div`
+  width: 18%;
+  height: 100%;
+`;
+
+const Dom = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
+
 const ChallengePage = () => {
+
   const [challengeData, setChallengeData] = useState({});
   const [memberData, setMemberData] = useState([])
   const [showMsgBtn, setShowMsgBtn] = useState(false);
   const [showJoinBtn, setShowJoinBtn] = useState(false);
   const [notifyModalOpen, setNotifyModalOpen] = useState(false);
+  const [showTimer, setShowTimer] = useState(false);
+
+  const targetTime = '2022-06-10T18:00:00.000Z';
+
+
   let {id} = useParams();
 
   useEffect(() => {
-    fetchData(); 
+    fetchData();
   }, [])
-
 
 
   const fetchData = async () => {
@@ -84,7 +97,8 @@ const ChallengePage = () => {
     setChallengeData(data.data.challenge);
     setMemberData(data.data.members);
     setShowMsgBtn(data.data.isLeader);
-    setShowJoinBtn(data.data.isMember);
+    await setShowJoinBtn(data.data.isMember);
+
     // setChallengeData(data.challenge);
     // setMemberData(data.members);
     // setShowMsgBtn(data.isLeader);
@@ -99,8 +113,15 @@ const ChallengePage = () => {
         showMsgBtn={showMsgBtn}
         challengeData={challengeData}
         setNotifyModalOpen={setNotifyModalOpen}
+        fetchData={fetchData}
       />
-      <GetGitLawn />
+
+      <Dom>
+        <TimeAttack targetTime={targetTime} showJoinBtn={showJoinBtn}/>
+        <GetGitLawn />
+        <TimerBtn />
+      </Dom>
+
       <MemberIntroDom>
         <MemberIntro memberData={memberData} />
       </MemberIntroDom>

@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import { RiVipCrown2Fill } from "react-icons/ri";
-import axios from 'axios'; 
+import axios from 'axios';
+import getImgUrl from "../../../globalLogic"; 
 
 const MemberIntroDom = styled.div`
   display: flex;
@@ -37,7 +38,9 @@ const MemListItem = styled.div`
   display: flex;
 `;
 
-const MemProfileImg = styled.img``;
+const MemProfileImg = styled.img`{
+  max-width: 60%;
+}`;
 
 const MemInformation = styled.div`
   display: flex;
@@ -129,8 +132,26 @@ const AwakeBtn = styled.div`
   cursor: pointer;
 `;
 
+const SuccessModal = styled.div`
+  width: 50%;
+  position: absolute;
+  z-index: 4;
+  left: 25%;
+  top: 30%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  font-size: 2.9rem;
+  border-radius: 25px;
+  align-items: center;
+  background-color: #a98bff;
+  color: white;
+`;
 
-
+const ClickSuccess = styled.div`
+  width : 100%;
+  height : 20px;
+`;
 
 const MemberIntro = (props) => {
   const [awakeTodayCommit, setAwakeTodayCommit] = useState(false);
@@ -154,22 +175,35 @@ const MemberIntro = (props) => {
     setAwakeTodayCommit(false);
   }
 
+  const [success, setSuccess] = useState(false);
+  
+
   return (
     <MemberIntroDom>
+      <ClickSuccess
+        onClick={() => {
+          console.log(success);
+          setSuccess(!success);
+        }}
+      />
+
       <MemberTitle>Members</MemberTitle>
       <TitleDom>
         <div></div>
         <TodayCommitTitle>Today</TodayCommitTitle>
       </TitleDom>
       <MemListDom>
-        {props.memberData.map((data) => {
+        {props.memberData.sort((a,b)=>a.memberId - b.memberId).map((data) => {
+          // if(data.name === "yunseonyeong" && data.todayCommit === true){
+          //   setSuccess(true);
+          // }
           return (
             <MemListItem>
               <MemProfile>
                 <CrownIcon visi={data.isLeader}>
                   <RiVipCrown2Fill color="orange" />
                 </CrownIcon>
-                <MemProfileImg src={data.profileImgURL} />
+                <MemProfileImg src={getImgUrl(data.profileImgURL)} />
               </MemProfile>
               <MemInformation>
                 <CrownIcon visi={false}>
@@ -186,7 +220,12 @@ const MemberIntro = (props) => {
                 <TodayCommit
                   color={data.todayCommit}
                   onClick={() => {
-                    handleTodayCommit(data.todayCommit, data.memberId, data.name, data.repoUrl);
+                    handleTodayCommit(
+                      data.todayCommit,
+                      data.memberId,
+                      data.name,
+                      data.repoUrl
+                    );
                   }}
                 />
               </TodayCommitDom>
@@ -197,11 +236,25 @@ const MemberIntro = (props) => {
           <AwakeModal>
             <AwakeTxt>{selectedUncommit[1]} 님을 깨울까요?</AwakeTxt>
             <AwakeButtonDom>
-              <AwakeBtn onClick={()=>{putAwakeMem(selectedUncommit[0])}}>네!!</AwakeBtn>
-              <AwakeBtn onClick={()=>{setAwakeTodayCommit(false)}}>아니오</AwakeBtn>
+              <AwakeBtn
+                onClick={() => {
+                  putAwakeMem(selectedUncommit[0]);
+                }}
+              >
+                네!!
+              </AwakeBtn>
+              <AwakeBtn
+                onClick={() => {
+                  setAwakeTodayCommit(false);
+                }}
+              >
+                아니오
+              </AwakeBtn>
             </AwakeButtonDom>
           </AwakeModal>
         ) : null}
+
+        {success ? <SuccessModal>MISSION COMPLETE !</SuccessModal> : null}
       </MemListDom>
     </MemberIntroDom>
   );

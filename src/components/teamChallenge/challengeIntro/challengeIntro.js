@@ -7,6 +7,7 @@ import WelcomeModal from '../welcomeModal/welcomeModal';
 import NotifyModal from '../notifyModal/notifyModal';
 import RepoUrlModal from '../repoUrlModal/repoUrlModal';
 import { BsFillBellFill } from "react-icons/bs";
+import axios from "axios";
 
 const TeamIntroductionDom = styled.div`
   display: flex;
@@ -152,6 +153,8 @@ const ChallengeIntro = (props) => {
   const handleRepoBtn = () => {
     setRepoUrlOpen(false);
     setWelcomeMsgOpen(true);
+
+    props.fetchData();
   }
 
   // useEffect(() => {
@@ -161,7 +164,7 @@ const ChallengeIntro = (props) => {
   
   return (
     <TeamIntroductionDom>
-      <TeamProfileImg src={props.challengeData.profileImgURL}></TeamProfileImg>
+      <TeamProfileImg src={getImgUrl(props.challengeData.profileImgURL)}></TeamProfileImg>
       <TeamTitleDom>
         <TeamTitle>{props.challengeData.name}</TeamTitle>
         <TeamDate>{props.challengeData.date}~</TeamDate>

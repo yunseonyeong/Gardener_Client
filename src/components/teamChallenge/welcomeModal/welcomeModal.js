@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-import NotifyModal from '../notifyModal/notifyModal';
 
 const Msg = styled.div`
   font-size: 2.5rem;
